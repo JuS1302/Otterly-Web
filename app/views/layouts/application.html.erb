@@ -18,10 +18,15 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app %>
+    <%= stylesheet_link_tag 'normalize', media: 'all' %>
+    <%= stylesheet_link_tag 'web', media: 'all' %>
+    <%= stylesheet_link_tag 'otterly-web', media: 'all' %>
+
   </head>
 
   <body>
     <%= yield %>
+    <%= javascript_include_tag 'web' %>
+
   </body>
 </html>

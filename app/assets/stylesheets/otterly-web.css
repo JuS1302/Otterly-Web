@@ -307,6 +307,10 @@
   --heading--large-font-family: var(--global--heading-font-family);
 }
 
+.text-meta {
+  font-family: "Gambetta", serif;
+}
+
 .w-commerce-commercecheckoutformcontainer {
   background-color: #f5f5f5;
   width: 100%;
@@ -4033,7 +4037,8 @@ figcaption {
   display: grid;
 }
 
-.home-hero-logos.light {
+.home-hero-logos.light,
+.home-hero-logos.dark {
   grid-column-gap: 0rem;
   grid-row-gap: 0rem;
   grid-template-rows: auto auto 75px auto;
@@ -5722,7 +5727,8 @@ figcaption {
     padding: 6rem 6rem 8rem;
   }
 
-  .home-hero-logos.light {
+  .home-hero-logos.light,
+  .home-hero-logos.dark {
     width: 100%;
     margin-top: 8px;
     margin-left: 0;
@@ -7420,7 +7426,8 @@ figcaption {
     grid-template-columns: 1fr 1fr;
   }
 
-  .home-hero-logos.light {
+  .home-hero-logos.light,
+  .home-hero-logos.dark {
     margin-top: 16px;
   }
 
@@ -8145,7 +8152,8 @@ figcaption {
     grid-row-gap: 2.5rem;
   }
 
-  .home-hero-logos.light {
+  .home-hero-logos.light,
+  .home-hero-logos.dark {
     width: 100%;
     margin-left: 0;
   }

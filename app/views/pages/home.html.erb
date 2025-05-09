@@ -30,6 +30,7 @@
 </head>
 <body class="body">
   <div class="page-wrapper">
+    <%# Section tablette %>
     <div class="show-tablet">
       <header class="header">
         <header class="navbar">
@@ -38,17 +39,15 @@
               <div class="light-mode">
                 <%= image_tag "logo.png",
                   loading: "eager",
-                  sizes: "(max-width: 1563px) 100vw, 1563px",
                   height: "Auto",
-                  alt: "",
-                  srcset: "logo-transparent-p-500.png 500w, logo-transparent-p-800.png 800w, logo-transparent-p-1080.png 1080w, logo.png 1563w",
+                  alt: "Logo Otterly Web",
                   class: "navbar-logo-image light-mode" %>
               </div>
               <div class="dark-mode">
-                <%= image_tag "logo-inverse.png",
+                <%= image_tag "logo-inverse_1.png",
                   loading: "eager",
-                  alt: "Logo",
                   height: "Auto",
+                  alt: "Logo Otterly Web",
                   class: "navbar-logo-image" %>
               </div>
             <% end %>
@@ -72,7 +71,7 @@
             </a>
           </nav>
           <div id="w-node-eb0427c1-bb1c-e076-5734-e12e7079063b-70790586" class="navbar-right">
-            <a href="#" class="button-text w-inline-block">
+            <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="button-text w-inline-block">
               <div class="button-text-inner">
                 <div class="button-text-text">On échange ?</div>
                 <div class="button-text-line"></div>
@@ -88,20 +87,20 @@
         </header>
       </header>
     </div>
+
+    <%# Section desktop %>
     <header class="header-small">
       <header class="navbar-small">
         <div id="w-node-_27821f9c-524e-9fb5-c2dd-c9ef1cd1e530-1cd1e52e" class="navbar-small-left">
           <%= link_to root_path, class: "navbar-logo w-inline-block w--current", "aria-current": "page" do %>
+            <%# Le logo-inverse est utilisé par défaut pour le header small (desktop principalement) %>
             <%= image_tag "logo-inverse.png",
               width: 175,
               height: "Auto",
-              alt: "",
+              alt: "Logo Otterly Web",
               loading: "eager",
-              srcset: "#{asset_path('logo-complet-blanc-p-500.png')} 500w, #{asset_path('logo-complet-blanc-p-800.png')} 800w, #{asset_path('logo-complet-blanc-p-1080.png')} 1080w, #{asset_path('logo-inverse.png')} 1563w",
-              sizes: "175px",
               class: "navbar-logo-image" %>
           <% end %>
-
         </div>
         <div id="w-node-_27821f9c-524e-9fb5-c2dd-c9ef1cd1e544-1cd1e52e" class="navbar-small-right">
           <nav class="navbar-small-menu">
@@ -131,8 +130,30 @@
         </div>
       </header>
     </header>
+
+    <%# Menu mobile déplié %>
     <div class="mobile-menu">
       <div class="mobile-menu-wrapper">
+        <div class="mobile-logo-container text-center">
+          <%= link_to root_path do %>
+            <div class="light-mode">
+              <%= image_tag "logo.png",
+                loading: "eager",
+                width: 150,
+                height: "Auto",
+                alt: "Logo Otterly Web Mobile",
+                class: "mobile-logo-image" %>
+            </div>
+            <div class="dark-mode">
+              <%= image_tag "logo-inverse_1.png",
+                loading: "eager",
+                width: 150,
+                height: "Auto",
+                alt: "Logo Otterly Web Mobile Dark",
+                class: "mobile-logo-image" %>
+            </div>
+          <% end %>
+        </div>
         <nav class="mobile-menu-nav">
           <a href="#r-alisations" class="mobile-menu-nav-item w-inline-block">
             <div class="menu-nav-item-text">Réalisations</div>
@@ -149,15 +170,16 @@
         </nav>
       </div>
     </div>
+  </div>
+
     <main data-w-id="498551d7-585e-bb2f-258e-fb2fba114e3f" class="main-wrapper">
       <section id="A-propos" data-w-id="9e5ad1c0-fdc5-b2f1-d7ba-ea4c9a85f8bc" class="section-home-hero">
         <div class="home-hero-grid">
             <%= image_tag "loutre-web-origami.png",
               loading: "lazy",
-              width: 70,
               height: 70,
               alt: "",
-              srcset: "#{asset_path('loutre-p-500.png')} 500w, #{asset_path('loutre-p-800.png')} 800w, #{asset_path('loutre-web-origami.png')} 1024w",
+              srcset: "#{asset_path('loutre-web-origami-p-500.png')} 500w, #{asset_path('loutre-web-origami-p-800.png')} 800w, #{asset_path('loutre-web-origami.png')} 1024w",
               sizes: "70px",
               class: "home-hero-image" %>
           <div id="w-node-d33d43d6-87a6-8432-4bfc-9becb5519f53-38d711e6" class="home-hero-right">
@@ -172,7 +194,7 @@
               </div>
               <div>
                 <div class="margin-bottom margin-medium">
-                  <div data-w-id="d56f311a-cc6f-2cac-3cbf-f9f198c084d7" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-meta text-color-muted">&lt;&gt;Basée à Bordeaux&lt;/&gt;</div>
+                  <div id="A-Propos" data-w-id="d56f311a-cc6f-2cac-3cbf-f9f198c084d7" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-meta text-color-muted">&lt;&gt;Basée à Bordeaux&lt;/&gt;</div>
                 </div>
                 <div class="max-width-large">
                   <p data-w-id="093bd1e8-012c-33c5-2dcb-7cb03dae05d1" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="heading-alt-h2">Découvrez Otterly Web - un studio de développement créatif et audacieux. Plongez dans un univers au design soigné, où chaque détail est pensé pour offrir une expérience intuitive, un impact visuel fort, et des solutions techniques sur mesure. </p>
@@ -209,7 +231,7 @@
                 </div>
               </div>
               <div class="margin-bottom margin-large">
-                <div data-w-id="c0ab37a0-51e1-d008-a23b-7bcf7b9a640a" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-meta text-color-muted">&lt;&gt;Les langages &amp; logiciels&lt;/&gt;</div>
+                <div id="A-Propos" data-w-id="c0ab37a0-51e1-d008-a23b-7bcf7b9a640a" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-meta text-color-muted">&lt;&gt;Les langages &amp; logiciels&lt;/&gt;</div>
               </div>
               <div class="light-mode">
                 <div data-w-id="720d6df2-f328-75b5-cdfe-687978c04105" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="home-hero-logos light">
@@ -378,7 +400,7 @@
                       sizes: "52px",
                       id: "w-node-_5ca819ac-e769-fb25-597e-946314df2676-38d711e6" %>
 
-                    <%= image_tag "css.png",
+                    <%= image_tag "css-blanc.png",
                       loading: "lazy",
                       width: 52,
                       height: 52,
@@ -387,7 +409,7 @@
                       sizes: "52px",
                       id: "w-node-b8467ce1-277f-f7a0-0d9f-d4a1b1303c33-38d711e6" %>
 
-                    <%= image_tag "bootstrap.png",
+                    <%= image_tag "bootstrap-blanc.png",
                       loading: "lazy",
                       width: 50,
                       height: 50,
@@ -396,7 +418,7 @@
                       sizes: "50px",
                       id: "w-node-f22d2b63-6ba2-39bb-4fc8-2c2997a59119-38d711e6" %>
 
-                    <%= image_tag "docker.png",
+                    <%= image_tag "docker-blanc.png",
                       loading: "lazy",
                       width: 52,
                       height: 52,
@@ -405,7 +427,7 @@
                       sizes: "52px",
                       id: "w-node-_157dcd0d-ceb5-8108-1aa9-3974d1b02a1c-38d711e6" %>
 
-                    <%= image_tag "figma.png",
+                    <%= image_tag "figma-blanc.png",
                       loading: "lazy",
                       width: 50,
                       height: 50,
@@ -425,11 +447,14 @@
           </div>
         </div>
       </section>
+
+
+
       <section id="Projets" data-w-id="1fe2cf21-1d77-78f0-cd43-84a2dbfc4bc0" class="section-home-projects">
         <section class="section-top muted">
           <div class="section-top-heading">
-            <div id="r-alisations" class="text-meta text-color-muted">&lt;&gt;Réalisations&lt;/&gt;</div>
-            <div class="text-meta text-color-muted">(01)</div>
+            <div id="A-Propos" id="r-alisations" class="text-meta text-color-muted">&lt;&gt;Réalisations&lt;/&gt;</div>
+            <div id="A-Propos" class="text-meta text-color-muted">(01)</div>
           </div>
           <div>
             <div class="margin-bottom margin-xsmall">
@@ -442,7 +467,6 @@
             </div>
           </div>
 
-
         </section>
         <div data-delay="4000" data-animation="fade" class="testimonial-slider-two w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="12" data-duration="500" data-infinite="true">
           <div class="w-slider-mask">
@@ -450,7 +474,7 @@
               <div class="testimonial-slide-3">
                 <div class="testimonial-content">
                   <div class="testimonial-quote">L.O.Ve. - Klorys</div>
-                  <div class="text-block-2">&lt;&gt;2025&lt;/&gt;</div>
+                  <div id="A-Propos" class="text-block-2">&lt;&gt;<em>2025</em>&lt;/&gt;</div>
                   <div class="testimonial-info-two">
                     <div class="div-block">
                       <div class="text-block">L.O.Ve., liste optimisée de végétaux pour les professionnels des aménagements paysagers à la Réunion, est un outil développé par Klorys, dans le cadre de l’appel à projet BIODIV ECO 2022 de l’OFB. L’application a pour but de fournir aux professionnels de l’aménagement extérieur une bibliothèque de 1000 végétaux, endémiques ou exotiques de la Réunion, afin de faciliter la consultation d’informations et de favoriser les échanges et la communication au sein de cette communauté.</div>
@@ -471,7 +495,7 @@
               <div class="testimonial-slide-3">
                 <div class="testimonial-content">
                   <div class="testimonial-quote">Arion</div>
-                  <div class="text-block-2">&lt;&gt;2025&lt;/&gt;</div>
+                  <div id="A-Propos" class="text-block-2">&lt;&gt;<em>2025</em>&lt;/&gt;</div>
                   <div class="testimonial-info-two">
                     <div class="div-block">
                       <div class="text-block">Arion est une plateforme web destinée aux financeurs et aux PME, qui permet de suivre la valorisation des actifs mis en garantie dans le cadre de financements adossés à des biens (ABF). L’outil centralise les informations sur les actifs, les comptes, les financements, et calcule des ratios de couverture pour évaluer la solidité des engagements financiers. Arion permet aussi l’import de données (CSV), la synchronisation automatique, et une gestion fine des utilisateurs, entreprises et rôles (financeurs, courtiers, entreprises financées).</div>
@@ -492,11 +516,11 @@
               <div class="testimonial-slide-3">
                 <div class="testimonial-content">
                   <div class="testimonial-quote">Nestify</div>
-                  <div class="text-block-2">&lt;&gt;2024&lt;/&gt;</div>
+                  <div id="A-Propos" class="text-block-2">&lt;&gt;<em>2024</em>&lt;/&gt;</div>
                   <div class="testimonial-info-two">
                     <div class="div-block">
                       <div class="text-block">&quot;Nestify: votre assistant déco personnel&quot;. Cette application a pour vocation d’accompagner les utilisateurs dans l’aménagement de leur intérieur en leur proposant des packs de décoration harmonisés. Plutôt que de passer des heures à chercher des meubles et accessoires compatibles sur différents sites, l’utilisateur peut s’appuyer sur Nestify pour découvrir des sélections cohérentes de produits, classés par styles et ambiances. L’objectif est double : gagner du temps tout en stimulant la création artistique et le plaisir de composer un intérieur à son image.</div>
-                      <a href="http://nestify.pics" class="button-primary w-button">vISITER LE SITE</a>
+                      <a href="http://nestify.pics" class="button-primary w-button">VISITER LE SITE</a>
                     </div>
                   </div>
                 </div>
@@ -524,8 +548,8 @@
       <section id="Services" data-w-id="be0dced0-c6d0-8cc3-dfa6-cf00780a1d47" class="section-home-services">
         <div class="section-top">
           <div class="section-top-heading">
-            <div id="mes-services" class="text-meta text-color-muted">&lt;&gt;Ce que je fais&lt;/&gt;</div>
-            <div class="text-meta text-color-muted">(02)</div>
+            <div id="A-Propos" id="mes-services" class="text-meta text-color-muted">&lt;&gt;Ce que je fais&lt;/&gt;</div>
+            <div id="A-Propos" class="text-meta text-color-muted">(02)</div>
           </div>
           <div>
             <div class="margin-bottom margin-xsmall">
@@ -565,7 +589,7 @@
             </div>
             <div data-w-id="0b44b8c2-53ae-ce4a-7d0e-2440c6b3b266" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
               <div class="margin-bottom margin-medium">
-                <div class="text-meta text-color-muted">&lt;&gt;Services développement web&lt;/&gt;</div>
+                <div id="A-Propos" class="text-meta text-color-muted">&lt;&gt;Services développement web&lt;/&gt;</div>
               </div>
               <div class="max-width-large"></div>
               <div class="home-services-list">
@@ -596,7 +620,7 @@
             </div>
             <div data-w-id="129d2d70-aedc-b113-dee9-cdbc7f13abd5" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
               <div class="margin-bottom margin-medium">
-                <div class="text-meta text-color-muted">&lt;&gt;Services UX/UI design&lt;/&gt;</div>
+                <div id="A-Propos" class="text-meta text-color-muted">&lt;&gt;Services UX/UI design&lt;/&gt;</div>
               </div>
               <div class="max-width-large"></div>
               <div class="home-services-list">
@@ -643,7 +667,7 @@
             </div>
             <div data-w-id="0ecfb73f-27e8-d81c-1d71-f318cdaff6cc" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
               <div class="margin-bottom margin-medium">
-                <div class="text-meta text-color-muted">&lt;&gt;Services déploiement &amp; maintenance&lt;/&gt;</div>
+                <div id="A-Propos" class="text-meta text-color-muted">&lt;&gt;Services déploiement &amp; maintenance&lt;/&gt;</div>
               </div>
               <div class="max-width-large"></div>
               <div class="home-services-list">
@@ -661,8 +685,8 @@
       <section id="Avis-clients" class="section-home-clients">
         <div class="section-top">
           <div class="section-top-heading">
-            <div id="clients" class="text-meta text-color-muted">&lt;&gt;Avis clients&lt;/&gt;</div>
-            <div class="text-meta text-color-muted">(03)</div>
+            <div id="A-Propos" id="clients" class="text-meta text-color-muted">&lt;&gt;Avis clients&lt;/&gt;</div>
+            <div id="A-Propos" class="text-meta text-color-muted">(03)</div>
           </div>
           <div>
             <div class="margin-bottom margin-tiny">
@@ -796,85 +820,110 @@
         </div>
       </section>
     </main>
+
+
+
     <footer class="footer">
-      <div class="footer-top">
-        <div class="overflow-hidden">
-          <div class="w-row">
-            <div class="w-col w-col-2">
-              <%= image_tag "logo-inverse_1.png",
-                loading: "lazy",
-                height: "Auto",
-                alt: "",
-                sizes: "(max-width: 479px) 96vw, (max-width: 767px) 97vw, (max-width: 1439px) 15vw, 1563px, (max-width: 10420px) 15vw",
-                class: "image-14",
-                srcset: "#{asset_path('logo-inverse_1-p-500.png')} 500w, #{asset_path('logo-inverse_1-p-800.png')} 800w, #{asset_path('logo-inverse_1-p-1080.png')} 1080w, #{asset_path('logo-inverse_1.png')} 1563w" %>
-            </div>
-            <div class="w-col w-col-10">
-              <h2 data-w-id="e0427e19-9c15-88b0-7f6d-5f8612891581" class="heading">otterly web©</h2>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="footer-top">
+    <div class="overflow-hidden">
       <div class="w-row">
-        <div class="w-col w-col-6">
-          <div class="text-meta text-color-muted-inverse">&lt;&gt;Pages&lt;/&gt;</div>
-          <div class="nav center-phone-landscape">
-            <a href="#r-alisations" class="nav-item inverse w-inline-block">
-              <div class="nav-item-text">Réalisations</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-            <a href="#mes-services" class="nav-item inverse w-inline-block">
-              <div class="nav-item-text">Services</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-            <a href="#clients" class="nav-item inverse w-inline-block">
-              <div class="nav-item-text">Clients</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-            <a href="#A-Propos" class="nav-item inverse w-inline-block">
-              <div class="nav-item-text">A propos</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-            <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="nav-item inverse w-inline-block">
-              <div class="nav-item-text">Contact</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
+        <div class="w-col w-col-2">
+          <div class="light-mode">
+            <%= image_tag "logo-inverse_1.png",
+              loading: "lazy",
+              height: "Auto",
+              alt: "Logo Otterly Web Footer",
+              class: "image-14" %>
+          </div>
+          <div class="dark-mode">
+            <%= image_tag "logo.png",
+              loading: "lazy",
+              height: "Auto",
+              alt: "Logo Otterly Web Footer Dark",
+              class: "image-14" %>
           </div>
         </div>
-        <div class="w-col w-col-6">
-          <div class="text-meta text-color-muted-inverse">&lt;&gt;Social&lt;/&gt;</div>
-          <div class="nav center-phone-landscape">
-            <a href="https://www.linkedin.com/in/julie-simon1302/" target="_blank" class="nav-item inverse w-inline-block">
-              <div class="nav-item-text">Linkedin</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-            <a href="https://github.com/JuS1302" target="_blank" class="nav-item inverse w-inline-block">
-              <div class="nav-item-text">Github</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-            <a href="https://www.malt.fr/profile/juliesimon4?overview" target="_blank" class="nav-item inverse w-inline-block">
-              <div class="nav-item-text">Malt</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-          </div>
+        <div class="w-col w-col-10">
+          <h2 data-w-id="e0427e19-9c15-88b0-7f6d-5f8612891581" class="heading">otterly web©</h2>
         </div>
       </div>
-      <div class="footer-bottom">
-        <div class="footer-bottom-grid">
-          <div class="text-meta">Made with </div>
-            <%= image_tag "heart-solid.svg",
-              loading: "lazy",
-              width: 20,
-              height: 20,
-              alt: "",
-              class: "image-3" %>
-          <div class="text-meta"> by <a href="https://templates.gola.io/" target="_blank" class="text-color-default-inverse">Otterly Web</a>
-          </div>
-        </div>
-    </footer>
+    </div>
+  </div>
+  <div class="w-row">
+    <div class="w-col w-col-6">
+      <div id="A-Propos" class="text-meta text-color-muted-inverse">&lt;&gt;Pages&lt;/&gt;</div>
+      <div class="nav center-phone-landscape">
+        <a href="#r-alisations" class="nav-item inverse w-inline-block">
+          <div class="nav-item-text">Réalisations</div>
+          <div class="nav-item-line inverse"></div>
+        </a>
+        <a href="#mes-services" class="nav-item inverse w-inline-block">
+          <div class="nav-item-text">Services</div>
+          <div class="nav-item-line inverse"></div>
+        </a>
+        <a href="#clients" class="nav-item inverse w-inline-block">
+          <div class="nav-item-text">Clients</div>
+          <div class="nav-item-line inverse"></div>
+        </a>
+        <a href="#A-Propos" class="nav-item inverse w-inline-block">
+          <div class="nav-item-text">A propos</div>
+          <div class="nav-item-line inverse"></div>
+        </a>
+        <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="nav-item inverse w-inline-block">
+          <div class="nav-item-text">Contact</div>
+          <div class="nav-item-line inverse"></div>
+        </a>
+      </div>
+    </div>
+    <div class="w-col w-col-6">
+      <div id="A-Propos" class="text-meta text-color-muted-inverse">&lt;&gt;Social&lt;/&gt;</div>
+      <div class="nav center-phone-landscape">
+        <a href="https://www.linkedin.com/in/julie-simon1302/" target="_blank" class="nav-item inverse w-inline-block">
+          <div class="nav-item-text">Linkedin</div>
+          <div class="nav-item-line inverse"></div>
+        </a>
+        <a href="https://github.com/JuS1302" target="_blank" class="nav-item inverse w-inline-block">
+          <div class="nav-item-text">Github</div>
+          <div class="nav-item-line inverse"></div>
+        </a>
+        <a href="https://www.malt.fr/profile/juliesimon4?overview" target="_blank" class="nav-item inverse w-inline-block">
+          <div class="nav-item-text">Malt</div>
+          <div class="nav-item-line inverse"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-grid">
+      <div id="A-Propos" class="text-meta">Made with </div>
+      <div class="light-mode">
+        <%= image_tag "heart-solid.svg",
+          loading: "lazy",
+          width: 20,
+          height: 20,
+          alt: "Heart Icon",
+          class: "image-3" %>
+      </div>
+      <div class="dark-mode">
+        <%= image_tag "heart-solid.svg",
+          loading: "lazy",
+          width: 20,
+          height: 20,
+          alt: "Heart Icon Dark",
+          class: "image-3" %>
+      </div>
+      <div id="A-Propos" class="text-meta"> by Otterly Web
+      </div>
+    </div>
+  </div>
+</footer>
+
+
     <div class="toggle-color">
       <div class="toggle-color-dot"></div>
     </div>
+
+
     <div class="pageloader">
       <div class="overflow-hidden">
         <div>
@@ -890,6 +939,7 @@
       </div>
     </div>
   </div>
+
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=680957f3995352b738d71196" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="js/web.js" type="text/javascript"></script>
 </body>

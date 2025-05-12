@@ -87,9 +87,6 @@ GEM
     connection_pool (2.5.3)
     crass (1.0.6)
     date (3.4.1)
-    debug (1.10.0)
-      irb (~> 1.10)
-      reline (>= 0.3.8)
     dotenv (3.1.8)
     drb (2.2.1)
     ed25519 (1.4.0)
@@ -302,7 +299,6 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   brakeman
-  debug
   jbuilder
   kamal
   propshaft

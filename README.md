@@ -1,24 +1,36 @@
-# README
+# 🦦 Otterly Web
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Otterly Web** est un site portfolio développé en Ruby on Rails pour présenter mes services de développeuse web freelance, mes projets réalisés, et ma vision du développement web : technique, design, et sur-mesure.
 
-Things you may want to cover:
+---
 
-* Ruby version
+## 🔎 À propos
 
-* System dependencies
+> *Le web otterment bien pensé.*
 
-* Configuration
+Otterly Web propose une expérience immersive et fluide pour découvrir :
+- Mes **services** (développement, UX/UI, déploiement)
+- Mes **réalisations** (applications sur-mesure, outils métiers, sites vitrine)
+- Les **technologies** que j’utilise (Rails, Stimulus, React, Docker…)
 
-* Database creation
+---
 
-* Database initialization
+## 🚀 Stack technique
 
-* How to run the test suite
+- **Ruby on Rails 8**
+- **Propshaft** pour la gestion des assets
+- **Puma** comme serveur applicatif
+- **Stimulus** + **JavaScript**
+- **HTML / CSS (Sass)**  
+- **Render.com** pour l’hébergement
+- **GitHub** pour le versioning
 
-* Services (job queues, cache servers, search engines, etc.)
+---
 
-* Deployment instructions
+## 🛠️ Installation
 
-* ...
+1. **Cloner le repo :**
+
+```bash
+git clone https://github.com/JuS1302/Otterly-Web.git
+cd Otterly-Web

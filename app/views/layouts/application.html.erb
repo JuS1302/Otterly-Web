@@ -1,31 +1,80 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= content_for(:title) || "Otterly Web" %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="fr" data-wf-page="680957f3995352b738d711e6" data-wf-site="680957f3995352b738d71196">
+<head>
+  <title><%= content_for?(:title) ? yield(:title) : "Otterly Web - Le web otterment bien pensé" %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <%= favicon_link_tag "favicon.png" %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= favicon_link_tag "favicon.png" %>
 
+  <meta name="description" content="Otterly Web – Studio de développement web créatif à Bordeaux. Sites sur mesure, UX/UI, déploiement fiable et maintenance continue.">
+  <meta property="og:title" content="Otterly Web - Le web otterment bien pensé">
+  <meta property="og:description" content="Otterly Web – Studio de développement web créatif à Bordeaux. Sites sur mesure, UX/UI, déploiement fiable et maintenance continue.">
+  <meta property="twitter:title" content="Otterly Web - Le web otterment bien pensé">
+  <meta property="twitter:description" content="Otterly Web – Studio de développement web créatif à Bordeaux. Sites sur mesure, UX/UI, déploiement fiable et maintenance continue.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="robots" content="index, follow">
 
-    <%= yield :head %>
+  <!-- Fonts + Webflow Scripts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: [
+          "Montserrat:100,200,300,400,500,600,700,800,900",
+          "Inconsolata:400,700",
+          "Inter:regular,600",
+          "Anton SC:regular"
+        ]
+      }
+    });
+  </script>
+  <script>
+    !function(o,c){
+      var n=c.documentElement,
+      t=" w-mod-";
+      n.className+=t+"js",
+      ("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")
+    }(window,document);
+  </script>
 
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+  <style>
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag 'normalize', media: 'all' %>
-    <%= stylesheet_link_tag 'web', media: 'all' %>
-    <%= stylesheet_link_tag 'otterly-web', media: 'all' %>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Otterly Web",
+    "url": "https://otterly-web.fr",
+    "logo": "https://otterly-web.fr/images/logo.png",
+    "sameAs": [
+      "https://www.linkedin.com/in/julie-simon1302/",
+      "https://github.com/JuS1302",
+      "https://www.malt.fr/profile/juliesimon4?overview"
+    ],
+    "description": "Studio de développement web créatif à Bordeaux. Sites sur mesure, UX/UI, déploiement fiable et maintenance continue."
+  }
+  </script>
 
-  </head>
+  <%= yield :head %>
 
-  <body>
+  <%= stylesheet_link_tag "normalize", "web", "otterly-web", media: "all" %>
+</head>
+
+<body class="body">
+  <div class="page-wrapper">
     <%= yield %>
-    <%= javascript_include_tag 'web' %>
-
-  </body>
+  </div>
+  <%= javascript_include_tag "web" %>
+</body>
 </html>

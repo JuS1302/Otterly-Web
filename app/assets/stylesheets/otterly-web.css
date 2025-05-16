@@ -307,7 +307,7 @@
   --heading--large-font-family: var(--global--heading-font-family);
 }
 
-#A-Propos {
+.text-meta {
   font-family: "Gambetta", serif;
 }
 
@@ -1113,6 +1113,10 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 1rem;
   line-height: 1.5;
+}
+
+section[id] {
+  scroll-margin-top: 100px; /* adapte à la hauteur de ton header */
 }
 
 h1 {
@@ -5194,7 +5198,8 @@ figcaption {
 }
 
 .text-block {
-  font-weight: 300;
+  font-weight: 200;
+  font-size: 12px;
 }
 
 .text-block-2 {
@@ -5625,6 +5630,10 @@ figcaption {
   .body {
     font-size: 20px;
     line-height: 170%;
+  }
+
+  .text-block{
+    font-size: 18px;
   }
 
   .navbar {

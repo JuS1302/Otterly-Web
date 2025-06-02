@@ -8390,13 +8390,12 @@ figcaption {
     margin-right: 16px;
   }
 
-  .testimonial-slider-nav {
+  /* .testimonial-slider-nav {
     color: var(--global-colors--text-default);
-  }
+  } */
 
   .testimonial-slide-3 {
     background-color: var(--global-colors--background-muted);
-    color: var(--global-colors--body-background);
   }
 
   .testimonial-image-two-3 {

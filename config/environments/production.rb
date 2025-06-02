@@ -4,6 +4,9 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+  config.action_cable.mount_path = nil
+  config.action_cable.disable_request_forgery_protection = true
+  config.action_cable.allowed_request_origins = []
 
   # Code is not reloaded between requests.
   config.enable_reloading = false

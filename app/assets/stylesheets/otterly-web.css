@@ -1092,6 +1092,10 @@
   .w-commerce-commercelayoutsidebar {
     flex-basis: auto;
   }
+
+  [id] {
+    scroll-margin-top: 100px !important; /* adapte à la hauteur de ton header */
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -1115,8 +1119,8 @@ body {
   line-height: 1.5;
 }
 
-section[id] {
-  scroll-margin-top: 100px; /* adapte à la hauteur de ton header */
+[id] {
+  scroll-margin-top: 100px !important; /* adapte à la hauteur de ton header */
 }
 
 h1 {
@@ -4925,6 +4929,9 @@ figcaption {
 .image-3 {
   margin-left: 3px;
   margin-right: 3px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px; /* ajuste finement l'alignement */
 }
 
 .quick-stack {
@@ -5199,7 +5206,11 @@ figcaption {
 
 .text-block {
   font-weight: 200;
-  font-size: 12px;
+  /* font-size: 12px; */
+}
+
+.text-block-techno {
+  font-weight: 500;
 }
 
 .text-block-2 {
@@ -5581,6 +5592,16 @@ figcaption {
 
 .heading {
   font-size: 12vw;
+}
+
+[id] {
+    scroll-margin-top: 100px !important; /* adapte à la hauteur de ton header */
+  }
+
+.footer-bottom-grid {
+  display: flex;
+  align-items: center; /* ✅ centre verticalement tous les enfants */
+  gap: 0.3rem; /* optionnel pour un espacement propre entre les éléments */
 }
 
 
@@ -6047,6 +6068,10 @@ figcaption {
     width: auto;
     height: auto;
     display: inline;
+  }
+
+  [id] {
+    scroll-margin-top: 100px !important; /* adapte à la hauteur de ton header */
   }
 }
 
@@ -6989,6 +7014,10 @@ figcaption {
   .heading {
     font-size: 5.5rem;
   }
+
+  [id] {
+    scroll-margin-top: 100px !important; /* adapte à la hauteur de ton header */
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -7776,6 +7805,10 @@ figcaption {
   .heading {
     font-size: 6.5rem;
   }
+
+  [id] {
+    scroll-margin-top: 100px !important; /* adapte à la hauteur de ton header */
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -8445,6 +8478,10 @@ figcaption {
     border: 1px solid var(--global-colors--text-default);
     width: 50px;
     height: 50px;
+  }
+
+  [id] {
+    scroll-margin-top: 100px !important; /* adapte à la hauteur de ton header */
   }
 }
 

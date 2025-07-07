@@ -5012,6 +5012,167 @@ figcaption {
   top: -171px;
 }
 
+/* Base layout */
+.carousel-wrapper {
+  overflow-x: auto;
+  display: flex;
+  scroll-snap-type: x mandatory;
+  gap: 1.5rem;
+  padding: 0 1rem 2rem;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1.5rem;
+   width: 100%;
+  /* width: max-content; */
+}
+
+.carousel-slide {
+  scroll-snap-align: start;
+  flex: 0 0 calc(50% - 1rem); /* desktop: 2 cards */
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-card {
+  background-color: var(--card-default--background);
+  color: var(--card-default--text-color);
+  border: 1px solid #ddd;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-width: auto;
+  height: 100%; /* ✅ occupe toute la hauteur du parent */
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+/* Typography inside card */
+.project-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.75rem;
+}
+
+.project-title {
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.text-block-2 {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.project-content p {
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.text-block-techno {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Bouton */
+.button-row {
+  display: flex;
+  margin-top: auto;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.button-primary {
+  border-radius: 0;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Indicateur de scroll */
+.carousel-indicator {
+  font-size: 0.9rem;
+  text-align: right;
+  margin-top: 0.5rem;
+  color: #999;
+}
+
+@media screen and (max-width: 991px) {
+  .carousel-slide {
+    flex: 0 0 80%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .carousel-slide {
+    flex: 0 0 90%; /* ou 100% avec padding adapté */
+    max-width: 100%;
+  }
+
+  .project-card {
+    padding: 1rem;
+  }
+
+  .project-title {
+    font-size: 1.3rem;
+  }
+
+  .text-block-techno {
+    font-size: 0.85rem;
+  }
+
+  .carousel-indicator {
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 479px) {
+  .carousel-slide {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .project-card {
+    padding: 0.8rem;
+  }
+
+  .project-content p {
+    font-size: 0.9rem;
+  }
+
+  .text-block-techno {
+    font-size: 0.8rem;
+  }
+
+  .button-primary {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+
+@media screen and (min-width: 1440px) {
+  .carousel-slide {
+    flex: 0 0 calc(50% - 1rem);
+  }
+}
+
+
 .slide {
   height: 349px;
 }

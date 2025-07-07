@@ -476,7 +476,7 @@
 
 <%# PROJETS %>
 
-     <section id="Projets" data-w-id="1fe2cf21-1d77-78f0-cd43-84a2dbfc4bc0" class="section-home-projects">
+<section id="Projets" data-w-id="1fe2cf21-1d77-78f0-cd43-84a2dbfc4bc0" class="section-home-projects dark-section">
   <section class="section-top muted">
     <div class="section-top-heading">
       <div class="text-meta text-color-muted">&lt;&gt;Réalisations&lt;/&gt;</div>
@@ -489,114 +489,90 @@
         </div>
       </div>
       <div class="max-width-huge">
-        <p class="heading-alt-small">Découvrez mes projets récents, reflet de créativité et d&#x27;innovation.</p>
+        <p class="heading-alt-small">Découvrez mes projets récents, reflet de créativité et d'innovation.</p>
       </div>
     </div>
   </section>
 
-  <div class="testimonial-slider-two w-slider muted">
-    <div class="w-slider-mask muted">
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
 
-      <!-- L.O.Ve. -->
-      <div class="w-slide muted">
-        <div class="testimonial-slide-3 muted">
-          <div class="testimonial-content">
-            <div class="testimonial-quote">L.O.Ve. - Klorys</div>
+      <!-- L.O.Ve -->
+      <div class="carousel-slide">
+        <div class="project-card">
+          <%= image_tag "capture-love.png", class: "project-image" %>
+          <div class="project-content">
+            <h3 class="project-title">l.o.v.e. - klorys</h3>
             <div class="text-block-2">&lt;&gt;<em>2025</em>&lt;/&gt;</div>
-            <div class="testimonial-info-two">
-              <div class="div-block">
-                <div class="text-block">🌿 L.O.Ve. est une bibliothèque de végétaux pour les professionnels de l’aménagement paysager à la Réunion, développée pour Klorys dans le cadre de l’appel à projet BIODIV ECO 2022 de l’OFB.</div>
-                <div class="text-block">
-                  <span class="text-block-techno">
-                    💎 Ruby on Rails &bull; 🐘 PostgreSQL &bull; 💻 JavaScript &bull; ⚡ Stimulus.js &bull; 🚀 Turbo &bull; 🔐 Devise &bull; 🎨 SCSS &bull; 📦 Bootstrap &bull; 🌍 API Google &bull; ☁️ Heroku &bull; 🎨 Figma
-                  </span>
-                </div>
-                <a href="https://www.klorys.re/" target="_blank" class="button-primary w-button">VISITER LE SITE</a>
-              </div>
+            <p>🌿 L.O.Ve. est une bibliothèque de végétaux pour les professionnels de l’aménagement paysager à la Réunion, développée pour Klorys dans le cadre de l’appel à projet BIODIV ECO 2022 de l’OFB.</p>
+            <p>Fonctionnalités clés : Recherche dynamique de plantes, fiches végétales détaillées, système de favoris, commentaires sur les végétaux, messagerie intégrée, interface responsive.</p>
+            <p class="text-block-techno"><strong>Ruby on Rails &bull; PostgreSQL &bull; JavaScript &bull; Stimulus.js &bull; Turbo &bull; Devise &bull; SCSS &bull; Bootstrap &bull; API Google &bull; Heroku &bull; Figma</strong></p>
+            <div class="button-row">
+              <a href="https://www.klorys.re/" target="_blank" class="button-primary w-button">VISITER LE SITE</a>
             </div>
           </div>
-          <%= image_tag "capture-love.png", loading: "lazy", alt: "Projet L.O.Ve. Klorys", sizes: "(max-width: 1643px) 100vw, 1643px", class: "testimonial-image-two-3", srcset: "#{asset_path('capture-love.png')} 500w, #{asset_path('capture-love.png')} 800w, #{asset_path('capture-love.png')} 1080w, #{asset_path('capture-love.png')} 1600w, #{asset_path('capture-love.png')} 1643w" %>
         </div>
       </div>
 
       <!-- Arion -->
-      <div class="w-slide muted">
-        <div class="testimonial-slide-3 muted">
-          <div class="testimonial-content">
-            <div class="testimonial-quote">Arion</div>
+      <div class="carousel-slide">
+        <div class="project-card">
+          <%= image_tag "capture-arion.png", class: "project-image" %>
+          <div class="project-content">
+            <h3 class="project-title">arion</h3>
             <div class="text-block-2">&lt;&gt;<em>2025</em>&lt;/&gt;</div>
-            <div class="testimonial-info-two">
-              <div class="div-block">
-                <div class="text-block">📊 Arion est une plateforme de suivi de financements adossés à des actifs, destinée aux financeurs et PME. Elle centralise comptes, actifs, passifs, imports CSV, et offre un dashboard dynamique avec des KPI clés comme le ratio de couverture.</div>
-                <div class="text-block">
-                  <span class="text-block-techno">
-                    💎 Ruby on Rails &bull; 🐘 PostgreSQL &bull; 💻 JavaScript &bull; ⚡ Stimulus.js &bull; 🚀 Turbo &bull; 🎨 Tailwind CSS &bull; 🔐 Devise &bull; 🔒 Pundit &bull; 📦 Bootstrap &bull; 💳 Stripe API &bull; 🏢 API Pappers &bull; 📄 CSV Import &bull; 🐳 Docker &bull; ☁️ AWS &bull; 🎨 Figma
-                  </span>
-                </div>
-                <a href="#" target="_blank" class="button-primary w-button">Bientôt disponible</a>
-              </div>
+            <p>📊 Arion est une plateforme de suivi de financements adossés à des actifs, destinée aux financeurs et PME. Elle centralise comptes, actifs, passifs, imports CSV, et offre un dashboard dynamique. </p>
+            <p>Fonctionnalités clés : Import CSV intelligent, dashboard de suivi dynamique, calcul automatique des ratios de couverture, gestion des utilisateurs, intégration de l’API Pappers, système d’abonnements avec Stripe.</p>
+            <p class="text-block-techno"> <strong>Ruby on Rails &bull; PostgreSQL &bull; JavaScript &bull; Stimulus.js &bull; Turbo &bull; Tailwind CSS &bull; Devise &bull; Pundit &bull; Bootstrap &bull; Stripe API &bull; API Pappers &bull; CSV Import &bull; Docker &bull; AWS &bull; Figma</strong></p>
+            <div class="button-row">
+              <a href="#" class="button-primary w-button">Bientôt disponible</a>
             </div>
           </div>
-          <%= image_tag "capture-arion.png", loading: "lazy", alt: "Projet Arion", sizes: "(max-width: 1643px) 100vw, 1643px", class: "testimonial-image-two-3", srcset: "#{asset_path('capture-arion.png')} 500w, #{asset_path('capture-arion.png')} 800w, #{asset_path('capture-arion.png')} 1080w, #{asset_path('capture-arion.png')} 1600w, #{asset_path('capture-arion.png')} 1643w" %>
         </div>
       </div>
 
       <!-- To-do List -->
-      <div class="w-slide muted">
-        <div class="testimonial-slide-3 muted">
-          <div class="testimonial-content">
-            <div class="testimonial-quote">To-do List</div>
+      <div class="carousel-slide">
+        <div class="project-card">
+          <%= image_tag "capture-todo.png", class: "project-image" %>
+          <div class="project-content">
+            <h3 class="project-title">to-do list</h3>
             <div class="text-block-2">&lt;&gt;<em>2025</em>&lt;/&gt;</div>
-            <div class="testimonial-info-two">
-              <div class="div-block">
-                <div class="text-block">📋 To-do List est une application simple de gestion de tâches. Elle permet d'ajouter et de trier des tâches selon son énergie mentale (💤 / ⚡ / 🔥) et a été développée dans le cadre d’une formation React sur Udemy.</div>
-                <div class="text-block">
-                  <span class="text-block-techno">
-                    ⚛️ React &bull; ⚡ Vite &bull; 🎨 Tailwind CSS &bull; 🔑 nanoid
-                  </span>
-                </div>
-                <a href="https://github.com/JuS1302/To-do-List" target="_blank" class="button-primary w-button">VOIR LE CODE</a>
-              </div>
+            <p>📋 To-do List est une application simple de gestion de tâches. Elle permet d'ajouter et de trier des tâches selon son énergie mentale (💤 / ⚡ / 🔥). Projet développé dans le cadre d’une formation React sur Udemy.</p>
+            <p>Fonctionnalités clés : Ajout, tri et suppression de tâches, tri par énergie, affichage en cartes colorées, interface épurée et responsive.</p>
+            <p class="text-block-techno"><strong> React &bull; Vite &bull; Tailwind CSS &bull; nanoid </strong></p>
+            <div class="button-row">
+              <a href="https://github.com/JuS1302/To-do-List" target="_blank" class="button-primary w-button">VOIR LE CODE</a>
             </div>
           </div>
-          <%= image_tag "capture-todo.png", loading: "lazy", alt: "Projet To-do List", sizes: "(max-width: 1643px) 100vw, 1643px", class: "testimonial-image-two-3", srcset: "#{asset_path('capture-todo.png')} 500w, #{asset_path('capture-todo.png')} 800w, #{asset_path('capture-todo.png')} 1080w, #{asset_path('capture-todo.png')} 1600w, #{asset_path('capture-todo.png')} 1643w" %>
         </div>
       </div>
 
       <!-- Nestify -->
-      <div class="w-slide muted">
-        <div class="testimonial-slide-3 muted">
-          <div class="testimonial-content">
-            <div class="testimonial-quote">Nestify</div>
+      <div class="carousel-slide">
+        <div class="project-card">
+          <%= image_tag "capture-nestify.png", class: "project-image" %>
+          <div class="project-content">
+            <h3 class="project-title">nestify</h3>
             <div class="text-block-2">&lt;&gt;<em>2024</em>&lt;/&gt;</div>
-            <div class="testimonial-info-two">
-              <div class="div-block">
-                <div class="text-block">🛋️ Nestify est un assistant déco personnel qui propose des packs d’aménagements harmonisés. L’utilisateur sélectionne son style selon son budget, et découvre des suggestions de mobilier et déco compatibles, prêtes à commander.</div>
-                <div class="text-block">
-                  <span class="text-block-techno">
-                    💎 Ruby on Rails &bull; 🐘 PostgreSQL &bull; 💻 JavaScript &bull; ⚡ Stimulus.js &bull; 🚀 Turbo &bull; 🔐 Devise &bull; 🎨 SCSS &bull; 📦 Bootstrap &bull; 🤖 OpenAI API &bull; ☁️ Heroku &bull; 🎨 Figma
-                  </span>
-                </div>
-                <a href="http://nestify.pics" target="_blank" class="button-primary w-button">VISITER LE SITE</a>
-              </div>
+            <p>🛋️ Nestify est un assistant déco personnel qui propose des packs d’aménagements harmonisés. L’utilisateur sélectionne son style selon son budget, et découvre des suggestions de mobilier et déco compatibles, prêtes à commander.</p>
+            <p>Fonctionnalités clés : Sélection de style, configuration de budget, suggestions intelligentes de produits, génération de packs, intégration d’images et fiches produits, responsive design.</p>
+            <p class="text-block-techno"> <strong>Ruby on Rails &bull; PostgreSQL &bull; JavaScript &bull; Stimulus.js &bull; Turbo &bull; Devise &bull; SCSS &bull; Bootstrap &bull; OpenAI API &bull; Heroku &bull; Figma </strong></p>
+            <div class="button-row">
+              <a href="http://nestify.pics" target="_blank" class="button-primary w-button">VISITER LE SITE</a>
             </div>
           </div>
-          <%= image_tag "capture-nestify.png", loading: "lazy", alt: "Projet Nestify", sizes: "(max-width: 1643px) 100vw, 1643px", class: "testimonial-image-two-3", srcset: "#{asset_path('capture-nestify.png')} 500w, #{asset_path('capture-nestify.png')} 800w, #{asset_path('capture-nestify.png')} 1080w, #{asset_path('capture-nestify.png')} 1600w, #{asset_path('capture-nestify.png')} 1643w" %>
         </div>
       </div>
 
     </div>
 
-    <!-- Arrows + nav -->
-    <div class="testimonial-slider-arrow w-slider-arrow-left">
-      <div class="w-icon-slider-left"></div>
-    </div>
-    <div class="testimonial-slider-arrow w-slider-arrow-right">
-      <div class="w-icon-slider-right"></div>
-    </div>
-    <div class="testimonial-slider-nav w-slider-nav w-slider-nav-invert w-round"></div>
   </div>
 </section>
+
+
+
+
 
 
 <%# SERVICES %>

@@ -5018,14 +5018,15 @@ figcaption {
   display: flex;
   scroll-snap-type: x mandatory;
   gap: 1.5rem;
-  padding: 0 1rem 2rem;
+  padding: 0 1rem 3rem;
 }
 
 .carousel-track {
   display: flex;
   gap: 1.5rem;
-   width: 100%;
+  width: 100%;
   /* width: max-content; */
+  padding: 0 1rem;
 }
 
 .carousel-slide {
@@ -5103,14 +5104,6 @@ figcaption {
   white-space: nowrap;
 }
 
-/* Indicateur de scroll */
-.carousel-indicator {
-  font-size: 0.9rem;
-  text-align: right;
-  margin-top: 0.5rem;
-  color: #999;
-}
-
 @media screen and (max-width: 991px) {
   .carousel-slide {
     flex: 0 0 80%;
@@ -5152,7 +5145,7 @@ figcaption {
   }
 
   .project-content p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   .text-block-techno {

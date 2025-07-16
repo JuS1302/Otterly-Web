@@ -5104,6 +5104,22 @@ figcaption {
   white-space: nowrap;
 }
 
+.tech-logo {
+  transition: transform 0.4s ease, filter 0.4s ease;
+  will-change: transform, filter;
+}
+
+.tech-logo:hover {
+  transform: scale(1.5) rotateZ(5deg);
+  filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.5));
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.25); }
+  100% { transform: scale(1.15); }
+}
+
 @media screen and (max-width: 991px) {
   .carousel-slide {
     flex: 0 0 80%;

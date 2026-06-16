@@ -316,7 +316,7 @@
           <%= image_tag "capture-love.png", class: "project-image" %>
           <div class="project-content">
             <h3 class="project-title">🌿 l.o.v.e. - klorys</h3>
-            <div class="text-block-2">&lt;&gt;<em>2025</em>&lt;/&gt;</div>
+            <div class="text-block-2">&lt;2025/&gt;</div>
             <p>L.O.Ve. est une bibliothèque de végétaux pour les professionnels de l’aménagement paysager à la Réunion, développée pour Klorys dans le cadre de l’appel à projet BIODIV ECO 2022 de l’OFB.</p>
             <p>Fonctionnalités clés : Recherche dynamique de plantes, fiches végétales détaillées, système de favoris, commentaires sur les végétaux, messagerie intégrée, interface responsive.</p>
             <p class="text-block-techno"><strong>Ruby on Rails &bull; PostgreSQL &bull; JavaScript &bull; Stimulus.js &bull; Turbo &bull; Devise &bull; SCSS &bull; Bootstrap &bull; API Google &bull; Heroku &bull; Figma</strong></p>
@@ -333,7 +333,7 @@
           <%= image_tag "capture-arion.png", class: "project-image" %>
           <div class="project-content">
             <h3 class="project-title">📊 arion</h3>
-            <div class="text-block-2">&lt;&gt;<em>2025</em>&lt;/&gt;</div>
+            <div class="text-block-2">&lt;2025/&gt;</div>
             <p>Arion est une plateforme de suivi de financements adossés à des actifs, destinée aux financeurs et PME. Elle centralise comptes, actifs, passifs, imports CSV, et offre un dashboard dynamique. </p>
             <p>Fonctionnalités clés : Import CSV intelligent, dashboard de suivi dynamique, calcul automatique des ratios de couverture, gestion des utilisateurs, intégration de l’API Pappers, système d’abonnements avec Stripe.</p>
             <p class="text-block-techno"> <strong>Ruby on Rails &bull; PostgreSQL &bull; JavaScript &bull; Stimulus.js &bull; Turbo &bull; Tailwind CSS &bull; Devise &bull; Pundit &bull; Bootstrap &bull; Stripe API &bull; API Pappers &bull; CSV Import &bull; Tailwind &bull; AWS &bull; Figma</strong></p>
@@ -350,7 +350,7 @@
           <%= image_tag "capture-todo.png", class: "project-image" %>
           <div class="project-content">
             <h3 class="project-title">📋 ma to-do list</h3>
-            <div class="text-block-2">&lt;&gt;<em>2025</em>&lt;/&gt;</div>
+            <div class="text-block-2">&lt;2025/&gt;</div>
             <p>To-do List est une application simple de gestion de tâches. Elle permet d'ajouter et de trier des tâches selon son énergie mentale (💤 / ⚡ / 🔥). Projet développé dans le cadre d’une formation React sur Udemy.</p>
             <p>Fonctionnalités clés : Ajout, tri et suppression de tâches, tri par énergie, affichage en cartes colorées, interface épurée et responsive.</p>
             <p class="text-block-techno"><strong> React &bull; Vite &bull; Tailwind CSS &bull; nanoid </strong></p>
@@ -367,7 +367,7 @@
           <%= image_tag "capture-nestify.png", class: "project-image" %>
           <div class="project-content">
             <h3 class="project-title">🛋️ nestify</h3>
-            <div class="text-block-2">&lt;&gt;<em>2024</em>&lt;/&gt;</div>
+            <div class="text-block-2">&lt;2024/&gt;</div>
             <p>Nestify est un assistant déco personnel qui propose des packs d’aménagements harmonisés. L’utilisateur sélectionne son style selon son budget, et découvre des suggestions de mobilier et déco compatibles, prêtes à commander.</p>
             <p>Fonctionnalités clés : Sélection de style, configuration de budget, suggestions intelligentes de produits, génération de packs, intégration d’images et fiches produits, responsive design.</p>
             <p class="text-block-techno"> <strong>Ruby on Rails &bull; PostgreSQL &bull; JavaScript &bull; Stimulus.js &bull; Turbo &bull; Devise &bull; SCSS &bull; Bootstrap &bull; OpenAI API &bull; Heroku &bull; Figma </strong></p>
@@ -375,6 +375,23 @@
               <a href="https://github.com/JuS1302/Nestify" target="_blank" class="button-primary">CONSULTER LE PROJET SUR GITHUB </a>
 
 
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Abricot -->
+      <div class="carousel-slide">
+        <div class="project-card">
+          <%= image_tag "capture-abricot.jpg", class: "project-image" %>
+          <div class="project-content">
+            <h3 class="project-title">🍑 abricot</h3>
+            <div class="text-block-2">&lt;2026/&gt;</div>
+            <p>Abricot est un SaaS de gestion de projet pour freelances. L'interface permet de gérer projets et tâches avec un système de rôles (admin / contributeur), une vue kanban, et une fonctionnalité IA pour générer des tâches automatiquement.</p>
+            <p>Fonctionnalités clés : Authentification JWT, CRUD projets et tâches, assignation, commentaires, vue liste et kanban, génération de tâches par IA (Groq), accessibilité WCAG 2.1 AA.</p>
+            <p class="text-block-techno"><strong>Next.js &bull; React &bull; TypeScript &bull; Tailwind CSS &bull; API REST &bull; Groq AI &bull; Render</strong></p>
+            <div class="button-row">
+              <a href="https://abricot-frontend-7fs6.onrender.com/" target="_blank" class="button-primary">VISITER LE SITE</a>
             </div>
           </div>
         </div>
@@ -670,26 +687,22 @@
     <footer class="footer">
       <div class="footer-top">
         <div class="overflow-hidden">
-          <div class="footer-row">
-            <div class="footer-col-logo">
-              <div class="light-mode">
-                <%= image_tag "logo-inverse_1.png",
-                  loading: "lazy",
-                  height: "Auto",
-                  alt: "Logo Otterly Web Footer",
-                  class: "image-14" %>
-              </div>
-              <div class="dark-mode">
-                <%= image_tag "logo.png",
-                  loading: "lazy",
-                  height: "Auto",
-                  alt: "Logo Otterly Web Footer Dark",
-                  class: "image-14" %>
-              </div>
+          <div class="footer-top-content">
+            <div class="light-mode">
+              <%= image_tag "logo-inverse_1.png",
+                loading: "lazy",
+                height: "Auto",
+                alt: "Logo Otterly Web Footer",
+                class: "image-14" %>
             </div>
-            <div class="footer-col-main">
-              <h2 class="heading">otterly web©</h2>
+            <div class="dark-mode">
+              <%= image_tag "logo.png",
+                loading: "lazy",
+                height: "Auto",
+                alt: "Logo Otterly Web Footer Dark",
+                class: "image-14" %>
             </div>
+            <h2 class="heading">otterly <span class="accent">web©</span></h2>
           </div>
         </div>
       </div>

@@ -183,7 +183,6 @@ document.addEventListener('DOMContentLoaded', function () {
       '.heading-alt-h3',
       '.heading-alt-h5',
       '.home-hero-logos',
-      '.home-services-item',
       '.clients-item',
       '.button-row',
     ].forEach(function (selector) {
@@ -246,4 +245,26 @@ document.addEventListener('DOMContentLoaded', function () {
       document.querySelectorAll('.dark-mode').forEach(function (el) { el.style.display = 'none'; });
     }
   });
+}());
+
+
+/* ---- Parallax sur les images de services ---- */
+(function () {
+  var images = document.querySelectorAll('.image-cover-parallax');
+  if (!images.length) return;
+
+  function updateParallax() {
+    images.forEach(function (img) {
+      var container = img.closest('.home-services-item-image');
+      if (!container) return;
+      var rect   = container.getBoundingClientRect();
+      /* On ne déplace l'image que quand elle est visible (rect.top <= 0).
+         Avant qu'elle entre dans le viewport, offset = 0 → image collée en haut. */
+      var offset = Math.min(0, rect.top * 0.1);
+      img.style.transform = 'translateY(' + offset + 'px)';
+    });
+  }
+
+  window.addEventListener('scroll', updateParallax, { passive: true });
+  updateParallax();
 }());

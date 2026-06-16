@@ -3099,8 +3099,11 @@ figcaption {
 
 .image-cover-parallax {
   object-fit: cover;
+  object-position: top center;
   width: 100%;
-  height: 100%;
+  height: 130%;
+  will-change: transform;
+  display: block;
 }
 
 .nav {
@@ -5059,12 +5062,11 @@ figcaption {
   box-sizing: border-box;
   min-width: auto;
   height: 100%;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  transition: border-color 0.25s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  border-color: var(--accent);
 }
 
 .project-image {
@@ -5087,11 +5089,6 @@ figcaption {
   font-size: 1.8rem;
   font-weight: 300;
   letter-spacing: 0.5px;
-}
-
-.text-block-2 {
-  font-size: 0.85rem;
-  color: #888;
 }
 
 .project-content p {
@@ -5376,26 +5373,33 @@ figcaption {
 }
 
 .button-primary {
-  color: #0a0a0a;
-  letter-spacing: 2px;
+  font-family: var(--global--body-font-family);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  background-color: var(--accent);
+  text-decoration: none;
+  color: var(--global-colors--text-default);
+  background-color: transparent;
+  border: 1px solid var(--accent) !important;
   margin-top: 39px;
-  padding: 12px 25px;
-  font-size: 12px;
-  line-height: 20px;
-  transition: all .2s;
+  padding: 0.55rem 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .button-primary:hover {
-  color: #ffffff;
-  background-color: #0a0a0a;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  color: #0a0a0a;
+  background-color: var(--accent);
+  border-color: var(--accent) !important;
+  text-decoration: none;
+  transform: none;
+  box-shadow: none;
 }
 
 .button-primary:active {
-  background-color: #43464d;
+  opacity: 0.85;
 }
 
 .div-block {
@@ -8795,7 +8799,7 @@ figcaption {
 
 .footer-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1.5rem;
 }
 
@@ -8867,4 +8871,83 @@ figcaption {
     text-align: center;
     margin-top: 1rem;
   }
+}
+
+
+/* Footer top — logo et titre centrés sur la même ligne */
+/* display:flex !important nécessaire car anim-reveal force display:block */
+.footer-top-content {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.footer-top-content .image-14 {
+  width: 180px;
+  height: auto;
+}
+
+.footer-top-content .heading {
+  font-size: 8vw;
+}
+
+/* Logo header — taille augmentée */
+.navbar-logo-image {
+  width: 230px !important;
+  height: auto !important;
+}
+
+@media screen and (max-width: 991px) {
+  .navbar-logo-image {
+    width: 50px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .navbar-logo-image {
+    width: 50px !important;
+  }
+}
+
+/* Menu mobile — alternance noir / vert */
+.mobile-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-menu-list li a {
+  display: block;
+  text-decoration: none;
+  font-family: var(--global--body-font-family);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0.4rem 0;
+  transition: opacity 0.2s ease;
+}
+
+.mobile-menu-list li a:hover {
+  opacity: 0.7;
+}
+
+/* Impairs (1er, 3e) : couleur texte par défaut */
+.mobile-menu-list li:nth-child(odd) a {
+  color: var(--global-colors--text-default);
+}
+
+/* Pairs (2e, 4e) : vert */
+.mobile-menu-list li:nth-child(even) a {
+  color: var(--accent);
+}
+
+/* Dates des projets — style code Fira Code vert */
+.text-block-2 {
+  font-family: 'Fira Code', 'Inconsolata', monospace !important;
+  font-size: 0.8rem !important;
+  font-weight: 400 !important;
+  color: var(--accent) !important;
+  letter-spacing: 0 !important;
 }

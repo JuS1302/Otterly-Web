@@ -4155,14 +4155,10 @@ figcaption {
 }
 
 .home-services-list {
-  grid-column-gap: 3rem;
-  grid-row-gap: 1.25rem;
-  grid-template-rows: auto auto;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-columns: 1fr;
-  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
   max-width: 800px;
-  display: grid;
 }
 
 .max-width-huge {
@@ -9119,4 +9115,18 @@ figcaption {
   font-weight: 400 !important;
   color: var(--accent) !important;
   letter-spacing: 0 !important;
+}
+
+.service-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--global-colors--text-default);
+  background-color: var(--global-colors--background-muted-2);
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
 }

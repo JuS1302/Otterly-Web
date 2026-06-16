@@ -248,6 +248,41 @@ document.addEventListener('DOMContentLoaded', function () {
 }());
 
 
+/* ---- Carousel modernisé — navigation + compteur ---- */
+(function () {
+  var track   = document.querySelector('.carousel-track');
+  var prevBtn = document.querySelector('.carousel-btn-prev');
+  var nextBtn = document.querySelector('.carousel-btn-next');
+  var current = document.querySelector('.carousel-current');
+  var slides  = document.querySelectorAll('.carousel-slide');
+
+  if (!track || !slides.length) return;
+
+  var total = slides.length;
+  var index = 0;
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  function goTo(i) {
+    index = Math.max(0, Math.min(i, total - 1));
+    track.scrollTo({ left: slides[index].offsetLeft, behavior: 'smooth' });
+    if (current) current.textContent = pad(index + 1);
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', function () { goTo(index - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { goTo(index + 1); });
+
+  /* Mise à jour du compteur au scroll (swipe mobile) */
+  track.addEventListener('scroll', function () {
+    var slideWidth = slides[0].offsetWidth;
+    if (slideWidth > 0) {
+      var i = Math.round(track.scrollLeft / slideWidth);
+      if (i !== index) { index = i; if (current) current.textContent = pad(index + 1); }
+    }
+  }, { passive: true });
+}());
+
+
 /* ---- Parallax sur les images de services ---- */
 (function () {
   var images = document.querySelectorAll('.image-cover-parallax');

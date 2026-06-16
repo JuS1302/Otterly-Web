@@ -26,7 +26,7 @@
   --heading--xlarge-font-family: var(--global--heading-font-family);
   --form--border-width: var(--global--border-width);
   --form-default--border-color: var(--global-colors--border-default);
-  --form--border-radius: 0px;
+  --form--border-radius: 6px;
   --form-default--background: var(--global-colors--background-muted);
   --form-default--text-color: var(--global-colors--text-default);
   --form--font-size: 16px;
@@ -113,7 +113,7 @@
   --badge--size-default: 36px;
   --badge--border-width: var(--global--border-width);
   --badge-default--border-color: var(--global-colors--border-default);
-  --badge--border-radius: 0px;
+  --badge--border-radius: 4px;
   --badge-default--background: var(--global-colors--background-default);
   --badge-default--icon-color: var(--global-colors--text-default);
   --badge--size-small: 32px;
@@ -134,7 +134,7 @@
   --text-size--xlarge: 24px;
   --card--border-width: var(--global--border-width);
   --card-default--border-color: var(--global-colors--border-default);
-  --card--border-radius: 0px;
+  --card--border-radius: 8px;
   --card-default--background: var(--global-colors--background-default);
   --card-default--text-color: var(--global-colors--text-default);
   --card-primary--border-color: transparent;
@@ -4189,8 +4189,8 @@ figcaption {
 }
 
 .home-clients-grid {
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 1.5rem;
   grid-template-rows: auto;
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-columns: 1fr;
@@ -5027,63 +5027,111 @@ figcaption {
 }
 
 /* Base layout */
-.carousel-wrapper {
-  overflow-x: auto;
-  display: flex;
-  scroll-snap-type: x mandatory;
-  gap: 1.5rem;
-  padding: 0 1rem 3rem;
+.carousel-container {
+  padding: 0 6vw 4vw;
 }
 
 .carousel-track {
   display: flex;
-  gap: 1.5rem;
-  width: 100%;
-  /* width: max-content; */
-  padding: 0 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 0;
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
 }
 
 .carousel-slide {
   scroll-snap-align: start;
-  flex: 0 0 calc(50% - 1rem); /* desktop: 2 cards */
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  flex: 0 0 100%;
+  width: 100%;
 }
 
 .project-card {
-  background-color: var(--card-default--background);
-  color: var(--card-default--text-color);
-  border: 1px solid #ddd;
-  padding: 1.2rem;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  min-width: auto;
-  height: 100%;
-  transition: border-color 0.25s ease;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 420px;
+  background-color: var(--global-colors--background-muted);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-.project-card:hover {
-  border-color: var(--accent);
+.project-card-image {
+  overflow: hidden;
 }
 
 .project-image {
   width: 100%;
-  height: auto;
-  aspect-ratio: 16/9;
+  height: 100%;
   object-fit: cover;
-  margin-bottom: 1rem;
+  display: block;
+  transition: transform 0.5s ease;
 }
 
-/* Typography inside card */
+.project-card:hover .project-image {
+  transform: scale(1.03);
+}
+
 .project-content {
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  gap: 0.75rem;
+  gap: 1rem;
+  justify-content: center;
+  background-color: var(--global-colors--background-muted-2);
 }
+
+.project-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Navigation */
+.carousel-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.carousel-btn {
+  background: none;
+  border: 1px solid var(--global-colors--border-default);
+  color: var(--global-colors--text-default);
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn:hover {
+  border-color: var(--accent);
+  color: #0a0a0a;
+  background-color: var(--accent);
+}
+
+.carousel-counter {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: var(--global-colors--text-muted);
+}
+
+.carousel-current {
+  color: var(--accent);
+  font-weight: 600;
+}
+
 
 .project-title {
   font-size: 1.8rem;
@@ -5111,7 +5159,7 @@ figcaption {
 }
 
 .button-primary {
-  border-radius: 0;
+  border-radius: 6px;
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
   font-weight: 500;
@@ -5145,13 +5193,13 @@ figcaption {
 
 @media screen and (max-width: 991px) {
   .carousel-slide {
-    flex: 0 0 80%;
+    flex: 0 0 100%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .carousel-slide {
-    flex: 0 0 90%; /* ou 100% avec padding adapté */
+    flex: 0 0 100%;
     max-width: 100%;
   }
 
@@ -5200,7 +5248,7 @@ figcaption {
 
 @media screen and (min-width: 1440px) {
   .carousel-slide {
-    flex: 0 0 calc(50% - 1rem);
+    flex: 0 0 100%;
   }
 }
 
@@ -8767,6 +8815,7 @@ figcaption {
   color: var(--global-colors--text-default);
   padding: 0.4rem 0.85rem;
   border: 1px solid var(--accent);
+  border-radius: 6px;
   transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
   cursor: default;
 }
@@ -8823,6 +8872,24 @@ figcaption {
    =================================================== */
 
 @media screen and (max-width: 767px) {
+  /* Carousel : layout vertical sur mobile */
+  .carousel-container {
+    padding: 0 0 4vw;
+  }
+
+  .project-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .project-card-image {
+    height: 220px;
+  }
+
+  .project-content {
+    padding: 1.5rem;
+  }
+
   /* Footer top : logo au-dessus du titre, centré */
   .footer-top-content {
     flex-direction: column;
@@ -8958,7 +9025,7 @@ figcaption {
 /* Section clients — design modernisé */
 .clients-item {
   background-color: var(--global-colors--background-muted) !important;
-  border: 1px solid var(--global-colors--border-default);
+  border-radius: 8px;
   padding: 2.5rem;
   display: flex;
   flex-direction: column;

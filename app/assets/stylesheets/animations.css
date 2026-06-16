@@ -64,32 +64,24 @@
    -------------------------------------------------- */
 .anim-reveal {
   display: block;
-  transform: translateY(110%);
-  transition: transform 0.65s cubic-bezier(0.22, 1.5, 0.36, 1);
-  will-change: transform;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  will-change: opacity;
 }
 
 .anim-reveal.is-visible {
-  transform: translateY(0);
+  opacity: 1;
 }
 
 /* --------------------------------------------------
-   Blur-in (apparition avec dissipation du flou)
-   Utilisé pour : paragraphes, sections,
-   logos, éléments de service, témoignages…
+   Fade-in simple pour paragraphes, sections, logos…
    -------------------------------------------------- */
 .anim-fade {
   opacity: 0;
-  filter: blur(8px);
-  transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, filter, transform;
+  transition: opacity 0.4s ease;
+  will-change: opacity;
 }
 
 .anim-fade.is-visible {
   opacity: 1;
-  filter: blur(0);
-  transform: translateY(0);
 }

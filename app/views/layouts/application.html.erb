@@ -50,7 +50,8 @@
 
   <%= yield :head %>
 
-  <%= stylesheet_link_tag "normalize", "web", "otterly-web.css?ts=#{Time.now.to_i}", media: "all" %>
+  <%= stylesheet_link_tag "normalize", "web", "otterly-web.css?ts=#{Time.now.to_i}", "animations", media: "all" %>
+  <%= javascript_include_tag "animations", defer: true %>
 </head>
 
 <body class="body">

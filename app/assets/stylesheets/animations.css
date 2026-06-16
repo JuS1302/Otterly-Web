@@ -1,0 +1,46 @@
+/* ===================================================
+   Animations d'entrée — IntersectionObserver
+   =================================================== */
+
+/* Ne pas appliquer d'animations si l'utilisateur
+   a activé "réduire les animations" dans son OS */
+@media (prefers-reduced-motion: reduce) {
+  .anim-reveal,
+  .anim-fade {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* --------------------------------------------------
+   Slide-up (texte qui remonte depuis le bas)
+   Utilisé pour : h1, h2, h3 à l'intérieur de
+   conteneurs .overflow-hidden (le parent masque
+   le dépassement, créant l'effet de "store")
+   -------------------------------------------------- */
+.anim-reveal {
+  display: block;
+  transform: translateY(105%);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.anim-reveal.is-visible {
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------
+   Fade-up (apparition avec légère montée)
+   Utilisé pour : paragraphes, sections,
+   logos, éléments de service, témoignages…
+   -------------------------------------------------- */
+.anim-fade {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.anim-fade.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

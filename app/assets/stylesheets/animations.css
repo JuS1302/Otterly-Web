@@ -43,6 +43,19 @@
 }
 
 /* --------------------------------------------------
+   Hover bouton "On échange ?" — inverse du menu
+   .button-text-line part de width:100% et rétrécit
+   vers la gauche au survol (effet miroir des items).
+   -------------------------------------------------- */
+.button-text-line {
+  transition: width 0.3s ease;
+}
+
+.button-text:hover .button-text-line {
+  width: 0;
+}
+
+/* --------------------------------------------------
    Slide-up (texte qui remonte depuis le bas)
    Utilisé pour : h1, h2, h3 à l'intérieur de
    conteneurs .overflow-hidden (le parent masque

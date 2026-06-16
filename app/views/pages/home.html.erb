@@ -14,6 +14,15 @@
 
 
 
+  <%# Écran d'intro — fond sombre avec le titre du site %>
+  <div id="page-intro" class="pageloader">
+    <div class="overflow-hidden">
+      <p class="pageloader-heading">Otterly Web©</p>
+    </div>
+  </div>
+  <%# Script inline : rend l'intro visible immédiatement (avant le premier rendu) %>
+  <script>document.getElementById('page-intro').style.display='flex';</script>
+
   <div class="page-wrapper">
 
 <%# Menu Section tablette %>

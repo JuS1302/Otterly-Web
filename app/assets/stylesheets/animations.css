@@ -2,9 +2,25 @@
    Animations d'entrée — IntersectionObserver
    =================================================== */
 
+/* --------------------------------------------------
+   Écran d'intro (pageloader)
+   Fond sombre plein écran qui monte vers le haut
+   pour révéler la page.
+   -------------------------------------------------- */
+.pageloader {
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pageloader.is-leaving {
+  transform: translateY(-100%);
+}
+
 /* Ne pas appliquer d'animations si l'utilisateur
    a activé "réduire les animations" dans son OS */
 @media (prefers-reduced-motion: reduce) {
+  .pageloader {
+    transition: none !important;
+  }
   .anim-reveal,
   .anim-fade {
     transition: none !important;

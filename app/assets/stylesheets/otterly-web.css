@@ -3101,7 +3101,7 @@ figcaption {
   object-fit: cover;
   object-position: top center;
   width: 100%;
-  height: 130%;
+  height: 110%;
   will-change: transform;
   display: block;
 }
@@ -8823,6 +8823,17 @@ figcaption {
    =================================================== */
 
 @media screen and (max-width: 767px) {
+  /* Footer top : logo au-dessus du titre, centré */
+  .footer-top-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-top-content .heading {
+    font-size: 12vw;
+  }
+
   /* Footer : empiler les colonnes */
   .footer-row {
     flex-direction: column;
@@ -8878,6 +8889,7 @@ figcaption {
 /* display:flex !important nécessaire car anim-reveal force display:block */
 .footer-top-content {
   display: flex !important;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
@@ -8941,6 +8953,96 @@ figcaption {
 /* Pairs (2e, 4e) : vert */
 .mobile-menu-list li:nth-child(even) a {
   color: var(--accent);
+}
+
+/* Section clients — design modernisé */
+.clients-item {
+  background-color: var(--global-colors--background-muted) !important;
+  border: 1px solid var(--global-colors--border-default);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.clients-number {
+  position: absolute;
+  top: -0.5rem;
+  right: 1.5rem;
+  font-size: 7rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--global-colors--text-default);
+  opacity: 0.04;
+  pointer-events: none;
+  user-select: none;
+}
+
+.clients-quote-mark {
+  font-family: Georgia, serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: -0.5rem;
+}
+
+.clients-body {
+  flex: 1;
+}
+
+.clients-text {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--global-colors--text-default);
+}
+
+.clients-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: auto;
+}
+
+.clients-separator {
+  height: 1px;
+  background-color: var(--global-colors--border-default);
+  width: 100%;
+}
+
+.clients-stars {
+  color: var(--accent);
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+}
+
+.clients-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  color: #0a0a0a;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: 1px;
+}
+
+.clients-author-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0 0 0.2rem;
+  color: var(--global-colors--text-default);
+}
+
+.clients-author-company {
+  font-size: 0.75rem;
+  color: var(--global-colors--text-muted);
+  margin: 0;
 }
 
 /* Dates des projets — style code Fira Code vert */

@@ -1,21 +1,13 @@
 /* ===================================================
    Animations d'entrée — IntersectionObserver
-   Déclenche les classes CSS .anim-reveal et .anim-fade
-   quand les éléments entrent dans le viewport.
    =================================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* ---- 1. Slide-up : titres dans .overflow-hidden ----
+  /* ---- Observers ---- */
 
-     POURQUOI on observe le PARENT et non l'enfant :
-     Quand on applique transform: translateY(105%) à l'enfant,
-     il sort visuellement du conteneur. overflow: hidden le masque.
-     L'IntersectionObserver calcule la portion VISIBLE de l'élément :
-     si le parent le clips à 0%, l'observer ne se déclenche jamais.
-     Solution : observer le conteneur .overflow-hidden (toujours
-     visible), puis animer son enfant quand le conteneur entre
-     dans le viewport. */
+  /* Slide-up : on observe le PARENT .overflow-hidden (visible),
+     pas l'enfant (clippé à 0% quand transformé → threshold jamais atteint) */
   var revealObserver = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
@@ -24,10 +16,19 @@ document.addEventListener('DOMContentLoaded', function () {
         revealObserver.unobserve(entry.target);
       }
     });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -40px 0px'
-  });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  /* Fade-up : on observe l'élément directement */
+  var fadeObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  /* ---- Étape 1 : appliquer les états cachés initiaux ---- */
 
   document.querySelectorAll('.overflow-hidden').forEach(function (container) {
     var child = container.firstElementChild;
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
     child.classList.add('anim-reveal');
 
     /* Stagger : délai croissant pour les .overflow-hidden consécutifs
-       dans le même parent (effet cascade sur les titres) */
+       dans le même parent (cascade sur les titres) */
     var siblings = Array.from(container.parentElement.children).filter(function (el) {
       return el.classList.contains('overflow-hidden');
     });
@@ -44,43 +45,47 @@ document.addEventListener('DOMContentLoaded', function () {
     if (idx > 0) {
       child.style.transitionDelay = (idx * 0.12) + 's';
     }
-
-    revealObserver.observe(container); /* observer le PARENT, pas l'enfant */
   });
 
-  /* ---- 2. Fade-up : éléments ciblés par classe ----
-     Ces éléments partent de opacity:0 + légèrement en bas,
-     puis remontent et apparaissent progressivement. */
-  var fadeObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        fadeObserver.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -40px 0px'
-  });
+  /* ---- Étape 2 : attendre 2 frames avant d'observer ----
 
-  var fadeSelectors = [
-    '.text-meta',
-    '.heading-alt-h2',
-    '.heading-alt-small',
-    '.heading-alt-h3',
-    '.heading-alt-h5',
-    '.home-hero-logos',
-    '.home-services-item',
-    '.clients-item',
-    '.button-row',
-  ];
+     POURQUOI 2 requestAnimationFrame :
+     Si on observe immédiatement après avoir ajouté .anim-reveal,
+     le navigateur n'a pas encore eu le temps de peindre l'état
+     caché (transform: translateY(105%)). L'observer déclenche
+     is-visible dans le même rendu → aucune transition visible.
+     Les 2 rAF garantissent que l'état caché est peint AVANT
+     que l'observer commence à surveiller les éléments du hero. */
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
 
-  fadeSelectors.forEach(function (selector) {
-    document.querySelectorAll(selector).forEach(function (el) {
-      if (!el.classList.contains('anim-reveal')) {
-        el.classList.add('anim-fade');
-        fadeObserver.observe(el);
-      }
+      /* Slide-up : observer tous les conteneurs */
+      document.querySelectorAll('.overflow-hidden').forEach(function (container) {
+        if (container.firstElementChild) {
+          revealObserver.observe(container);
+        }
+      });
+
+      /* Fade-up : ajouter la classe et observer */
+      [
+        '.text-meta',
+        '.heading-alt-h2',
+        '.heading-alt-small',
+        '.heading-alt-h3',
+        '.heading-alt-h5',
+        '.home-hero-logos',
+        '.home-services-item',
+        '.clients-item',
+        '.button-row',
+      ].forEach(function (selector) {
+        document.querySelectorAll(selector).forEach(function (el) {
+          if (!el.classList.contains('anim-reveal')) {
+            el.classList.add('anim-fade');
+            fadeObserver.observe(el);
+          }
+        });
+      });
+
     });
   });
 

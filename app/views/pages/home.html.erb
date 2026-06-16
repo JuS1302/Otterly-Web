@@ -31,7 +31,7 @@
       <header class="header">
         <header class="navbar">
           <div class="navbar-left">
-            <%= link_to root_path, class: "navbar-logo w-inline-block w--current", "aria-current": "page" do %>
+            <%= link_to root_path, class: "navbar-logo", "aria-current": "page" do %>
               <div class="light-mode">
                 <%= image_tag "logo.png",
                   loading: "eager",
@@ -49,31 +49,31 @@
             <% end %>
           </div>
           <nav class="navbar-menu">
-            <a href="#Projets" class="navbar-menu-item w-inline-block">
+            <a href="#Projets" class="navbar-menu-item">
               <div class="navbar-menu-item-text">Réalisations</div>
               <div class="navbar-item-line"></div>
             </a>
-            <a href="#Services" class="navbar-menu-item w-inline-block">
+            <a href="#Services" class="navbar-menu-item">
               <div class="navbar-menu-item-text">Services</div>
               <div class="navbar-item-line"></div>
             </a>
-            <a href="#Avis-clients" class="navbar-menu-item w-inline-block">
+            <a href="#Avis-clients" class="navbar-menu-item">
               <div class="navbar-menu-item-text">Clients</div>
               <div class="navbar-item-line"></div>
             </a>
-            <a href="#A-Propos" class="navbar-menu-item w-inline-block">
+            <a href="#A-Propos" class="navbar-menu-item">
               <div class="navbar-menu-item-text">À propos</div>
               <div class="navbar-item-line"></div>
             </a>
           </nav>
           <div class="navbar-right">
-            <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="button-text w-inline-block">
+            <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="button-text">
               <div class="button-text-inner">
                 <div class="button-text-text">On échange ?</div>
                 <div class="button-text-line"></div>
               </div>
             </a>
-            <a href="#" class="mobile-menu-toggle w-inline-block">
+            <a href="#" class="mobile-menu-toggle">
               <div class="mobile-menu-toggle-inner">
                 <div class="menu-toggle-line top"></div>
                 <div class="menu-toggle-line bottom"></div>
@@ -91,7 +91,7 @@
     <header class="header-small">
       <header class="navbar-small">
         <div class="navbar-small-left">
-          <%= link_to root_path, class: "navbar-logo w-inline-block w--current", "aria-current": "page" do %>
+          <%= link_to root_path, class: "navbar-logo", "aria-current": "page" do %>
             <%# Le logo-inverse est utilisé par défaut pour le header small (desktop principalement) %>
             <%= image_tag "logo-inverse.png",
               width: 175,
@@ -103,24 +103,24 @@
         </div>
         <div class="navbar-small-right">
           <nav class="navbar-small-menu">
-            <a href="#Projets" class="navbar-menu-item w-inline-block">
+            <a href="#Projets" class="navbar-menu-item">
               <div class="navbar-menu-item-text">Réalisations</div>
               <div class="navbar-item-line"></div>
             </a>
-            <a href="#Services" class="navbar-menu-item w-inline-block">
+            <a href="#Services" class="navbar-menu-item">
               <div class="navbar-menu-item-text">Services</div>
               <div class="navbar-item-line"></div>
             </a>
-            <a href="#Avis-clients" class="navbar-menu-item w-inline-block">
+            <a href="#Avis-clients" class="navbar-menu-item">
               <div class="navbar-menu-item-text">Clients</div>
               <div class="navbar-item-line"></div>
             </a>
-            <a href="#A-Propos" class="navbar-menu-item w-inline-block">
+            <a href="#A-Propos" class="navbar-menu-item">
               <div class="navbar-menu-item-text">À propos</div>
               <div class="navbar-item-line"></div>
             </a>
           </nav>
-          <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="button-text w-inline-block">
+          <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="button-text">
             <div class="button-text-inner">
               <div class="button-text-text">On échange ?</div>
               <div class="button-text-line"></div>
@@ -137,16 +137,16 @@
     <div class="mobile-menu">
       <div class="mobile-menu-wrapper">
         <nav class="mobile-menu-nav">
-          <a href="#r-alisations" class="mobile-menu-nav-item w-inline-block">
+          <a href="#r-alisations" class="mobile-menu-nav-item">
             <div class="menu-nav-item-text">Réalisations</div>
           </a>
-          <a href="#mes-services" class="mobile-menu-nav-item w-inline-block">
+          <a href="#mes-services" class="mobile-menu-nav-item">
             <div class="menu-nav-item-text">Services</div>
           </a>
-          <a href="#clients" class="mobile-menu-nav-item w-inline-block">
+          <a href="#clients" class="mobile-menu-nav-item">
             <div class="menu-nav-item-text">Clients</div>
           </a>
-          <a href="#A-Propos" class="mobile-menu-nav-item w-inline-block">
+          <a href="#A-Propos" class="mobile-menu-nav-item">
             <div class="menu-nav-item-text">A propos</div>
           </a>
         </nav>
@@ -218,21 +218,21 @@
                   <h1 class="heading-style-large">OTTERLY</h1>
                 </div>
                 <div class="overflow-hidden">
-                  <h1 class="heading-style-large">WEB©</h1>
+                  <h1 class="heading-style-large"><span class="accent">WEB©</span></h1>
                 </div>
               </div>
               <div>
                 <div class="margin-bottom margin-medium">
-                  <div class="text-meta text-color-muted">&lt;&gt;Basée à Bordeaux&lt;/&gt;</div>
+                  <div class="text-meta text-color-muted"><span class="code-dim">&lt;meta</span><span class="accent">.location</span><span class="code-dim"> /&gt;</span></div>
                 </div>
                 <div class="max-width-large">
-                  <p class="heading-alt-h2">Découvrez Otterly Web - un studio de développement créatif et audacieux. Plongez dans un univers au design soigné, où chaque détail est pensé pour offrir une expérience intuitive, un impact visuel fort, et des solutions techniques sur mesure. </p>
+                  <p class="heading-alt-h2">Découvrez Otterly Web - un studio de développement <span class="accent">créatif et audacieux</span>. Plongez dans un univers au design soigné, où chaque détail est pensé pour offrir une expérience intuitive, un impact visuel fort, et des solutions techniques sur mesure. </p>
                 </div>
               </div>
             </header>
             <div class="home-hero-right-bottom">
               <div class="margin-bottom margin-medium">
-                <div id="A-Propos" class="text-meta text-color-muted">&lt;&gt;À propos&lt;/&gt;</div>
+                <div id="A-Propos" class="text-meta text-color-muted"><span class="code-dim">&lt;section</span><span class="accent">.about</span><span class="code-dim"> /&gt;</span></div>
               </div>
               <div class="margin-bottom margin-medium">
                 <div class="margin-bottom margin-tiny">
@@ -242,7 +242,7 @@
                 </div>
                 <div class="margin-bottom margin-tiny">
                   <div class="overflow-hidden">
-                    <h2 class="heading-style-h2">OTTERMENT</h2>
+                    <h2 class="heading-style-h2"><span class="accent">OTTERMENT</span></h2>
                   </div>
                 </div>
                 <div class="margin-bottom margin-tiny">
@@ -256,245 +256,31 @@
               </div>
               <div class="margin-bottom margin-xhuge">
                 <div class="max-width-large">
-                  <p class="text-color-muted">Chez <strong>Otterly Web</strong>, je donne vie à vos idées à travers des applications web modernes, intuitives et sur-mesure. Spécialisée dans le développement full-stack, je mets à profit ma double expertise en communication digitale et en programmation pour concevoir des solutions performantes, créatives et alignées avec vos objectifs. <br><br>Mon approche allie sens du détail, rigueur technique et écoute active. Chaque projet est une collaboration, pensée pour répondre précisément à vos besoins tout en offrant une expérience fluide à vos utilisateurs. Qu’il s’agisse d’une application sur-mesure, d’un site vitrine ou d’un outil métier, je conçois des produits numériques qui ont du sens, qui durent, et qui vous ressemblent. <br><br>Portée par une sensibilité au design, à l’ergonomie et à la technologie, je m’engage à créer des interfaces élégantes et des fonctionnalités robustes, avec une attention particulière à la maintenabilité et à l’évolutivité du code.</p>
+                  <p class="text-color-muted">Chez <strong>Otterly Web</strong>, je donne vie à vos idées à travers des applications web modernes, intuitives et sur-mesure. Développeuse full-stack, je maîtrise aussi bien le back-end (Ruby on Rails, PHP, Symfony, Laravel, PostgreSQL) que le front-end (JavaScript, TypeScript, React, Next.js, Tailwind CSS) - et j’utilise les outils IA comme Claude Code au quotidien pour aller plus vite et mieux. <br><br>Mon approche allie sens du détail, rigueur technique et écoute active. Chaque projet est une collaboration, pensée pour répondre précisément à vos besoins tout en offrant une expérience fluide à vos utilisateurs. Qu’il s’agisse d’une application sur-mesure, d’un site vitrine ou d’un outil métier, je conçois des produits numériques qui ont du sens, qui durent, et qui vous ressemblent. <br><br>Portée par une sensibilité au design, à l’ergonomie et à la technologie, je m’engage à créer des interfaces élégantes et des fonctionnalités robustes, avec une attention particulière à la maintenabilité et à l’évolutivité du code.</p>
                 </div>
               </div>
               <div class="margin-bottom margin-large">
-                <div class="text-meta text-color-muted">&lt;&gt;Les langages &amp; logiciels&lt;/&gt;</div>
+                <div class="text-meta text-color-muted"><span class="code-dim">&lt;section</span><span class="accent">.skills</span><span class="code-dim"> /&gt;</span></div>
               </div>
 
     <%# LANGAGES %>
-              <div class="light-mode">
-                <div class="home-hero-logos light">
-                  <%= image_tag "Ruby.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 48,
-                    height: 48,
-                    alt: "Logo Ruby Otterly Web",
-                    srcset: "#{asset_path('Ruby-p-500.png')} 500w, #{asset_path('Ruby-p-800.png')} 800w, #{asset_path('Ruby-p-1080.png')} 1080w, #{asset_path('Ruby.png')} 1563w",
-                    sizes: "48px"
-                    %>
-
-                  <%= image_tag "rails.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 50,
-                    height: 50,
-                    alt: "Logo Rails Otterly Web",
-                    srcset: "#{asset_path('rails-p-500.png')} 500w, #{asset_path('rails-p-800.png')} 800w, #{asset_path('rails-p-1080.png')} 1080w, #{asset_path('rails.png')} 1563w",
-                    sizes: "50px"
-                    %>
-
-                  <%= image_tag "js.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 48,
-                    height: 48,
-                    alt: "Logo JavaScript Otterly Web",
-                    srcset: "#{asset_path('js-p-500.png')} 500w, #{asset_path('js-p-800.png')} 800w, #{asset_path('js-p-1080.png')} 1080w, #{asset_path('js.png')} 1563w",
-                    sizes: "48px"
-                    %>
-
-                  <%= image_tag "stimulus.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 52,
-                    height: 52,
-                    alt: "Logo Stimulus Otterly Web",
-                    srcset: "#{asset_path('stimulus-p-500.png')} 500w, #{asset_path('stimulus-p-800.png')} 800w, #{asset_path('stimulus-p-1080.png')} 1080w, #{asset_path('stimulus.png')} 1563w",
-                    sizes: "52px"
-                    %>
-
-                  <%= image_tag "react.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 52,
-                    height: 52,
-                    alt: "Logo React Otterly Web",
-                    srcset: "#{asset_path('react-p-500.png')} 500w, #{asset_path('react-p-800.png')} 800w, #{asset_path('react-p-1080.png')} 1080w, #{asset_path('react.png')} 1563w",
-                    sizes: "52px"
-                    %>
-
-                  <div class="tech-logo-label">Ruby</div>
-                  <div class="tech-logo-label">Rails</div>
-                  <div class="tech-logo-label">JavaScript</div>
-                  <div class="tech-logo-label">Stimulus</div>
-                  <div class="tech-logo-label">React</div>
-
-                    <%= image_tag "html.png",
-                      class: "tech-logo tech-logo-row2",
-                      loading: "lazy",
-                      width: 52,
-                      height: 52,
-                      alt: "Logo Html Otterly Web",
-                      srcset: "#{asset_path('html-p-500.png')} 500w, #{asset_path('html-p-800.png')} 800w, #{asset_path('html-p-1080.png')} 1080w, #{asset_path('html.png')} 1563w",
-                      sizes: "52px"
-                      %>
-
-                    <%= image_tag "css.png",
-                      class: "tech-logo tech-logo-row2",
-                      loading: "lazy",
-                      width: 52,
-                      height: 52,
-                      alt: "Logo CSS Otterly Web",
-                      srcset: "#{asset_path('css-p-500.png')} 500w, #{asset_path('css-p-800.png')} 800w, #{asset_path('css-p-1080.png')} 1080w, #{asset_path('css.png')} 1563w",
-                      sizes: "52px"
-                      %>
-
-                    <%= image_tag "bootstrap.png",
-                      class: "tech-logo tech-logo-row2",
-                      loading: "lazy",
-                      width: 50,
-                      height: 50,
-                      alt: "Logo Bootstrap Otterly Web",
-                      srcset: "#{asset_path('bootstrap-p-500.png')} 500w, #{asset_path('bootstrap-p-800.png')} 800w, #{asset_path('bootstrap-p-1080.png')} 1080w, #{asset_path('bootstrap.png')} 1563w",
-                      sizes: "50px"
-                      %>
-
-                    <%= image_tag "tailwind.png",
-                      class: "tech-logo tech-logo-row2",
-                      loading: "lazy",
-                      width: 52,
-                      height: 52,
-                      alt: "Logo Tailwind Otterly Web",
-                      srcset: "#{asset_path('tailwind-p-500.png')} 500w, #{asset_path('tailwind-p-800.png')} 800w, #{asset_path('tailwind-p-1080.png')} 1080w, #{asset_path('tailwind.png')} 1563w",
-                      sizes: "52px"
-                      %>
-
-                    <%= image_tag "figma.png",
-                      class: "tech-logo tech-logo-row2",
-                      loading: "lazy",
-                      width: 50,
-                      height: 50,
-                      alt: "Logo Figma Otterly Web",
-                      srcset: "#{asset_path('figma-p-500.png')} 500w, #{asset_path('figma-p-800.png')} 800w, #{asset_path('figma-p-1080.png')} 1080w, #{asset_path('figma.png')} 1563w",
-                      sizes: "50px"
-                      %>
-
-                  <div class="tech-logo-label">HTML</div>
-                  <div class="tech-logo-label">CSS</div>
-                  <div class="tech-logo-label">Bootstrap</div>
-                  <div class="tech-logo-label">Tailwind</div>
-                  <div class="tech-logo-label">Figma</div>
-                </div>
-              </div>
-
-
-              <div class="dark-mode">
-                <div class="home-hero-logos dark">
-                  <%= image_tag "ruby-blanc.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 48,
-                    height: 48,
-                    alt: "Logo Ruby Otterly Web",
-                    srcset: "#{asset_path('ruby-blanc-p-500.png')} 500w, #{asset_path('ruby-blanc-p-800.png')} 800w, #{asset_path('ruby-blanc-p-1080.png')} 1080w, #{asset_path('ruby-blanc.png')} 1563w",
-                    sizes: "48px"
-                    %>
-
-                  <%= image_tag "rails-blanc.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 50,
-                    height: 50,
-                    alt: "Logo Rails Otterly Web",
-                    srcset: "#{asset_path('rails-blanc-p-500.png')} 500w, #{asset_path('rails-blanc-p-800.png')} 800w, #{asset_path('rails-blanc-p-1080.png')} 1080w, #{asset_path('rails-blanc.png')} 1563w",
-                    sizes: "50px"
-                    %>
-
-                  <%= image_tag "js-blanc.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 48,
-                    height: 48,
-                    alt: "Logo JavaScript Otterly Web",
-                    srcset: "#{asset_path('js-blanc-p-500.png')} 500w, #{asset_path('js-blanc-p-800.png')} 800w, #{asset_path('js-blanc-p-1080.png')} 1080w, #{asset_path('js-blanc.png')} 1563w",
-                    sizes: "48px"
-                    %>
-
-                  <%= image_tag "stimulus.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 52,
-                    height: 52,
-                    alt: "Logo Stimulus Otterly Web",
-                    srcset: "#{asset_path('stimulus-blanc-p-500.png')} 500w, #{asset_path('stimulus-blanc-p-800.png')} 800w, #{asset_path('stimulus-blanc-p-1080.png')} 1080w, #{asset_path('stimulus-blanc.png')} 1563w",
-                    sizes: "52px"
-                    %>
-
-                  <%= image_tag "react.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 52,
-                    height: 52,
-                    alt: "Logo React Otterly Web",
-                    srcset: "#{asset_path('react-blanc-p-500.png')} 500w, #{asset_path('react-blanc-p-800.png')} 800w, #{asset_path('react-blanc-p-1080.png')} 1080w, #{asset_path('react-blanc.png')} 1563w",
-                    sizes: "52px"
-                    %>
-
-                  <div class="tech-logo-label">Ruby</div>
-                  <div class="tech-logo-label">Rails</div>
-                  <div class="tech-logo-label">JavaScript</div>
-                  <div class="tech-logo-label">Stimulus</div>
-                  <div class="tech-logo-label">React</div>
-
-                  <%= image_tag "html.png",
-                    class: "tech-logo tech-logo-row2",
-                    loading: "lazy",
-                    width: 52,
-                    height: 52,
-                    alt: "Logo Html Otterly Web",
-                    srcset: "#{asset_path('html-blanc-p-500.png')} 500w, #{asset_path('html-blanc-p-800.png')} 800w, #{asset_path('html-blanc-p-1080.png')} 1080w, #{asset_path('html-blanc.png')} 1563w",
-                    sizes: "52px"
-                    %>
-
-                  <%= image_tag "css-blanc.png",
-                    class: "tech-logo tech-logo-row2",
-                    loading: "lazy",
-                    width: 52,
-                    height: 52,
-                    alt: "Logo CSS Otterly Web",
-                    srcset: "#{asset_path('css-blanc-p-500.png')} 500w, #{asset_path('css-blanc-p-800.png')} 800w, #{asset_path('css-blanc-p-1080.png')} 1080w, #{asset_path('css-blanc.png')} 1563w",
-                    sizes: "52px"
-                    %>
-
-                  <%= image_tag "bootstrap-blanc.png",
-                    class: "tech-logo tech-logo-row2",
-                    loading: "lazy",
-                    width: 50,
-                    height: 50,
-                    alt: "Logo Bootstrapt Otterly Web",
-                    srcset: "#{asset_path('bootstrap-blanc-p-500.png')} 500w, #{asset_path('bootstrap-blanc-p-800.png')} 800w, #{asset_path('bootstrap-blanc-p-1080.png')} 1080w, #{asset_path('bootstrap-blanc.png')} 1563w",
-                    sizes: "50px"
-                    %>
-
-                  <%= image_tag "tailwind-blanc.png",
-                    class: "tech-logo tech-logo-row2",
-                    loading: "lazy",
-                    width: 52,
-                    height: 52,
-                    alt: "Logo Tailwind Otterly Web",
-                    srcset: "#{asset_path('tailwind-blanc-p-500.png')} 500w, #{asset_path('tailwind-blanc-p-800.png')} 800w, #{asset_path('tailwind-blanc-p-1080.png')} 1080w, #{asset_path('tailwind-blanc.png')} 1563w",
-                    sizes: "52px"
-                    %>
-
-                  <%= image_tag "figma-blanc.png",
-                    class: "tech-logo tech-logo-row2",
-                    loading: "lazy",
-                    width: 50,
-                    height: 50,
-                    alt: "Logo Figma Otterly Web",
-                    srcset: "#{asset_path('figma-blanc-p-500.png')} 500w, #{asset_path('figma-blanc-p-800.png')} 800w, #{asset_path('figma-blanc-p-1080.png')} 1080w, #{asset_path('figma-blanc.png')} 1563w",
-                    sizes: "50px"
-                    %>
-
-                  <div class="tech-logo-label">HTML</div>
-                  <div class="tech-logo-label">CSS</div>
-                  <div class="tech-logo-label">Bootstrap</div>
-                  <div class="tech-logo-label">Tailwind</div>
-                  <div class="tech-logo-label">Figma</div>
-                </div>
+              <div class="skills-grid">
+                <span class="skill-item"><i class="devicon-ruby-plain"></i> Ruby</span>
+                <span class="skill-item"><i class="devicon-rails-plain"></i> Rails</span>
+                <span class="skill-item"><i class="devicon-php-plain"></i> PHP</span>
+                <span class="skill-item"><i class="devicon-symfony-original"></i> Symfony</span>
+                <span class="skill-item"><i class="devicon-laravel-plain"></i> Laravel</span>
+                <span class="skill-item"><i class="devicon-html5-plain"></i> HTML &amp; CSS</span>
+                <span class="skill-item"><i class="devicon-tailwindcss-plain"></i> Tailwind</span>
+                <span class="skill-item"><i class="devicon-javascript-plain"></i> JavaScript</span>
+                <span class="skill-item"><i class="devicon-typescript-plain"></i> TypeScript</span>
+                <span class="skill-item"><i class="devicon-react-original"></i> React</span>
+                <span class="skill-item"><i class="devicon-nextjs-plain"></i> Next</span>
+                <span class="skill-item"><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
+                <span class="skill-item"><i class="devicon-git-plain"></i> Git / GitHub</span>
+                <span class="skill-item"><i class="devicon-jira-plain"></i> Jira</span>
+                <span class="skill-item"><i class="devicon-figma-plain"></i> Figma / XD</span>
+                <span class="skill-item">✦ Claude Code</span>
               </div>
             </div>
           </div>
@@ -508,7 +294,7 @@
 <section id="Projets" class="section-home-projects dark-section">
   <section class="section-top muted">
     <div class="section-top-heading">
-      <div class="text-meta text-color-muted">&lt;&gt;Réalisations&lt;/&gt;</div>
+      <div class="text-meta text-color-muted"><span class="code-dim">&lt;section</span><span class="accent">.projects</span><span class="code-dim"> /&gt;</span></div>
       <div class="text-meta text-color-muted">(01)</div>
     </div>
     <div>
@@ -518,7 +304,7 @@
         </div>
       </div>
       <div class="max-width-huge">
-        <p class="heading-alt-small">Découvrez mes projets récents, reflet de créativité et d'innovation.</p>
+        <p class="heading-alt-small">Découvrez mes <span class="accent">projets récents</span>, reflet de créativité et d'innovation.</p>
       </div>
     </div>
   </section>
@@ -537,7 +323,7 @@
             <p>Fonctionnalités clés : Recherche dynamique de plantes, fiches végétales détaillées, système de favoris, commentaires sur les végétaux, messagerie intégrée, interface responsive.</p>
             <p class="text-block-techno"><strong>Ruby on Rails &bull; PostgreSQL &bull; JavaScript &bull; Stimulus.js &bull; Turbo &bull; Devise &bull; SCSS &bull; Bootstrap &bull; API Google &bull; Heroku &bull; Figma</strong></p>
             <div class="button-row">
-              <a href="https://www.klorys.re/" target="_blank" class="button-primary w-button">VISITER LE SITE</a>
+              <a href="https://www.klorys.re/" target="_blank" class="button-primary">VISITER LE SITE</a>
             </div>
           </div>
         </div>
@@ -554,7 +340,7 @@
             <p>Fonctionnalités clés : Import CSV intelligent, dashboard de suivi dynamique, calcul automatique des ratios de couverture, gestion des utilisateurs, intégration de l’API Pappers, système d’abonnements avec Stripe.</p>
             <p class="text-block-techno"> <strong>Ruby on Rails &bull; PostgreSQL &bull; JavaScript &bull; Stimulus.js &bull; Turbo &bull; Tailwind CSS &bull; Devise &bull; Pundit &bull; Bootstrap &bull; Stripe API &bull; API Pappers &bull; CSV Import &bull; Tailwind &bull; AWS &bull; Figma</strong></p>
             <div class="button-row">
-              <a href="#" class="button-primary w-button">Bientôt disponible</a>
+              <a href="#" class="button-primary">Bientôt disponible</a>
             </div>
           </div>
         </div>
@@ -571,7 +357,7 @@
             <p>Fonctionnalités clés : Ajout, tri et suppression de tâches, tri par énergie, affichage en cartes colorées, interface épurée et responsive.</p>
             <p class="text-block-techno"><strong> React &bull; Vite &bull; Tailwind CSS &bull; nanoid </strong></p>
             <div class="button-row">
-              <a href="https://jus1302.github.io/To-do-List/" target="_blank" class="button-primary w-button">VOIR L'APP</a>
+              <a href="https://jus1302.github.io/To-do-List/" target="_blank" class="button-primary">VOIR L'APP</a>
             </div>
           </div>
         </div>
@@ -588,7 +374,9 @@
             <p>Fonctionnalités clés : Sélection de style, configuration de budget, suggestions intelligentes de produits, génération de packs, intégration d’images et fiches produits, responsive design.</p>
             <p class="text-block-techno"> <strong>Ruby on Rails &bull; PostgreSQL &bull; JavaScript &bull; Stimulus.js &bull; Turbo &bull; Devise &bull; SCSS &bull; Bootstrap &bull; OpenAI API &bull; Heroku &bull; Figma </strong></p>
             <div class="button-row">
-              <a href="https://github.com/JuS1302/Nestify" target="_blank" class="button-primary w-button">CONSULTER LE PROJET SUR GITHUB </a>
+              <a href="https://github.com/JuS1302/Nestify" target="_blank" class="button-primary">CONSULTER LE PROJET SUR GITHUB </a>
+
+
             </div>
           </div>
         </div>
@@ -609,7 +397,7 @@
       <section id="Services" class="section-home-services">
         <div class="section-top">
           <div class="section-top-heading">
-            <div class="text-meta text-color-muted">&lt;&gt;Ce que je fais&lt;/&gt;</div>
+            <div class="text-meta text-color-muted"><span class="code-dim">&lt;section</span><span class="accent">.services</span><span class="code-dim"> /&gt;</span></div>
             <div class="text-meta text-color-muted">(02)</div>
           </div>
           <div>
@@ -619,7 +407,7 @@
               </div>
             </div>
             <div class="max-width-huge">
-              <p class="heading-alt-small">Pour sublimer votre marque, optimiser l’expérience utilisateur et assurer un déploiement fluide et pérenne.</p>
+              <p class="heading-alt-small">Pour <span class="accent">sublimer votre marque</span>, optimiser l’expérience utilisateur et assurer un déploiement fluide et pérenne.</p>
             </div>
           </div>
         </div>
@@ -641,16 +429,16 @@
               </div>
               <div class="margin-bottom margin-xsmall">
                 <div class="overflow-hidden">
-                  <h3 class="heading-style-small">sur-mesure</h3>
+                  <h3 class="heading-style-small"><span class="accent">sur-mesure</span></h3>
                 </div>
               </div>
               <div class="max-width-large">
-                <p class="heading-alt-h3">Je développe des applications web sur mesure, alliant front-end réactif (HTML, CSS, JavaScript, React) et back-end robuste (Ruby on Rails, API REST, gestion de bases de données). Une architecture pensée pour la performance, la scalabilité et une expérience utilisateur fluide.</p>
+                <p class="heading-alt-h3">Je développe des applications web sur mesure, alliant front-end réactif (HTML/CSS, Tailwind, JavaScript, TypeScript, React, Next.js) et back-end robuste (Ruby on Rails, PHP, Symfony, Laravel, API REST, PostgreSQL). Une architecture pensée pour la performance, la scalabilité et une expérience utilisateur fluide.</p>
               </div>
             </div>
             <div>
               <div class="margin-bottom margin-medium">
-                <div class="text-meta text-color-muted">&lt;&gt;Services développement web&lt;/&gt;</div>
+                <div class="text-meta text-color-muted"><span class="code-dim">&lt;service</span><span class="accent">.dev</span><span class="code-dim"> /&gt;</span></div>
               </div>
               <div class="max-width-large"></div>
               <div class="home-services-list">
@@ -672,7 +460,7 @@
               </div>
               <div class="margin-bottom margin-xsmall">
                 <div class="overflow-hidden">
-                  <h3 class="heading-style-small">Design</h3>
+                  <h3 class="heading-style-small"><span class="accent">Design</span></h3>
                 </div>
               </div>
               <div class="max-width-large">
@@ -681,7 +469,7 @@
             </div>
             <div>
               <div class="margin-bottom margin-medium">
-                <div class="text-meta text-color-muted">&lt;&gt;Services UX/UI design&lt;/&gt;</div>
+                <div class="text-meta text-color-muted"><span class="code-dim">&lt;service</span><span class="accent">.design</span><span class="code-dim"> /&gt;</span></div>
               </div>
               <div class="max-width-large"></div>
               <div class="home-services-list">
@@ -719,7 +507,7 @@
               </div>
               <div class="margin-bottom margin-xsmall">
                 <div class="overflow-hidden">
-                  <h3 class="heading-style-small">&amp; maintenance</h3>
+                  <h3 class="heading-style-small"><span class="accent">&amp; maintenance</span></h3>
                 </div>
               </div>
               <div class="max-width-large">
@@ -728,7 +516,7 @@
             </div>
             <div>
               <div class="margin-bottom margin-medium">
-                <div class="text-meta text-color-muted">&lt;&gt;Services déploiement &amp; maintenance&lt;/&gt;</div>
+                <div class="text-meta text-color-muted"><span class="code-dim">&lt;service</span><span class="accent">.deploy</span><span class="code-dim"> /&gt;</span></div>
               </div>
               <div class="max-width-large"></div>
               <div class="home-services-list">
@@ -749,7 +537,7 @@
       <section id="Avis-clients" class="section-home-clients">
         <div class="section-top">
           <div class="section-top-heading">
-            <div class="text-meta text-color-muted">&lt;&gt;Avis clients&lt;/&gt;</div>
+            <div class="text-meta text-color-muted"><span class="code-dim">&lt;section</span><span class="accent">.clients</span><span class="code-dim"> /&gt;</span></div>
             <div class="text-meta text-color-muted">(03)</div>
           </div>
           <div>
@@ -760,7 +548,7 @@
             </div>
             <div class="margin-bottom margin-small">
               <div class="overflow-hidden">
-                <h2 class="heading-style-xxlarge">mes clients</h2>
+                <h2 class="heading-style-xxlarge"><span class="accent">mes clients</span></h2>
               </div>
             </div>
             <div class="max-width-huge">
@@ -891,8 +679,8 @@
     <footer class="footer">
       <div class="footer-top">
         <div class="overflow-hidden">
-          <div class="w-row">
-            <div class="w-col w-col-2">
+          <div class="footer-row">
+            <div class="footer-col-logo">
               <div class="light-mode">
                 <%= image_tag "logo-inverse_1.png",
                   loading: "lazy",
@@ -908,50 +696,50 @@
                   class: "image-14" %>
               </div>
             </div>
-            <div class="w-col w-col-10">
+            <div class="footer-col-main">
               <h2 class="heading">otterly web©</h2>
             </div>
           </div>
         </div>
       </div>
-      <div class="w-row">
-        <div class="w-col w-col-6">
+      <div class="footer-row">
+        <div class="footer-col">
           <div class="text-meta text-color-muted-inverse">&lt;&gt;Sections&lt;/&gt;</div>
           <div class="nav center-phone-landscape">
-            <a href="#Projets" class="nav-item inverse w-inline-block">
+            <a href="#Projets" class="nav-item inverse">
               <div class="nav-item-text">Réalisations</div>
               <div class="nav-item-line inverse"></div>
             </a>
-            <a href="#Services" class="nav-item inverse w-inline-block">
+            <a href="#Services" class="nav-item inverse">
               <div class="nav-item-text">Services</div>
               <div class="nav-item-line inverse"></div>
             </a>
-            <a href="#Avis-clients" class="nav-item inverse w-inline-block">
+            <a href="#Avis-clients" class="nav-item inverse">
               <div class="nav-item-text">Clients</div>
               <div class="nav-item-line inverse"></div>
             </a>
-            <a href="#A-Propos" class="nav-item inverse w-inline-block">
+            <a href="#A-Propos" class="nav-item inverse">
               <div class="nav-item-text">A propos</div>
               <div class="nav-item-line inverse"></div>
             </a>
-            <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="nav-item inverse w-inline-block">
+            <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="nav-item inverse">
               <div class="nav-item-text">Contact</div>
               <div class="nav-item-line inverse"></div>
             </a>
           </div>
         </div>
-        <div class="w-col w-col-6">
+        <div class="footer-col">
           <div class="text-meta text-color-muted-inverse">&lt;&gt;Social&lt;/&gt;</div>
           <div class="nav center-phone-landscape">
-            <a href="https://www.linkedin.com/in/julie-simon1302/" target="_blank" class="nav-item inverse w-inline-block">
+            <a href="https://www.linkedin.com/in/julie-simon1302/" target="_blank" class="nav-item inverse">
               <div class="nav-item-text">Linkedin</div>
               <div class="nav-item-line inverse"></div>
             </a>
-            <a href="https://github.com/JuS1302" target="_blank" class="nav-item inverse w-inline-block">
+            <a href="https://github.com/JuS1302" target="_blank" class="nav-item inverse">
               <div class="nav-item-text">Github</div>
               <div class="nav-item-line inverse"></div>
             </a>
-            <a href="https://www.malt.fr/profile/juliesimon4?overview" target="_blank" class="nav-item inverse w-inline-block">
+            <a href="https://www.malt.fr/profile/juliesimon4?overview" target="_blank" class="nav-item inverse">
               <div class="nav-item-text">Malt</div>
               <div class="nav-item-line inverse"></div>
             </a>

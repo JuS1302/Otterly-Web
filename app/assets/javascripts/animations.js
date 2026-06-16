@@ -14,7 +14,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   var intro      = document.getElementById('page-intro');
-  var introDelay = 1600; /* ms avant que l'écran commence à partir */
+  var introDelay = 1300; /* ms avant que l'écran commence à partir */
   var introExit  = 900;  /* durée de la transition de sortie (CSS) */
 
   /* ---- Étape 1 : cacher les éléments du hero IMMÉDIATEMENT ----
@@ -38,12 +38,10 @@ document.addEventListener('DOMContentLoaded', function () {
     navItems.push(el);
   });
 
-  /* Éléments fade-up du hero (texte, logos, bouton) */
+  /* Éléments fade-up du hero (skills, bouton) */
   var heroFadeEls = [];
   [
-    '.section-home-hero .text-meta',
-    '.section-home-hero .heading-alt-h2',
-    '.section-home-hero .home-hero-logos',
+    '.section-home-hero .skills-grid',
     '.section-home-hero .button-row',
   ].forEach(function (sel) {
     document.querySelectorAll(sel).forEach(function (el) {
@@ -99,21 +97,21 @@ document.addEventListener('DOMContentLoaded', function () {
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
 
-        /* Entrées du menu : fade-up avec stagger (60ms entre chaque) */
+        /* Entrées du menu : fade avec stagger (45ms entre chaque) */
         navItems.forEach(function (el, idx) {
           setTimeout(function () {
             el.classList.add('is-visible');
-          }, idx * 60);
+          }, idx * 45);
         });
 
         /* Titres du hero : slide-up avec stagger, après les items du menu */
-        var delaiTitres = navItems.length * 60 + 100;
+        var delaiTitres = navItems.length * 45 + 80;
         heroContainers.forEach(function (container, idx) {
           var child = container.firstElementChild;
           if (!child) return;
           setTimeout(function () {
             child.classList.add('is-visible');
-          }, delaiTitres + idx * 120);
+          }, delaiTitres + idx * 90);
         });
 
         /* Éléments fade-up du hero : après les titres */
@@ -142,16 +140,17 @@ document.addEventListener('DOMContentLoaded', function () {
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
 
     var fadeObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
+      var visibles = entries.filter(function (e) { return e.isIntersecting; });
+      visibles.forEach(function (entry, idx) {
+        fadeObserver.unobserve(entry.target);
+        setTimeout(function () {
           entry.target.classList.add('is-visible');
-          fadeObserver.unobserve(entry.target);
-        }
+        }, idx * 70);
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
 
     /* Slide-up pour toutes les sections SAUF le hero et l'intro
        (le hero est géré par demarrerHero, l'intro par la séquence) */
@@ -193,6 +192,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (el.classList.contains('anim-reveal')) return;
         if (el.classList.contains('anim-fade')) return;
         if (el.closest('.section-home-hero')) return;
+        if (el.closest('.footer')) return;
 
         el.classList.add('anim-fade');
         fadeObserver.observe(el);
@@ -201,3 +201,49 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 });
+
+
+/* ---- Fix toggle dark / light mode ----
+   Le PLUGIN_VARIABLE de Webflow cible .toggle-color-dot au lieu de :root —
+   les variables CSS ne cascadent pas sur le reste de la page.
+   Ce handler les définit correctement sur document.documentElement. */
+(function () {
+  var toggle = document.querySelector('.toggle-color');
+  if (!toggle) return;
+
+  var isDark = false;
+  var root   = document.documentElement;
+
+  toggle.addEventListener('click', function () {
+    isDark = !isDark;
+    toggle.classList.toggle('is-dark', isDark);
+
+    if (isDark) {
+      root.style.setProperty('--global-colors--background-default',       '#0e1011');
+      root.style.setProperty('--global-colors--background-muted',         '#181a1b');
+      root.style.setProperty('--global-colors--background-muted-2',       '#1f2122');
+      root.style.setProperty('--global-colors--background-primary',       '#ffffff');
+      root.style.setProperty('--global-colors--background-primary-muted', '#f5f5f5');
+      root.style.setProperty('--global-colors--text-default',             '#ffffff');
+      root.style.setProperty('--global-colors--text-inverse',             '#0e1011');
+      root.style.setProperty('--global-colors--text-muted',               'rgba(255,255,255,0.6)');
+      root.style.setProperty('--global-colors--border-default',           '#262829');
+      root.style.setProperty('--global-colors--border-inverse',           '#e8eded');
+      document.querySelectorAll('.light-mode').forEach(function (el) { el.style.display = 'none'; });
+      document.querySelectorAll('.dark-mode').forEach(function (el) { el.style.display = 'block'; });
+    } else {
+      root.style.setProperty('--global-colors--background-default',       '#ffffff');
+      root.style.setProperty('--global-colors--background-muted',         '#f8f8f8');
+      root.style.setProperty('--global-colors--background-muted-2',       '#eeeeee');
+      root.style.setProperty('--global-colors--background-primary',       '#0e1011');
+      root.style.setProperty('--global-colors--background-primary-muted', '#181a1b');
+      root.style.setProperty('--global-colors--text-default',             '#0e1011');
+      root.style.setProperty('--global-colors--text-inverse',             '#ffffff');
+      root.style.setProperty('--global-colors--text-muted',               'rgba(14,16,17,0.6)');
+      root.style.setProperty('--global-colors--border-default',           '#e8eded');
+      root.style.setProperty('--global-colors--border-inverse',           '#262829');
+      document.querySelectorAll('.light-mode').forEach(function (el) { el.style.display = ''; });
+      document.querySelectorAll('.dark-mode').forEach(function (el) { el.style.display = 'none'; });
+    }
+  });
+}());

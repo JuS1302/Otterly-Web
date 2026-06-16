@@ -3136,6 +3136,7 @@ figcaption {
   text-decoration: none;
   display: flex;
   position: relative;
+  transition: color 0.3s ease;
 }
 
 .nav-item:hover {
@@ -3144,12 +3145,12 @@ figcaption {
 
 .nav-item.w--current {
   color: var(--nav-default--text-color-hover);
-  transition: color .3s;
 }
 
 .nav-item.inverse {
   color: var(--nav-default-inverse--text-color);
   text-align: center;
+  transition: color 0.3s ease;
 }
 
 .nav-item.inverse:hover {
@@ -5057,7 +5058,13 @@ figcaption {
   flex-direction: column;
   box-sizing: border-box;
   min-width: auto;
-  height: 100%; /* ✅ occupe toute la hauteur du parent */
+  height: 100%;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
 }
 
 .project-image {
@@ -5129,8 +5136,8 @@ figcaption {
 }
 
 .tech-logo:hover {
-  transform: scale(1.5) rotateZ(5deg);
-  filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.5));
+  transform: scale(1.12);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
 }
 
 @keyframes pulse {
@@ -5369,10 +5376,10 @@ figcaption {
 }
 
 .button-primary {
-  color: #fff;
+  color: #0a0a0a;
   letter-spacing: 2px;
   text-transform: uppercase;
-  background-color: #1a1b1f;
+  background-color: var(--accent);
   margin-top: 39px;
   padding: 12px 25px;
   font-size: 12px;
@@ -5381,8 +5388,10 @@ figcaption {
 }
 
 .button-primary:hover {
-  color: #fff;
-  background-color: #32343a;
+  color: #ffffff;
+  background-color: #0a0a0a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .button-primary:active {
@@ -8682,4 +8691,123 @@ figcaption {
   font-weight: 500;
   font-style: italic;
   font-display: swap;
+}
+
+
+/* ===================================================
+   REFONTE IDENTITÉ — couleur accent #56e817
+   =================================================== */
+
+:root {
+  --accent: #56e817;
+}
+
+/* Mot-clé accent vert */
+.accent {
+  color: var(--accent);
+}
+
+/* Étiquettes de section style code VS Code */
+.text-meta.text-color-muted,
+.text-meta.text-color-muted-inverse {
+  font-family: 'Fira Code', 'Inconsolata', monospace;
+  font-size: 1rem;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.code-dim {
+  color: var(--global-colors--text-muted);
+}
+
+/* Texte "Made with ♥ by Otterly Web" dans le footer */
+.footer .text-meta {
+  color: var(--global-colors--text-inverse);
+}
+
+/* Lignes hover menu → vertes */
+.navbar-item-line {
+  background-color: var(--accent) !important;
+}
+
+.nav-item-line {
+  background-color: var(--accent) !important;
+}
+
+.nav-item-line.inverse {
+  background-color: var(--accent) !important;
+}
+
+/* Ligne bouton "On échange ?" → verte */
+.button-text-line {
+  background-color: var(--accent) !important;
+}
+
+/* ===================================================
+   GRILLE DE COMPÉTENCES (remplace les logos)
+   =================================================== */
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.skill-item {
+  font-family: var(--global--body-font-family);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--global-colors--text-default);
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--accent);
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  cursor: default;
+}
+
+.skill-item i,
+.skill-item .skill-icon {
+  font-size: 1rem;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+}
+
+.skill-item:hover {
+  color: #0a0a0a;
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Toggle dark/light — animation du point */
+.toggle-color-dot {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggle-color.is-dark .toggle-color-dot {
+  transform: translateX(30px);
+}
+
+/* ===================================================
+   FOOTER — layout (remplace la grille Webflow w-row/w-col)
+   =================================================== */
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-col-logo {
+  width: 80px;
+  flex-shrink: 0;
+}
+
+.footer-col-main {
+  flex: 1;
+}
+
+.footer-col {
+  width: 50%;
 }

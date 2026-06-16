@@ -5050,7 +5050,7 @@ figcaption {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  min-height: 420px;
+  height: 420px;
   background-color: var(--global-colors--background-muted);
   border-radius: 8px;
   overflow: hidden;
@@ -5092,6 +5092,7 @@ figcaption {
 .carousel-nav {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -5160,6 +5161,9 @@ figcaption {
   font-size: 0.9rem;
   font-weight: 500;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tech-logo {
@@ -7965,6 +7969,7 @@ figcaption {
     border: 1px solid var(--global-colors--border-inverse);
     background-color: var(--global-colors--background-default);
     color: var(--global-colors--text-default);
+    padding-top: 12px;
     padding-bottom: 12px;
   }
 
@@ -8873,17 +8878,29 @@ figcaption {
     padding: 0 0 4vw;
   }
 
+  .carousel-slide {
+    height: 560px;
+  }
+
   .project-card {
     grid-template-columns: 1fr;
-    min-height: auto;
+    grid-template-rows: 200px 1fr;
+    height: 100%;
   }
 
   .project-card-image {
-    height: 220px;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .project-image {
+    height: 100%;
+    object-fit: cover;
   }
 
   .project-content {
     padding: 1.5rem;
+    overflow-y: auto;
   }
 
   /* Footer top : logo au-dessus du titre, centré */

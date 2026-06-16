@@ -1,11 +1,11 @@
 /* ===================================================
    Animations — intro + scroll
    Séquence :
-   1. Écran d'intro visible (via script inline dans le HTML)
-   2. Titre remonte (slide-up, 0.8s)
-   3. Pause courte
-   4. Écran monte vers le haut et disparaît (0.9s)
-   5. Animations du hero démarrent
+   1. Les titres du hero sont cachés immédiatement (pendant l'intro)
+   2. Écran noir avec titre qui monte (0.8s)
+   3. Pause
+   4. Écran part vers le haut (0.9s)
+   5. Titres du hero s'animent avec stagger
    6. IntersectionObserver pour les sections au scroll
    =================================================== */
 
@@ -13,9 +13,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var intro      = document.getElementById('page-intro');
   var introDelay = 1600; /* ms avant que l'écran commence à partir */
-  var introExit  = 900;  /* durée de la transition de sortie (doit correspondre au CSS) */
+  var introExit  = 900;  /* durée de la transition de sortie (CSS) */
 
-  /* ---- Séquence d'intro ---- */
+  /* ---- Étape 1 : cacher les éléments du hero IMMÉDIATEMENT ----
+
+     POURQUOI : pendant l'intro, la page est sous l'écran noir.
+     Si on attendait la fin de l'intro pour cacher les titres,
+     ils seraient visibles, puis sauteraient en bas au moment
+     d'appliquer anim-reveal → animation bizarre.
+     En les cachant dès maintenant, ils sont déjà dans leur
+     état final de départ quand l'intro disparaît. */
+  var heroContainers = document.querySelectorAll('.section-home-hero .overflow-hidden');
+  heroContainers.forEach(function (container) {
+    var child = container.firstElementChild;
+    if (child) child.classList.add('anim-reveal');
+  });
+
+  /* Éléments fade-up du hero (texte, logos, bouton) */
+  var heroFadeEls = [];
+  [
+    '.section-home-hero .text-meta',
+    '.section-home-hero .heading-alt-h2',
+    '.section-home-hero .home-hero-logos',
+    '.section-home-hero .button-row',
+  ].forEach(function (sel) {
+    document.querySelectorAll(sel).forEach(function (el) {
+      if (!el.classList.contains('anim-reveal')) {
+        el.classList.add('anim-fade');
+        heroFadeEls.push(el);
+      }
+    });
+  });
+
+  /* ---- Étape 2 : configurer l'observer pour les sections au scroll ---- */
+  configurerObservers();
+
+  /* ---- Étape 3 : séquence d'intro ---- */
   if (intro) {
     var introContainer = intro.querySelector('.overflow-hidden');
     var introHeading   = introContainer ? introContainer.firstElementChild : null;
@@ -30,12 +63,11 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
-    /* Après la pause, faire monter l'écran entier vers le haut */
+    /* Après la pause, faire monter l'écran vers le haut */
     setTimeout(function () {
       intro.classList.add('is-leaving');
 
-      /* Une fois la transition terminée, masquer l'élément
-         et démarrer les animations du hero */
+      /* Quand l'écran est parti, animer le hero */
       setTimeout(function () {
         intro.style.display = 'none';
         demarrerHero();
@@ -44,40 +76,39 @@ document.addEventListener('DOMContentLoaded', function () {
     }, introDelay);
 
   } else {
-    /* Pas d'intro : démarrer le hero immédiatement */
+    /* Pas d'intro : animer le hero immédiatement */
     demarrerHero();
   }
 
 
-  /* ---- Animations du hero (après l'intro) ---- */
+  /* ---- Étape 4 : animation du hero après l'intro ---- */
   function demarrerHero() {
 
-    /* Observer pour les sections au scroll (hors hero) */
-    configurerObservers();
-
-    /* Les .overflow-hidden du hero sont déjà dans le viewport.
-       On leur applique anim-reveal + on attend 2 frames pour
-       que le navigateur peigne l'état caché avant de déclencher
-       la transition vers l'état visible. */
-    var heroContainers = document.querySelectorAll(
-      '.section-home-hero .overflow-hidden'
-    );
-
-    heroContainers.forEach(function (container) {
-      var child = container.firstElementChild;
-      if (child) child.classList.add('anim-reveal');
-    });
-
+    /* Les titres ont déjà anim-reveal depuis l'étape 1,
+       on attend 2 frames pour s'assurer que l'état caché
+       est bien peint, puis on déclenche la transition. */
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
+
+        /* Titres avec stagger : +120ms par titre */
         heroContainers.forEach(function (container, idx) {
           var child = container.firstElementChild;
           if (!child) return;
-          /* Stagger : chaque titre apparaît 120ms après le précédent */
           setTimeout(function () {
             child.classList.add('is-visible');
           }, idx * 120);
         });
+
+        /* Éléments fade-up un peu après les titres */
+        var delaiApresTitres = heroContainers.length * 120 + 150;
+        setTimeout(function () {
+          heroFadeEls.forEach(function (el, idx) {
+            setTimeout(function () {
+              el.classList.add('is-visible');
+            }, idx * 80);
+          });
+        }, delaiApresTitres);
+
       });
     });
   }
@@ -86,8 +117,6 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ---- IntersectionObserver pour les sections au scroll ---- */
   function configurerObservers() {
 
-    /* Slide-up : on observe le PARENT .overflow-hidden (visible),
-       pas l'enfant (clippé à 0% quand transformé → threshold jamais atteint) */
     var revealObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -98,7 +127,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    /* Fade-up */
     var fadeObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -108,8 +136,8 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    /* Cibler tous les .overflow-hidden SAUF ceux du hero
-       (déjà gérés par demarrerHero) et ceux de l'intro */
+    /* Slide-up pour toutes les sections SAUF le hero et l'intro
+       (le hero est géré par demarrerHero, l'intro par la séquence) */
     document.querySelectorAll('.overflow-hidden').forEach(function (container) {
       if (container.closest('.section-home-hero')) return;
       if (container.closest('#page-intro')) return;
@@ -131,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
       revealObserver.observe(container);
     });
 
-    /* Fade-up : éléments ciblés par classe */
+    /* Fade-up pour les éléments des sections au scroll */
     [
       '.text-meta',
       '.heading-alt-h2',
@@ -144,10 +172,13 @@ document.addEventListener('DOMContentLoaded', function () {
       '.button-row',
     ].forEach(function (selector) {
       document.querySelectorAll(selector).forEach(function (el) {
-        if (!el.classList.contains('anim-reveal')) {
-          el.classList.add('anim-fade');
-          fadeObserver.observe(el);
-        }
+        /* Ignorer les éléments déjà pris en charge (hero ou anim-reveal) */
+        if (el.classList.contains('anim-reveal')) return;
+        if (el.classList.contains('anim-fade')) return;
+        if (el.closest('.section-home-hero')) return;
+
+        el.classList.add('anim-fade');
+        fadeObserver.observe(el);
       });
     });
   }

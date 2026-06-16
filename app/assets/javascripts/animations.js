@@ -6,31 +6,63 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* ---- 1. Slide-up : enfants directs de .overflow-hidden ----
-     Chaque titre (h1, h2, h3) est à l'intérieur d'un conteneur
-     .overflow-hidden qui masque le dépassement. Le titre part
-     du bas et remonte (effet "store relevé"). */
-  document.querySelectorAll('.overflow-hidden > *').forEach(function (el) {
-    el.classList.add('anim-reveal');
+  /* ---- 1. Slide-up : titres dans .overflow-hidden ----
+
+     POURQUOI on observe le PARENT et non l'enfant :
+     Quand on applique transform: translateY(105%) à l'enfant,
+     il sort visuellement du conteneur. overflow: hidden le masque.
+     L'IntersectionObserver calcule la portion VISIBLE de l'élément :
+     si le parent le clips à 0%, l'observer ne se déclenche jamais.
+     Solution : observer le conteneur .overflow-hidden (toujours
+     visible), puis animer son enfant quand le conteneur entre
+     dans le viewport. */
+  var revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var child = entry.target.firstElementChild;
+        if (child) child.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
   });
 
-  /* Stagger : si plusieurs .overflow-hidden sont frères dans le
-     même parent, chaque enfant reçoit un délai croissant de 0.12s
-     pour que les titres apparaissent les uns après les autres. */
   document.querySelectorAll('.overflow-hidden').forEach(function (container) {
+    var child = container.firstElementChild;
+    if (!child) return;
+
+    child.classList.add('anim-reveal');
+
+    /* Stagger : délai croissant pour les .overflow-hidden consécutifs
+       dans le même parent (effet cascade sur les titres) */
     var siblings = Array.from(container.parentElement.children).filter(function (el) {
       return el.classList.contains('overflow-hidden');
     });
     var idx = siblings.indexOf(container);
     if (idx > 0) {
-      var child = container.firstElementChild;
-      if (child) child.style.transitionDelay = (idx * 0.12) + 's';
+      child.style.transitionDelay = (idx * 0.12) + 's';
     }
+
+    revealObserver.observe(container); /* observer le PARENT, pas l'enfant */
   });
 
   /* ---- 2. Fade-up : éléments ciblés par classe ----
      Ces éléments partent de opacity:0 + légèrement en bas,
      puis remontent et apparaissent progressivement. */
+  var fadeObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
   var fadeSelectors = [
     '.text-meta',
     '.heading-alt-h2',
@@ -45,33 +77,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   fadeSelectors.forEach(function (selector) {
     document.querySelectorAll(selector).forEach(function (el) {
-      /* Ne pas écraser .anim-reveal si l'élément est
-         déjà ciblé par la règle overflow-hidden */
       if (!el.classList.contains('anim-reveal')) {
         el.classList.add('anim-fade');
+        fadeObserver.observe(el);
       }
     });
-  });
-
-  /* ---- 3. IntersectionObserver ----
-     Quand un élément entre dans le viewport (avec une marge
-     de 40px en bas pour anticiper légèrement), on lui ajoute
-     la classe .is-visible qui déclenche la transition CSS.
-     Une fois animé, on arrête de l'observer (unobserve). */
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1,           /* déclenche dès que 10% de l'élément est visible */
-    rootMargin: '0px 0px -40px 0px'  /* anticipe 40px avant d'atteindre le bas */
-  });
-
-  document.querySelectorAll('.anim-reveal, .anim-fade').forEach(function (el) {
-    observer.observe(el);
   });
 
 });

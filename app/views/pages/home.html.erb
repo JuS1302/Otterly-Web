@@ -16,8 +16,11 @@
 
   <%# Écran d'intro — fond sombre avec le titre du site %>
   <div id="page-intro" class="pageloader">
-    <div class="overflow-hidden">
-      <p class="pageloader-heading">Otterly Web©</p>
+    <div class="pageloader-content">
+      <%= image_tag "logo-inverse_1.png", class: "pageloader-logo", alt: "Otterly Web" %>
+      <div class="overflow-hidden">
+        <p class="pageloader-heading">Otterly Web©</p>
+      </div>
     </div>
   </div>
   <%# Script inline : rend l'intro visible immédiatement (avant le premier rendu) %>
@@ -181,6 +184,7 @@
               <li><a href="#Avis-clients">Clients</a></li>
               <li><a href="#A-Propos">À propos</a></li>
             </ul>
+            <%= image_tag "logo.png", class: "mobile-menu-logo", alt: "Otterly Web" %>
           </nav>
         </div>
 
@@ -193,6 +197,7 @@
               <li><a href="#Avis-clients">Clients</a></li>
               <li><a href="#A-Propos">À propos</a></li>
             </ul>
+            <%= image_tag "logo-inverse_1.png", class: "mobile-menu-logo", alt: "Otterly Web" %>
           </nav>
         </div>
       </div>
@@ -723,22 +728,7 @@
           <div class="footer-bottom">
             <div class="footer-bottom-grid">
               <div class="text-meta">Made with </div>
-              <div class="light-mode">
-                <%= image_tag "heart-solid.svg",
-                  loading: "lazy",
-                  width: 20,
-                  height: 20,
-                  alt: "Heart Icon",
-                  class: "image-3" %>
-              </div>
-              <div class="dark-mode">
-                <%= image_tag "heart-black.svg",
-                  loading: "lazy",
-                  width: 20,
-                  height: 20,
-                  alt: "Heart Icon Dark",
-                  class: "image-3" %>
-              </div>
+              <span class="footer-heart">❤</span>
               <div class="text-meta"> by Otterly Web
               </div>
             </div>
@@ -839,8 +829,11 @@
           transform: translateY(-100%);
           transition: transform 0.5s ease;
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
+          gap: 3rem;
+          padding-bottom: 3rem;
         }
 
         /* Le menu lui-même - mode sombre */
@@ -855,8 +848,11 @@
           transform: translateY(-100%);
           transition: transform 0.5s ease;
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
+          gap: 3rem;
+          padding-bottom: 3rem;
         }
 
         .mobile-menu-list {

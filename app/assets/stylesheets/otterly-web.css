@@ -8997,7 +8997,7 @@ figcaption {
   text-decoration: none;
   font-family: var(--global--body-font-family);
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: 2px;
   text-transform: uppercase;
   padding: 0.4rem 0;
@@ -9129,4 +9129,40 @@ figcaption {
   background-color: var(--global-colors--background-muted-2);
   padding: 0.45rem 0.9rem;
   border-radius: 6px;
+}
+
+.pageloader-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.pageloader-logo {
+  width: 200px;
+  height: auto;
+}
+
+@media (max-width: 767px) {
+  .pageloader-content {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+  }
+
+  .pageloader-logo {
+    width: 120px;
+  }
+}
+
+.mobile-menu-logo {
+  display: block;
+  width: 120px;
+  height: auto;
+  margin: 2rem auto 0;
+}
+
+.footer-heart {
+  color: var(--accent);
+  font-size: 1rem;
 }

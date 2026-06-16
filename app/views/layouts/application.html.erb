@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" data-wf-page="680957f3995352b738d711e6" data-wf-site="680957f3995352b738d71196">
+<html lang="fr">
 <head>
   <title><%= content_for?(:title) ? yield(:title) : "Otterly Web - Le web otterment bien pensé" %></title>
   <meta charset="utf-8">
@@ -20,30 +20,10 @@
   <meta property="og:image" content="https://www.otterly-web.fr/images/loutre-dev.png">
   <meta name="twitter:image" content="https://www.otterly-web.fr/images/loutre-dev.png">
 
-  <!-- Fonts + Webflow Scripts -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
-  <script>
-    WebFont.load({
-      google: {
-        families: [
-          "Montserrat:100,200,300,400,500,600,700,800,900",
-          "Inconsolata:400,700",
-          "Inter:regular,600",
-          "Anton SC:regular"
-        ]
-      }
-    });
-  </script>
-  <script>
-    !function(o,c){
-      var n=c.documentElement,
-      t=" w-mod-";
-      n.className+=t+"js",
-      ("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")
-    }(window,document);
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Inconsolata:wght@400;700&family=Inter:wght@400;600&family=Anton+SC&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -77,6 +57,5 @@
   <div class="page-wrapper">
     <%= yield %>
   </div>
-  <%= javascript_include_tag "web" %>
 </body>
 </html>

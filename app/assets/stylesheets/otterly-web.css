@@ -212,7 +212,7 @@
   --nav-default--text-color: var(--global-colors--text-default);
   --nav-default--text-color-hover: var(--global-colors--text-default);
   --nav-default-inverse--text-color: var(--global-colors--text-inverse);
-  --nav-default-inverse--text-color-hover: var(--global-colors--text-inverse);
+  --nav-default-inverse--text-color-hover: var(--accent);
   --subnav--font-family: var(--global--body-font-family);
   --subnav-default--text-color: var(--global-colors--text-muted);
   --subnav--font-size: 12px;

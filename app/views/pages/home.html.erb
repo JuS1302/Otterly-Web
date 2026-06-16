@@ -21,7 +21,7 @@
     <div class="show-tablet">
       <header class="header">
         <header class="navbar">
-          <div id="w-node-eb0427c1-bb1c-e076-5734-e12e7079058a-70790586" class="navbar-left">
+          <div class="navbar-left">
             <%= link_to root_path, class: "navbar-logo w-inline-block w--current", "aria-current": "page" do %>
               <div class="light-mode">
                 <%= image_tag "logo.png",
@@ -57,7 +57,7 @@
               <div class="navbar-item-line"></div>
             </a>
           </nav>
-          <div id="w-node-eb0427c1-bb1c-e076-5734-e12e7079063b-70790586" class="navbar-right">
+          <div class="navbar-right">
             <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="button-text w-inline-block">
               <div class="button-text-inner">
                 <div class="button-text-text">On échange ?</div>
@@ -81,7 +81,7 @@
 
     <header class="header-small">
       <header class="navbar-small">
-        <div id="w-node-_27821f9c-524e-9fb5-c2dd-c9ef1cd1e530-1cd1e52e" class="navbar-small-left">
+        <div class="navbar-small-left">
           <%= link_to root_path, class: "navbar-logo w-inline-block w--current", "aria-current": "page" do %>
             <%# Le logo-inverse est utilisé par défaut pour le header small (desktop principalement) %>
             <%= image_tag "logo-inverse.png",
@@ -92,7 +92,7 @@
               class: "navbar-logo-image" %>
           <% end %>
         </div>
-        <div id="w-node-_27821f9c-524e-9fb5-c2dd-c9ef1cd1e544-1cd1e52e" class="navbar-small-right">
+        <div class="navbar-small-right">
           <nav class="navbar-small-menu">
             <a href="#Projets" class="navbar-menu-item w-inline-block">
               <div class="navbar-menu-item-text">Réalisations</div>
@@ -202,7 +202,7 @@
               srcset: "#{asset_path('loutre-web-origami-p-500.png')} 500w, #{asset_path('loutre-web-origami-p-800.png')} 800w, #{asset_path('loutre-web-origami.png')} 1024w",
               sizes: "70px",
               class: "home-hero-image" %>
-          <div id="w-node-d33d43d6-87a6-8432-4bfc-9becb5519f53-38d711e6" class="home-hero-right">
+          <div class="home-hero-right">
             <header class="home-hero-right-top">
               <div class="margin-bottom margin-large">
                 <div class="overflow-hidden">
@@ -265,7 +265,7 @@
                     alt: "Logo Ruby Otterly Web",
                     srcset: "#{asset_path('Ruby-p-500.png')} 500w, #{asset_path('Ruby-p-800.png')} 800w, #{asset_path('Ruby-p-1080.png')} 1080w, #{asset_path('Ruby.png')} 1563w",
                     sizes: "48px",
-                    id: "w-node-_0fd5badf-55c7-037a-8f39-e0809206f321-38d711e6" %>
+                    %>
 
                   <%= image_tag "rails.png",
                     class: "tech-logo",
@@ -275,7 +275,7 @@
                     alt: "Logo Rails Otterly Web",
                     srcset: "#{asset_path('rails-p-500.png')} 500w, #{asset_path('rails-p-800.png')} 800w, #{asset_path('rails-p-1080.png')} 1080w, #{asset_path('rails.png')} 1563w",
                     sizes: "50px",
-                    id: "w-node-_2d7189aa-8c58-ff66-ebad-2a3603581028-38d711e6" %>
+                    %>
 
                   <%= image_tag "js.png",
                     class: "tech-logo",
@@ -285,7 +285,7 @@
                     alt: "Logo JavaScript Otterly Web",
                     srcset: "#{asset_path('js-p-500.png')} 500w, #{asset_path('js-p-800.png')} 800w, #{asset_path('js-p-1080.png')} 1080w, #{asset_path('js.png')} 1563w",
                     sizes: "48px",
-                    id: "w-node-_797aa0d8-9c08-df62-0776-47ff72d0ece4-38d711e6" %>
+                    %>
 
                   <%= image_tag "stimulus.png",
                     class: "tech-logo",
@@ -295,7 +295,7 @@
                     alt: "Logo Stimulus Otterly Web",
                     srcset: "#{asset_path('stimulus-p-500.png')} 500w, #{asset_path('stimulus-p-800.png')} 800w, #{asset_path('stimulus-p-1080.png')} 1080w, #{asset_path('stimulus.png')} 1563w",
                     sizes: "52px",
-                    id: "w-node-ec704833-d59b-fc3a-f226-dbf0e0a4cfa0-38d711e6" %>
+                    %>
 
                   <%= image_tag "react.png",
                     class: "tech-logo",
@@ -305,69 +305,69 @@
                     alt: "Logo React Otterly Web",
                     srcset: "#{asset_path('react-p-500.png')} 500w, #{asset_path('react-p-800.png')} 800w, #{asset_path('react-p-1080.png')} 1080w, #{asset_path('react.png')} 1563w",
                     sizes: "52px",
-                    id: "w-node-_8d4a9473-1797-246d-68b3-8753ce7fe763-38d711e6" %>
+                    %>
 
-                  <div id="w-node-_0af61efa-1b95-6417-2f43-391d95820947-38d711e6">Ruby</div>
-                  <div id="w-node-_6c6820d5-c9e3-48a8-8f76-3c6137e62385-38d711e6">Rails</div>
-                  <div id="w-node-_16bc80c7-3b21-d6d0-48c0-186b50f51718-38d711e6">JavaScript</div>
-                  <div id="w-node-_243f792f-521f-900d-04c4-2b7f21e2bae3-38d711e6">Stimulus</div>
-                  <div id="w-node-_61bb44f2-83c7-c3aa-d962-ed8ad82e8280-38d711e6">React</div>
+                  <div class="tech-logo-label">Ruby</div>
+                  <div class="tech-logo-label">Rails</div>
+                  <div class="tech-logo-label">JavaScript</div>
+                  <div class="tech-logo-label">Stimulus</div>
+                  <div class="tech-logo-label">React</div>
 
                     <%= image_tag "html.png",
-                      class: "tech-logo",
+                      class: "tech-logo tech-logo-row2",
                       loading: "lazy",
                       width: 52,
                       height: 52,
                       alt: "Logo Html Otterly Web",
                       srcset: "#{asset_path('html-p-500.png')} 500w, #{asset_path('html-p-800.png')} 800w, #{asset_path('html-p-1080.png')} 1080w, #{asset_path('html.png')} 1563w",
                       sizes: "52px",
-                      id: "w-node-_5ca819ac-e769-fb25-597e-946314df2676-38d711e6" %>
+                      %>
 
                     <%= image_tag "css.png",
-                      class: "tech-logo",
+                      class: "tech-logo tech-logo-row2",
                       loading: "lazy",
                       width: 52,
                       height: 52,
                       alt: "Logo CSS Otterly Web",
                       srcset: "#{asset_path('css-p-500.png')} 500w, #{asset_path('css-p-800.png')} 800w, #{asset_path('css-p-1080.png')} 1080w, #{asset_path('css.png')} 1563w",
                       sizes: "52px",
-                      id: "w-node-b8467ce1-277f-f7a0-0d9f-d4a1b1303c33-38d711e6" %>
+                      %>
 
                     <%= image_tag "bootstrap.png",
-                      class: "tech-logo",
+                      class: "tech-logo tech-logo-row2",
                       loading: "lazy",
                       width: 50,
                       height: 50,
                       alt: "Logo Bootstrap Otterly Web",
                       srcset: "#{asset_path('bootstrap-p-500.png')} 500w, #{asset_path('bootstrap-p-800.png')} 800w, #{asset_path('bootstrap-p-1080.png')} 1080w, #{asset_path('bootstrap.png')} 1563w",
                       sizes: "50px",
-                      id: "w-node-f22d2b63-6ba2-39bb-4fc8-2c2997a59119-38d711e6" %>
+                      %>
 
                     <%= image_tag "tailwind.png",
-                      class: "tech-logo",
+                      class: "tech-logo tech-logo-row2",
                       loading: "lazy",
                       width: 52,
                       height: 52,
                       alt: "Logo Tailwind Otterly Web",
                       srcset: "#{asset_path('tailwind-p-500.png')} 500w, #{asset_path('tailwind-p-800.png')} 800w, #{asset_path('tailwind-p-1080.png')} 1080w, #{asset_path('tailwind.png')} 1563w",
                       sizes: "52px",
-                      id: "w-node-_157dcd0d-ceb5-8108-1aa9-3974d1b02a1c-38d711e6" %>
+                      %>
 
                     <%= image_tag "figma.png",
-                      class: "tech-logo",
+                      class: "tech-logo tech-logo-row2",
                       loading: "lazy",
                       width: 50,
                       height: 50,
                       alt: "Logo Figma Otterly Web",
                       srcset: "#{asset_path('figma-p-500.png')} 500w, #{asset_path('figma-p-800.png')} 800w, #{asset_path('figma-p-1080.png')} 1080w, #{asset_path('figma.png')} 1563w",
                       sizes: "50px",
-                      id: "w-node-_6074cdba-24b8-e0b8-95a6-fd7d53ab7285-38d711e6" %>
+                      %>
 
-                  <div id="w-node-ae0dc37f-2b1f-a1dc-942f-f7f92f822bac-38d711e6">HTML</div>
-                  <div id="w-node-_6a560fee-3975-6cbe-6f1c-f13f1684e99e-38d711e6">CSS</div>
-                  <div id="w-node-e1b9002c-d8ad-93b1-85f8-b56e5a95ebce-38d711e6">Bootstrap</div>
-                  <div id="w-node-eb55ee0e-fdc0-c799-43f3-bade139a2d38-38d711e6">Tailwind</div>
-                  <div id="w-node-_0458696b-4a8c-9af7-c174-dd80c0ccc772-38d711e6">Figma</div>
+                  <div class="tech-logo-label">HTML</div>
+                  <div class="tech-logo-label">CSS</div>
+                  <div class="tech-logo-label">Bootstrap</div>
+                  <div class="tech-logo-label">Tailwind</div>
+                  <div class="tech-logo-label">Figma</div>
                 </div>
               </div>
 
@@ -382,7 +382,7 @@
                     alt: "Logo Ruby Otterly Web",
                     srcset: "#{asset_path('ruby-blanc-p-500.png')} 500w, #{asset_path('ruby-blanc-p-800.png')} 800w, #{asset_path('ruby-blanc-p-1080.png')} 1080w, #{asset_path('ruby-blanc.png')} 1563w",
                     sizes: "48px",
-                    id: "w-node-_0fd5badf-55c7-037a-8f39-e0809206f321-38d711e6" %>
+                    %>
 
                   <%= image_tag "rails-blanc.png",
                     class: "tech-logo",
@@ -392,7 +392,7 @@
                     alt: "Logo Rails Otterly Web",
                     srcset: "#{asset_path('rails-blanc-p-500.png')} 500w, #{asset_path('rails-blanc-p-800.png')} 800w, #{asset_path('rails-blanc-p-1080.png')} 1080w, #{asset_path('rails-blanc.png')} 1563w",
                     sizes: "50px",
-                    id: "w-node-_2d7189aa-8c58-ff66-ebad-2a3603581028-38d711e6" %>
+                    %>
 
                   <%= image_tag "js-blanc.png",
                     class: "tech-logo",
@@ -402,7 +402,7 @@
                     alt: "Logo JavaScript Otterly Web",
                     srcset: "#{asset_path('js-blanc-p-500.png')} 500w, #{asset_path('js-blanc-p-800.png')} 800w, #{asset_path('js-blanc-p-1080.png')} 1080w, #{asset_path('js-blanc.png')} 1563w",
                     sizes: "48px",
-                    id: "w-node-_797aa0d8-9c08-df62-0776-47ff72d0ece4-38d711e6" %>
+                    %>
 
                   <%= image_tag "stimulus.png",
                     class: "tech-logo",
@@ -412,7 +412,7 @@
                     alt: "Logo Stimulus Otterly Web",
                     srcset: "#{asset_path('stimulus-blanc-p-500.png')} 500w, #{asset_path('stimulus-blanc-p-800.png')} 800w, #{asset_path('stimulus-blanc-p-1080.png')} 1080w, #{asset_path('stimulus-blanc.png')} 1563w",
                     sizes: "52px",
-                    id: "w-node-ec704833-d59b-fc3a-f226-dbf0e0a4cfa0-38d711e6" %>
+                    %>
 
                   <%= image_tag "react.png",
                     class: "tech-logo",
@@ -422,69 +422,69 @@
                     alt: "Logo React Otterly Web",
                     srcset: "#{asset_path('react-blanc-p-500.png')} 500w, #{asset_path('react-blanc-p-800.png')} 800w, #{asset_path('react-blanc-p-1080.png')} 1080w, #{asset_path('react-blanc.png')} 1563w",
                     sizes: "52px",
-                    id: "w-node-_8d4a9473-1797-246d-68b3-8753ce7fe763-38d711e6" %>
+                    %>
 
-                  <div id="w-node-_0af61efa-1b95-6417-2f43-391d95820947-38d711e6">Ruby</div>
-                  <div id="w-node-_6c6820d5-c9e3-48a8-8f76-3c6137e62385-38d711e6">Rails</div>
-                  <div id="w-node-_16bc80c7-3b21-d6d0-48c0-186b50f51718-38d711e6">JavaScript</div>
-                  <div id="w-node-_243f792f-521f-900d-04c4-2b7f21e2bae3-38d711e6">Stimulus</div>
-                  <div id="w-node-_61bb44f2-83c7-c3aa-d962-ed8ad82e8280-38d711e6">React</div>
+                  <div class="tech-logo-label">Ruby</div>
+                  <div class="tech-logo-label">Rails</div>
+                  <div class="tech-logo-label">JavaScript</div>
+                  <div class="tech-logo-label">Stimulus</div>
+                  <div class="tech-logo-label">React</div>
 
                   <%= image_tag "html.png",
-                    class: "tech-logo",
+                    class: "tech-logo tech-logo-row2",
                     loading: "lazy",
                     width: 52,
                     height: 52,
                     alt: "Logo Html Otterly Web",
                     srcset: "#{asset_path('html-blanc-p-500.png')} 500w, #{asset_path('html-blanc-p-800.png')} 800w, #{asset_path('html-blanc-p-1080.png')} 1080w, #{asset_path('html-blanc.png')} 1563w",
                     sizes: "52px",
-                    id: "w-node-_5ca819ac-e769-fb25-597e-946314df2676-38d711e6" %>
+                    %>
 
                   <%= image_tag "css-blanc.png",
-                    class: "tech-logo",
+                    class: "tech-logo tech-logo-row2",
                     loading: "lazy",
                     width: 52,
                     height: 52,
                     alt: "Logo CSS Otterly Web",
                     srcset: "#{asset_path('css-blanc-p-500.png')} 500w, #{asset_path('css-blanc-p-800.png')} 800w, #{asset_path('css-blanc-p-1080.png')} 1080w, #{asset_path('css-blanc.png')} 1563w",
                     sizes: "52px",
-                    id: "w-node-b8467ce1-277f-f7a0-0d9f-d4a1b1303c33-38d711e6" %>
+                    %>
 
                   <%= image_tag "bootstrap-blanc.png",
-                    class: "tech-logo",
+                    class: "tech-logo tech-logo-row2",
                     loading: "lazy",
                     width: 50,
                     height: 50,
                     alt: "Logo Bootstrapt Otterly Web",
                     srcset: "#{asset_path('bootstrap-blanc-p-500.png')} 500w, #{asset_path('bootstrap-blanc-p-800.png')} 800w, #{asset_path('bootstrap-blanc-p-1080.png')} 1080w, #{asset_path('bootstrap-blanc.png')} 1563w",
                     sizes: "50px",
-                    id: "w-node-f22d2b63-6ba2-39bb-4fc8-2c2997a59119-38d711e6" %>
+                    %>
 
                   <%= image_tag "tailwind-blanc.png",
-                    class: "tech-logo",
+                    class: "tech-logo tech-logo-row2",
                     loading: "lazy",
                     width: 52,
                     height: 52,
                     alt: "Logo Tailwind Otterly Web",
                     srcset: "#{asset_path('tailwind-blanc-p-500.png')} 500w, #{asset_path('tailwind-blanc-p-800.png')} 800w, #{asset_path('tailwind-blanc-p-1080.png')} 1080w, #{asset_path('tailwind-blanc.png')} 1563w",
                     sizes: "52px",
-                    id: "w-node-_157dcd0d-ceb5-8108-1aa9-3974d1b02a1c-38d711e6" %>
+                    %>
 
                   <%= image_tag "figma-blanc.png",
-                    class: "tech-logo",
+                    class: "tech-logo tech-logo-row2",
                     loading: "lazy",
                     width: 50,
                     height: 50,
                     alt: "Logo Figma Otterly Web",
                     srcset: "#{asset_path('figma-blanc-p-500.png')} 500w, #{asset_path('figma-blanc-p-800.png')} 800w, #{asset_path('figma-blanc-p-1080.png')} 1080w, #{asset_path('figma-blanc.png')} 1563w",
                     sizes: "50px",
-                    id: "w-node-_6074cdba-24b8-e0b8-95a6-fd7d53ab7285-38d711e6" %>
+                    %>
 
-                  <div id="w-node-ae0dc37f-2b1f-a1dc-942f-f7f92f822bac-38d711e6">HTML</div>
-                  <div id="w-node-_6a560fee-3975-6cbe-6f1c-f13f1684e99e-38d711e6">CSS</div>
-                  <div id="w-node-e1b9002c-d8ad-93b1-85f8-b56e5a95ebce-38d711e6">Bootstrap</div>
-                  <div id="w-node-eb55ee0e-fdc0-c799-43f3-bade139a2d38-38d711e6">Tailwind</div>
-                  <div id="w-node-_0458696b-4a8c-9af7-c174-dd80c0ccc772-38d711e6">Figma</div>
+                  <div class="tech-logo-label">HTML</div>
+                  <div class="tech-logo-label">CSS</div>
+                  <div class="tech-logo-label">Bootstrap</div>
+                  <div class="tech-logo-label">Tailwind</div>
+                  <div class="tech-logo-label">Figma</div>
                 </div>
               </div>
             </div>
@@ -835,7 +835,7 @@
               </div>
             </div>
           </div>
-          <div id="w-node-_2e013be5-53de-9da5-d53c-9d0ef1c8752a-38d711e6" class="clients-item">
+          <div class="clients-item">
             <div class="margin-bottom margin-xlarge">
               <div class="light-mode">
                 <%= image_tag "icon-quote.svg",

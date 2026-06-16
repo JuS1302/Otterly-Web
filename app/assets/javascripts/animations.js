@@ -1,12 +1,14 @@
 /* ===================================================
    Animations — intro + scroll
    Séquence :
-   1. Les titres du hero sont cachés immédiatement (pendant l'intro)
+   1. Menu et titres du hero cachés immédiatement (pendant l'intro)
    2. Écran noir avec titre qui monte (0.8s)
    3. Pause
    4. Écran part vers le haut (0.9s)
-   5. Titres du hero s'animent avec stagger
-   6. IntersectionObserver pour les sections au scroll
+   5. Entrées du menu fade-up avec stagger
+   6. Titres du hero slide-up avec stagger
+   7. Texte et logos du hero fade-up
+   8. IntersectionObserver pour les sections au scroll
    =================================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -27,6 +29,13 @@ document.addEventListener('DOMContentLoaded', function () {
   heroContainers.forEach(function (container) {
     var child = container.firstElementChild;
     if (child) child.classList.add('anim-reveal');
+  });
+
+  /* Entrées du menu (navbar tablette + desktop) — cachées pendant l'intro */
+  var navItems = [];
+  document.querySelectorAll('.navbar-menu-item, .header .button-text, .header-small .button-text').forEach(function (el) {
+    el.classList.add('anim-fade');
+    navItems.push(el);
   });
 
   /* Éléments fade-up du hero (texte, logos, bouton) */
@@ -90,17 +99,25 @@ document.addEventListener('DOMContentLoaded', function () {
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
 
-        /* Titres avec stagger : +120ms par titre */
+        /* Entrées du menu : fade-up avec stagger (60ms entre chaque) */
+        navItems.forEach(function (el, idx) {
+          setTimeout(function () {
+            el.classList.add('is-visible');
+          }, idx * 60);
+        });
+
+        /* Titres du hero : slide-up avec stagger, après les items du menu */
+        var delaiTitres = navItems.length * 60 + 100;
         heroContainers.forEach(function (container, idx) {
           var child = container.firstElementChild;
           if (!child) return;
           setTimeout(function () {
             child.classList.add('is-visible');
-          }, idx * 120);
+          }, delaiTitres + idx * 120);
         });
 
-        /* Éléments fade-up un peu après les titres */
-        var delaiApresTitres = heroContainers.length * 120 + 150;
+        /* Éléments fade-up du hero : après les titres */
+        var delaiApresTitres = delaiTitres + heroContainers.length * 120 + 150;
         setTimeout(function () {
           heroFadeEls.forEach(function (el, idx) {
             setTimeout(function () {

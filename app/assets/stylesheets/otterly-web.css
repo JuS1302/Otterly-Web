@@ -8811,3 +8811,60 @@ figcaption {
 .footer-col {
   width: 50%;
 }
+
+/* ===================================================
+   RESPONSIVE — nouveaux composants
+   Breakpoints : 991px (tablette), 767px (mobile paysage),
+                 479px (mobile portrait)
+   =================================================== */
+
+@media screen and (max-width: 767px) {
+  /* Footer : empiler les colonnes */
+  .footer-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .footer-col-logo {
+    width: auto;
+  }
+
+  .footer-col {
+    width: 100%;
+  }
+
+  /* Étiquettes code : taille réduite sur mobile */
+  .text-meta.text-color-muted,
+  .text-meta.text-color-muted-inverse {
+    font-size: 0.85rem;
+  }
+
+  /* Skills grid : badges plus petits */
+  .skill-item {
+    font-size: 0.65rem;
+    padding: 0.35rem 0.7rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  /* Skills grid : encore plus compact */
+  .skill-item {
+    font-size: 0.6rem;
+    padding: 0.3rem 0.6rem;
+    letter-spacing: 1.5px;
+  }
+
+  /* Étiquettes code */
+  .text-meta.text-color-muted,
+  .text-meta.text-color-muted-inverse {
+    font-size: 0.8rem;
+  }
+
+  /* Bouton carousel pleine largeur sur très petit écran */
+  .button-primary {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+  }
+}

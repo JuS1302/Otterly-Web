@@ -30,6 +30,19 @@
 }
 
 /* --------------------------------------------------
+   Hover menu — ligne soulignée animée
+   .navbar-item-line part de width:0 et s'étend
+   jusqu'à 100% quand on survole l'item du menu.
+   -------------------------------------------------- */
+.navbar-item-line {
+  transition: width 0.3s ease;
+}
+
+.navbar-menu-item:hover .navbar-item-line {
+  width: 100%;
+}
+
+/* --------------------------------------------------
    Slide-up (texte qui remonte depuis le bas)
    Utilisé pour : h1, h2, h3 à l'intérieur de
    conteneurs .overflow-hidden (le parent masque

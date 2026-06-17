@@ -54,10 +54,12 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(function () {
       intro.classList.add('is-leaving');
 
-      /* Quand l'écran est parti, animer le hero */
+      /* Lancer le scramble dès que l'écran commence à partir */
+      demarrerHero();
+
+      /* Masquer l'intro quand la transition est terminée */
       setTimeout(function () {
         intro.style.display = 'none';
-        demarrerHero();
       }, introExit);
 
     }, introDelay);
@@ -70,13 +72,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ---- Étape 4 : animation du hero après l'intro ---- */
   function demarrerHero() {
+    var CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#!$%&*';
+
+    function scramble(el, startDelay) {
+      var node = el.querySelector('span') || el;
+      var original = node.textContent;
+
+      /* Verrouiller la largeur du h1 pour éviter tout décalage de mise en page */
+      el.style.width = el.offsetWidth + 'px';
+
+      setTimeout(function () {
+        var frame = 0;
+        var interval = setInterval(function () {
+          var resolved = Math.floor(frame / 4);
+          node.textContent = original.split('').map(function (ch, i) {
+            if (i < resolved) return ch;
+            if (!/[A-Z0-9]/i.test(ch)) return ch; /* conserver ©, espaces… */
+            return CHARS[Math.floor(Math.random() * CHARS.length)];
+          }).join('');
+          frame++;
+          if (resolved >= original.length) {
+            clearInterval(interval);
+            node.textContent = original;
+            el.style.width = '';
+          }
+        }, 35);
+      }, startDelay);
+    }
+
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
-        /* Entrées du menu : fade avec stagger (45ms entre chaque) */
-        navItems.forEach(function (el, idx) {
-          setTimeout(function () {
-            el.classList.add('is-visible');
-          }, idx * 45);
+        /* OTTERLY démarre immédiatement, WEB© 150ms après */
+        document.querySelectorAll('.heading-style-large').forEach(function (el, i) {
+          scramble(el, i * 150);
         });
       });
     });

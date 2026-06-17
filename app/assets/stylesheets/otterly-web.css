@@ -5083,7 +5083,7 @@ figcaption {
 
 .project-header {
   display: flex;
-  align-items: baseline;
+  align-items: flex-end;
   gap: 1rem;
   flex-wrap: wrap;
 }
@@ -5143,6 +5143,10 @@ figcaption {
   height: 28px;
   width: auto;
   flex-shrink: 0;
+}
+
+.project-logo--abricot {
+  height: 36px;
 }
 
 
@@ -8888,18 +8892,28 @@ figcaption {
     padding: 0 0 4vw;
   }
 
+  .project-logo {
+    height: 22px;
+  }
+
+  .project-logo--abricot {
+    height: 28px;
+  }
+
   .carousel-slide {
-    height: 560px;
+    display: flex;
+    flex-direction: column;
   }
 
   .project-card {
-    grid-template-columns: 1fr;
-    grid-template-rows: 200px 1fr;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 
   .project-card-image {
     height: 200px;
+    flex-shrink: 0;
     overflow: hidden;
   }
 
@@ -8909,8 +8923,10 @@ figcaption {
   }
 
   .project-content {
+    flex: 1;
     padding: 1.5rem;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
   }
 
   /* Footer top : logo au-dessus du titre, centré */

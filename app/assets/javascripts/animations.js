@@ -17,12 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var introDelay = 1300; /* ms avant que l'écran commence à partir */
   var introExit  = 900;  /* durée de la transition de sortie (CSS) */
 
-  /* Entrées du menu (navbar tablette + desktop) — cachées pendant l'intro */
   var navItems = [];
-  document.querySelectorAll('.navbar-menu-item, .header .button-text, .header-small .button-text').forEach(function (el) {
-    el.classList.add('anim-fade');
-    navItems.push(el);
-  });
 
   /* Éléments fade-up du hero (bouton uniquement — skills gérés séparément) */
   var heroFadeEls = [];

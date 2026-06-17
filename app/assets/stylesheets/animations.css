@@ -85,3 +85,18 @@
 .anim-fade.is-visible {
   opacity: 1;
 }
+
+/* --------------------------------------------------
+   Slide-up + fade — entrées du menu
+   -------------------------------------------------- */
+.anim-nav-item {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.2, 0, 0, 1);
+  will-change: opacity, transform;
+}
+
+.anim-nav-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

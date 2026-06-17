@@ -283,6 +283,89 @@ document.addEventListener('DOMContentLoaded', function () {
 }());
 
 
+/* ---- Split screen projets (desktop ≥ 768px) ---- */
+(function () {
+  var panelItems = [];
+
+  function buildSplitScreen() {
+    var container = document.querySelector('.carousel-container');
+    var track     = document.querySelector('.carousel-track');
+    var slides    = document.querySelectorAll('.carousel-slide');
+    if (!container || !track || !slides.length) return;
+
+    /* Supprimer un éventuel panneau existant (rebuild au resize) */
+    var existing = container.querySelector('.projects-split-panel');
+    if (existing) existing.remove();
+    slides.forEach(function (s) { s.classList.remove('is-active'); });
+    panelItems = [];
+
+    /* Créer le panneau droit */
+    var panel = document.createElement('div');
+    panel.className = 'projects-split-panel';
+
+    slides.forEach(function (slide) {
+      var image   = slide.querySelector('.project-card-image');
+      var content = slide.querySelector('.project-content');
+      if (!image || !content) return;
+
+      var item = document.createElement('div');
+      item.className = 'split-panel-item';
+      item.appendChild(image.cloneNode(true));
+      item.appendChild(content.cloneNode(true));
+      panel.appendChild(item);
+      panelItems.push(item);
+    });
+
+    container.appendChild(panel);
+
+    /* Activer le premier projet après 2 frames (pour que la transition CSS joue) */
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        activate(0, slides);
+      });
+    });
+
+    /* Hover sur les items de la liste gauche */
+    slides.forEach(function (slide, idx) {
+      slide.addEventListener('mouseenter', function () {
+        activate(idx, slides);
+      });
+    });
+  }
+
+  function activate(idx, slides) {
+    slides.forEach(function (s) { s.classList.remove('is-active'); });
+    panelItems.forEach(function (p) { p.classList.remove('is-active'); });
+    if (slides[idx]) slides[idx].classList.add('is-active');
+    if (panelItems[idx]) panelItems[idx].classList.add('is-active');
+  }
+
+  function isDesktop() { return window.innerWidth >= 768; }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    if (isDesktop()) buildSplitScreen();
+  });
+
+  /* Rebuild si on passe le seuil 768px */
+  var wasDesktop = isDesktop();
+  window.addEventListener('resize', function () {
+    var nowDesktop = isDesktop();
+    if (nowDesktop === wasDesktop) return;
+    wasDesktop = nowDesktop;
+    if (nowDesktop) {
+      buildSplitScreen();
+    } else {
+      var panel = document.querySelector('.projects-split-panel');
+      if (panel) panel.remove();
+      document.querySelectorAll('.carousel-slide').forEach(function (s) {
+        s.classList.remove('is-active');
+      });
+      panelItems = [];
+    }
+  });
+}());
+
+
 /* ---- Parallax sur les images de services ---- */
 (function () {
   var images = document.querySelectorAll('.image-cover-parallax');

@@ -2395,14 +2395,27 @@ figcaption {
 }
 
 .footer {
-  background-color: var(--global-colors--background-primary);
-  color: var(--global-colors--text-inverse);
+  background-color: #0e1011;
+  color: #ffffff;
   flex-flow: column;
   justify-content: space-between;
   min-height: 100vh;
   padding: 6vw 6vw 8vw;
   display: flex;
   position: relative;
+}
+
+.footer .nav-item.inverse {
+  color: #ffffff;
+}
+
+.footer .text-meta {
+  color: #ffffff;
+}
+
+.footer .text-color-muted-inverse,
+.footer .text-meta.text-color-muted-inverse {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .footer-nav {
@@ -2607,7 +2620,7 @@ figcaption {
   font-family: var(--text-meta--font-family);
   font-size: var(--text-meta--font-size);
   letter-spacing: var(--text-meta--letter-spacing);
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
   line-height: 130%;
 }
@@ -9208,4 +9221,305 @@ figcaption {
 .footer-heart {
   color: var(--accent);
   font-size: 1rem;
+}
+
+/* ============================================================
+   Projets — split screen desktop (≥ 768px)
+   Mobile : carousel inchangé
+   Desktop : liste à gauche, détail à droite avec crossfade
+   ============================================================ */
+@media screen and (min-width: 768px) {
+
+  .carousel-nav {
+    display: none;
+  }
+
+  /* Conteneur : flex row  liste | détail */
+  .carousel-container {
+    padding: 0 6vw 4vw;
+    display: flex;
+    align-items: stretch;
+    gap: 5vw;
+  }
+
+  /* ---- Panneau gauche : liste des projets ---- */
+  .carousel-track {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    flex-shrink: 0;
+    overflow: visible;
+    border-top: 1px solid var(--global-colors--border-default);
+    counter-reset: project-counter;
+  }
+
+  .carousel-slide {
+    display: block;
+    flex: none;
+    width: 100%;
+    border-bottom: 1px solid var(--global-colors--border-default);
+    cursor: pointer;
+    position: relative;
+    counter-increment: project-counter;
+  }
+
+  /* Barre accent qui monte depuis le bas au survol / activation */
+  .carousel-slide::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .carousel-slide::after {
+    display: none;
+  }
+
+  .carousel-slide.is-active::before,
+  .carousel-slide:hover::before {
+    transform: scaleY(1);
+  }
+
+  /* Carte : flex row avec numéro + contenu */
+  .project-card {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    padding: 1.5rem 1rem 1.5rem 1.5rem;
+    background: transparent;
+    border-radius: 0;
+    height: auto;
+    overflow: visible;
+    transform-origin: left center;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .carousel-slide.is-active .project-card,
+  .carousel-slide:hover .project-card {
+    transform: scale(1.18);
+  }
+
+  /* Grand numéro dans la liste */
+  .project-card::before {
+    content: "0" counter(project-counter);
+    font-family: 'Anton SC', sans-serif;
+    font-size: 2.6rem;
+    line-height: 1;
+    color: var(--global-colors--text-muted);
+    flex-shrink: 0;
+    width: 3rem;
+    text-align: right;
+    transition: color 0.25s ease;
+  }
+
+  .carousel-slide.is-active .project-card::before,
+  .carousel-slide:hover .project-card::before {
+    color: var(--accent);
+  }
+
+  /* Image cachée dans la liste */
+  .project-card-image {
+    display: none;
+  }
+
+  /* Contenu : titre + année seulement dans la liste */
+  .project-content {
+    padding: 0;
+    background: transparent;
+    display: block;
+  }
+
+  .project-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+
+  .project-title {
+    font-size: 1.15rem;
+    color: var(--global-colors--text-muted);
+    transition: color 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .project-title::after {
+    display: none;
+  }
+
+  .carousel-slide.is-active .project-title,
+  .carousel-slide:hover .project-title {
+    color: var(--global-colors--text-default);
+  }
+
+  .project-logo {
+    height: 16px;
+    width: auto;
+    opacity: 0.6;
+    transition: opacity 0.25s ease;
+  }
+
+  .project-logo.project-logo--abricot {
+    height: 20px;
+  }
+
+  .carousel-slide.is-active .project-logo,
+  .carousel-slide:hover .project-logo {
+    opacity: 1;
+  }
+
+  .text-block-2 {
+    font-size: 0.75rem;
+    opacity: 1;
+    color: var(--global-colors--text-default);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Description, tech, bouton masqués dans la liste */
+  .project-content > p:not(.text-block-techno) {
+    display: none;
+  }
+
+  .text-block-techno {
+    display: none;
+  }
+
+  .project-content .button-row {
+    display: none;
+  }
+
+
+  /* ---- Panneau droit : détail du projet actif ---- */
+
+  /* Grid CSS : tous les items dans la même cellule → crossfade */
+  .projects-split-panel {
+    flex: 1;
+    display: grid;
+    min-width: 0;
+    align-self: start;
+  }
+
+  .split-panel-item {
+    grid-area: 1 / 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .split-panel-item.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Image : zoom léger à l'entrée */
+  .split-panel-item .project-card-image {
+    display: block;
+    position: static;
+    width: 100%;
+    height: 380px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .split-panel-item .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.05);
+    transition: transform 0.8s ease;
+  }
+
+  .split-panel-item.is-active .project-image {
+    transform: scale(1);
+  }
+
+  /* Contenu texte du panneau droit */
+  .split-panel-item .project-content {
+    padding: 0;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .split-panel-item .project-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .split-panel-item .project-title {
+    font-size: 3.2rem;
+    color: var(--global-colors--text-default);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    line-height: 1.05;
+  }
+
+  .split-panel-item .project-title::after {
+    display: none;
+  }
+
+  .split-panel-item .project-logo {
+    height: 36px;
+    width: auto;
+    opacity: 1;
+  }
+
+  .split-panel-item .project-logo.project-logo--abricot {
+    height: 46px;
+  }
+
+  .split-panel-item .text-block-2 {
+    font-size: 0.9rem;
+    opacity: 0.45;
+    white-space: nowrap;
+  }
+
+  .split-panel-item .project-content > p:not(.text-block-techno) {
+    display: block;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin: 0;
+    opacity: 0.85;
+  }
+
+  .split-panel-item .text-block-techno {
+    display: block;
+    margin: 0;
+    max-height: none;
+    opacity: 0.55;
+    font-size: 0.85rem;
+  }
+
+  .split-panel-item .button-row {
+    display: flex;
+    margin: 0;
+    margin-top: 1rem;
+    max-height: none;
+    overflow: visible;
+    opacity: 1;
+  }
+
+  .split-panel-item .button-primary {
+    display: inline-flex;
+    width: auto;
+    margin-top: 0;
+  }
 }

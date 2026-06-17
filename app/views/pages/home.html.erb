@@ -485,21 +485,24 @@
             </div>
           </div>
         </div>
-        <div class="services-showcase">
+        <div class="services-fan">
+          <div class="fan-stack">
 
-          <%# Grand panneau principal (crossfade) %>
-          <div class="showcase-main">
-
-            <div class="showcase-panel is-active">
-              <div class="showcase-bg"><%= image_tag "loutre-code.png", class: "showcase-image", alt: "", loading: "lazy" %></div>
-              <div class="showcase-content">
-                <div class="showcase-meta"><span class="code-dim">&lt;service</span><span class="accent">.dev</span><span class="code-dim"> /&gt;</span></div>
-                <div class="showcase-heading">
-                  <p class="showcase-h1">développement</p>
-                  <p class="showcase-h2"><span class="accent otterment-shimmer">sur-mesure</span></p>
+            <%# Carte 1 — Développement sur-mesure %>
+            <div class="fan-card" data-pos="center">
+              <div class="fan-card-bg"><%= image_tag "loutre-code.png", class: "fan-card-image", alt: "", loading: "lazy" %></div>
+              <div class="fan-peek">
+                <span class="fan-number">01</span>
+                <span class="fan-title">développement<br>sur-mesure</span>
+              </div>
+              <div class="fan-card-content">
+                <div class="fan-meta"><span class="code-dim">&lt;service</span><span class="accent">.dev</span><span class="code-dim"> /&gt;</span></div>
+                <div class="fan-heading">
+                  <p class="fan-h1">développement</p>
+                  <p class="fan-h2"><span class="accent otterment-shimmer">sur-mesure</span></p>
                 </div>
-                <p class="showcase-desc">Je développe des applications web sur mesure, alliant front-end réactif (HTML/CSS, Tailwind, JavaScript, TypeScript, React, Next.js) et back-end robuste (Ruby on Rails, PHP, Symfony, Laravel, API REST, PostgreSQL). Une architecture pensée pour la performance, la scalabilité et une expérience utilisateur fluide.</p>
-                <div class="showcase-tags">
+                <p class="fan-desc">Je développe des applications web sur mesure, alliant front-end réactif (HTML/CSS, Tailwind, JavaScript, TypeScript, React, Next.js) et back-end robuste (Ruby on Rails, PHP, Symfony, Laravel, API REST, PostgreSQL). Une architecture pensée pour la performance, la scalabilité et une expérience utilisateur fluide.</p>
+                <div class="fan-tags">
                   <span class="service-tag">✦ Développement Back-end</span>
                   <span class="service-tag">✦ Développement Front-end</span>
                   <span class="service-tag">✦ Gestion base de données</span>
@@ -508,16 +511,21 @@
               </div>
             </div>
 
-            <div class="showcase-panel">
-              <div class="showcase-bg"><%= image_tag "loutre-figma.png", class: "showcase-image", alt: "", loading: "lazy" %></div>
-              <div class="showcase-content">
-                <div class="showcase-meta"><span class="code-dim">&lt;service</span><span class="accent">.design</span><span class="code-dim"> /&gt;</span></div>
-                <div class="showcase-heading">
-                  <p class="showcase-h1">UX/UI</p>
-                  <p class="showcase-h2"><span class="accent otterment-shimmer">Design</span></p>
+            <%# Carte 2 — UX/UI Design %>
+            <div class="fan-card" data-pos="right">
+              <div class="fan-card-bg"><%= image_tag "loutre-figma.png", class: "fan-card-image", alt: "", loading: "lazy" %></div>
+              <div class="fan-peek">
+                <span class="fan-number">02</span>
+                <span class="fan-title">UX/UI<br>Design</span>
+              </div>
+              <div class="fan-card-content">
+                <div class="fan-meta"><span class="code-dim">&lt;service</span><span class="accent">.design</span><span class="code-dim"> /&gt;</span></div>
+                <div class="fan-heading">
+                  <p class="fan-h1">UX/UI</p>
+                  <p class="fan-h2"><span class="accent otterment-shimmer">Design</span></p>
                 </div>
-                <p class="showcase-desc">Je conçois des interfaces web ergonomiques et responsives à partir de maquettes Figma, en intégrant les principes d’accessibilité, de hiérarchie visuelle et de design system. Chaque expérience est pensée pour maximiser la clarté, la conversion et l’efficacité sur tous les supports.</p>
-                <div class="showcase-tags">
+                <p class="fan-desc">Je conçois des interfaces web ergonomiques et responsives à partir de maquettes Figma, en intégrant les principes d’accessibilité, de hiérarchie visuelle et de design system. Chaque expérience est pensée pour maximiser la clarté, la conversion et l’efficacité sur tous les supports.</p>
+                <div class="fan-tags">
                   <span class="service-tag">✦ Maquettes Figma</span>
                   <span class="service-tag">✦ Identité visuelle</span>
                   <span class="service-tag">✦ Prototypage interactif</span>
@@ -526,16 +534,21 @@
               </div>
             </div>
 
-            <div class="showcase-panel">
-              <div class="showcase-bg"><%= image_tag "loutre-deploy.png", class: "showcase-image", alt: "", loading: "lazy" %></div>
-              <div class="showcase-content">
-                <div class="showcase-meta"><span class="code-dim">&lt;service</span><span class="accent">.deploy</span><span class="code-dim"> /&gt;</span></div>
-                <div class="showcase-heading">
-                  <p class="showcase-h1">déploiement</p>
-                  <p class="showcase-h2"><span class="accent otterment-shimmer">&amp; maintenance</span></p>
+            <%# Carte 3 — Déploiement & maintenance %>
+            <div class="fan-card" data-pos="left">
+              <div class="fan-card-bg"><%= image_tag "loutre-deploy.png", class: "fan-card-image", alt: "", loading: "lazy" %></div>
+              <div class="fan-peek">
+                <span class="fan-number">03</span>
+                <span class="fan-title">déploiement<br>&amp; maintenance</span>
+              </div>
+              <div class="fan-card-content">
+                <div class="fan-meta"><span class="code-dim">&lt;service</span><span class="accent">.deploy</span><span class="code-dim"> /&gt;</span></div>
+                <div class="fan-heading">
+                  <p class="fan-h1">déploiement</p>
+                  <p class="fan-h2"><span class="accent otterment-shimmer">&amp; maintenance</span></p>
                 </div>
-                <p class="showcase-desc">Je déploie des applications web stables et sécurisées, en assurant leur maintenance continue via des outils d’automatisation (CI/CD), du monitoring en temps réel et des mises à jour régulières. Une approche fiable pour des performances durables et une sérénité technique au quotidien.</p>
-                <div class="showcase-tags">
+                <p class="fan-desc">Je déploie des applications web stables et sécurisées, en assurant leur maintenance continue via des outils d’automatisation (CI/CD), du monitoring en temps réel et des mises à jour régulières. Une approche fiable pour des performances durables et une sérénité technique au quotidien.</p>
+                <div class="fan-tags">
                   <span class="service-tag">✦ Déploiement sur serveurs ou cloud</span>
                   <span class="service-tag">✦ Intégration continue &amp; automatisation</span>
                   <span class="service-tag">✦ Maintenance évolutive &amp; corrective</span>
@@ -546,33 +559,11 @@
 
           </div>
 
-          <%# Onglets en bas %>
-          <div class="showcase-nav">
-
-            <div class="showcase-tab is-active">
-              <div class="showcase-tab-bg"><%= image_tag "loutre-code.png", alt: "", loading: "lazy" %></div>
-              <div class="showcase-tab-content">
-                <span class="showcase-tab-number">01</span>
-                <span class="showcase-tab-title">développement<br>sur-mesure</span>
-              </div>
-            </div>
-
-            <div class="showcase-tab">
-              <div class="showcase-tab-bg"><%= image_tag "loutre-figma.png", alt: "", loading: "lazy" %></div>
-              <div class="showcase-tab-content">
-                <span class="showcase-tab-number">02</span>
-                <span class="showcase-tab-title">UX/UI<br>Design</span>
-              </div>
-            </div>
-
-            <div class="showcase-tab">
-              <div class="showcase-tab-bg"><%= image_tag "loutre-deploy.png", alt: "", loading: "lazy" %></div>
-              <div class="showcase-tab-content">
-                <span class="showcase-tab-number">03</span>
-                <span class="showcase-tab-title">déploiement<br>&amp; maintenance</span>
-              </div>
-            </div>
-
+          <%# Navigation %>
+          <div class="fan-nav">
+            <button class="fan-btn fan-btn-prev" aria-label="Service précédent">←</button>
+            <span class="fan-counter"><span class="fan-current">01</span>&nbsp;/&nbsp;03</span>
+            <button class="fan-btn fan-btn-next" aria-label="Service suivant">→</button>
           </div>
 
         </div>

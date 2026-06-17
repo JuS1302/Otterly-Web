@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
       setTimeout(function () {
         var frame = 0;
         var interval = setInterval(function () {
-          var resolved = Math.floor(frame / 4);
+          var resolved = Math.floor(frame / 7);
           node.textContent = original.split('').map(function (ch, i) {
             if (i < resolved) return ch;
             if (!/[A-Z0-9]/i.test(ch)) return ch; /* conserver ©, espaces… */
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
             node.textContent = original;
             el.style.width = '';
           }
-        }, 35);
+        }, 37);
       }, startDelay);
     }
 
@@ -326,27 +326,49 @@ document.addEventListener('DOMContentLoaded', function () {
 }());
 
 
-/* ---- Showcase services (grand panneau + onglets) ---- */
+/* ---- Carrousel 3D services ---- */
 (function () {
   document.addEventListener('DOMContentLoaded', function () {
-    var showcase = document.querySelector('.services-showcase');
-    if (!showcase) return;
+    var stack = document.querySelector('.fan-stack');
+    if (!stack) return;
 
-    var panels = showcase.querySelectorAll('.showcase-panel');
-    var tabs   = showcase.querySelectorAll('.showcase-tab');
+    var cards   = Array.from(stack.querySelectorAll('.fan-card'));
+    var total   = cards.length;
+    var current = 0;
 
-    function activate(idx) {
-      panels.forEach(function (p) { p.classList.remove('is-active'); });
-      tabs.forEach(function (t)   { t.classList.remove('is-active'); });
-      if (panels[idx]) panels[idx].classList.add('is-active');
-      if (tabs[idx])   tabs[idx].classList.add('is-active');
+    var counterEl = document.querySelector('.fan-current');
+    var prevBtn   = document.querySelector('.fan-btn-prev');
+    var nextBtn   = document.querySelector('.fan-btn-next');
+
+    /* Positionne les cartes : center = active, right = suivante, left = précédente */
+    function activate(centerIdx) {
+      var positions = ['center', 'right', 'left'];
+      cards.forEach(function (card) { card.removeAttribute('data-pos'); });
+      for (var p = 0; p < positions.length; p++) {
+        cards[(centerIdx + p) % total].setAttribute('data-pos', positions[p]);
+      }
+      current = centerIdx;
+      if (counterEl) {
+        counterEl.textContent = (centerIdx + 1 < 10 ? '0' : '') + (centerIdx + 1);
+      }
     }
 
-    /* Hover sur les onglets → change le panneau principal */
-    tabs.forEach(function (tab, idx) {
-      tab.addEventListener('mouseenter', function () { activate(idx); });
-      tab.addEventListener('click',      function () { activate(idx); });
+    function next() { activate((current + 1) % total); }
+    function prev() { activate((current - 1 + total) % total); }
+
+    /* Cliquer une carte latérale la ramène au centre */
+    cards.forEach(function (card) {
+      card.addEventListener('click', function () {
+        var pos = card.getAttribute('data-pos');
+        if (pos === 'right') next();
+        if (pos === 'left')  prev();
+      });
     });
+
+    if (nextBtn) nextBtn.addEventListener('click', next);
+    if (prevBtn) prevBtn.addEventListener('click', prev);
+
+    activate(0);
   });
 }());
 

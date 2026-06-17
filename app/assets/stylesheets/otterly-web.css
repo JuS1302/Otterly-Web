@@ -8815,7 +8815,13 @@ figcaption {
 }
 
 .code-dim {
+  font-family: 'Fira Code', monospace;
   color: var(--global-colors--text-muted);
+}
+
+.fan-meta,
+.fan-meta .accent {
+  font-family: 'Fira Code', monospace;
 }
 
 /* Texte "Made with ♥ by Otterly Web" dans le footer */

@@ -1,3 +1,9 @@
+/* =====================================================
+   BASE WEBFLOW — CODE GÉNÉRÉ AUTOMATIQUEMENT
+   Ne pas modifier cette section à la main.
+   Les personnalisations commencent plus bas.
+   ===================================================== */
+
 @font-face {
   font-family: Gambetta;
   src: url('../fonts/Gambetta-MediumItalic.woff') format("woff");
@@ -8792,18 +8798,31 @@ figcaption {
 }
 
 
+/* =====================================================
+   STYLES CUSTOM OTTERLY WEB
+   Tout ce qui suit est écrit à la main.
+   ===================================================== */
+
+
 /* ===================================================
-   REFONTE IDENTITÉ — couleur accent #56e817
+   01 — VARIABLES & ACCENT
+   La couleur principale du site, utilisée via var(--accent).
    =================================================== */
 
 :root {
   --accent: #56e817;
 }
 
-/* Mot-clé accent vert */
+/* Classe utilitaire pour colorier un mot en vert accent */
 .accent {
   color: var(--accent);
 }
+
+/* ===================================================
+   02 — TYPOGRAPHIE & LABELS CODE
+   Police Fira Code pour les sous-titres style terminal
+   et les éléments monospace à travers tout le site.
+   =================================================== */
 
 /* Étiquettes de section style code VS Code */
 .text-meta.text-color-muted,
@@ -8829,6 +8848,12 @@ figcaption {
   color: var(--global-colors--text-inverse);
 }
 
+/* ===================================================
+   03 — NAVIGATION & HEADER
+   Logo, toggle dark/light, lignes animées du menu,
+   ligne du bouton CTA, menu mobile.
+   =================================================== */
+
 /* Lignes hover menu → vertes */
 .navbar-item-line {
   background-color: var(--accent) !important;
@@ -8848,7 +8873,10 @@ figcaption {
 }
 
 /* ===================================================
-   GRILLE DE COMPÉTENCES (remplace les logos)
+   04 — SECTION SKILLS
+   Pills de compétences avec bordure accent et remplissage au survol.
+   L'animation pop-in est déclenchée par l'IntersectionObserver
+   dans animations.js.
    =================================================== */
 
 .skills-grid {
@@ -8895,7 +8923,8 @@ figcaption {
 }
 
 /* ===================================================
-   FOOTER — layout (remplace la grille Webflow w-row/w-col)
+   Anciens styles de mise en page footer (classes Webflow)
+   Conservés pour ne pas casser les breakpoints mobiles.
    =================================================== */
 
 .footer-row {
@@ -8918,9 +8947,9 @@ figcaption {
 }
 
 /* ===================================================
-   RESPONSIVE — nouveaux composants
-   Breakpoints : 991px (tablette), 767px (mobile paysage),
-                 479px (mobile portrait)
+   05 — RESPONSIVE GLOBAL
+   Breakpoints : 991px tablette | 767px mobile paysage
+                 479px mobile portrait
    =================================================== */
 
 @media screen and (max-width: 767px) {
@@ -9028,7 +9057,7 @@ figcaption {
 }
 
 
-/* Footer top — logo et titre centrés sur la même ligne */
+/* --- Ancien footer header (logo + titre côte à côte) --- */
 /* display:flex !important nécessaire car anim-reveal force display:block */
 .footer-top-content {
   display: flex !important;
@@ -9098,7 +9127,13 @@ figcaption {
   color: var(--accent);
 }
 
-/* Section clients — design modernisé */
+/* ===================================================
+   06 — SECTION CLIENTS
+   Marquee CSS dans otterly-web.css ligne ~4201.
+   Ici : styles des cartes de témoignages individuelles.
+   =================================================== */
+
+/* Carte de témoignage */
 .clients-item {
   background-color: var(--global-colors--background-muted) !important;
   border-radius: 8px;
@@ -9200,6 +9235,12 @@ figcaption {
   margin: 0;
 }
 
+/* ===================================================
+   07 — SECTION PROJETS
+   Dates en Fira Code vert. Split screen desktop (≥ 768px)
+   plus bas dans le fichier (section 11).
+   =================================================== */
+
 /* Dates des projets — style code Fira Code vert */
 .text-block-2 {
   font-family: 'Fira Code', 'Inconsolata', monospace !important;
@@ -9223,10 +9264,11 @@ figcaption {
   border-radius: 6px;
 }
 
-/* ============================================================
-   Services — éventail de cartes
-   3 cartes pivotant depuis le bas, comme une main de cartes
-   ============================================================ */
+/* ===================================================
+   08 — SECTION SERVICES
+   Carrousel 3D : 3 cartes avec perspective et rotateY.
+   La navigation est gérée par animations.js (.fan-stack).
+   =================================================== */
 .services-fan {
   padding: 2rem 0 4rem;
   overflow: hidden; /* empêche le scroll horizontal des cartes latérales */
@@ -9416,6 +9458,10 @@ figcaption {
   max-width: 560px;
 }
 
+@media (max-width: 767px) {
+  .fan-desc-extra { display: none; }
+}
+
 .fan-tags {
   display: flex;
   flex-wrap: wrap;
@@ -9532,6 +9578,10 @@ figcaption {
   font-size: 1rem;
 }
 
+/* ===================================================
+   09 — ANIMATIONS & EFFETS SPÉCIAUX
+   =================================================== */
+
 /* OTTERMENT — shimmer qui glisse sur le mot */
 .otterment-shimmer {
   display: inline-block;
@@ -9569,7 +9619,12 @@ figcaption {
   animation-delay: var(--skill-delay, 0s);
 }
 
-/* About — texte dépliable */
+/* ===================================================
+   10 — SECTION À PROPOS
+   Bouton "En savoir plus" avec accordéon animé.
+   =================================================== */
+
+/* Texte dépliable */
 .about-toggle {
   display: inline-flex;
   align-items: center;
@@ -9614,11 +9669,11 @@ figcaption {
   max-height: 60rem;
 }
 
-/* ============================================================
-   Projets — split screen desktop (≥ 768px)
-   Mobile : carousel inchangé
-   Desktop : liste à gauche, détail à droite avec crossfade
-   ============================================================ */
+/* ===================================================
+   11 — SECTION PROJETS (suite) — split screen desktop
+   Desktop ≥ 768px : liste à gauche, détail à droite.
+   Mobile : carousel scroll natif (inchangé).
+   =================================================== */
 @media screen and (min-width: 768px) {
 
   .carousel-nav {
@@ -9916,42 +9971,16 @@ figcaption {
 }
 
 
-/* ============================================================
-   Footer repensé — big type + terminal
-   ============================================================ */
+/* ===================================================
+   12 — FOOTER REPENSÉ
+   Grande typographie "ON ÉCHANGE ?", email style terminal,
+   colonnes de liens, barre copyright avec logo.
+   =================================================== */
 
 .footer {
   padding: 0 !important;
   justify-content: flex-start;
   min-height: auto !important;
-}
-
-/* ---- Curseur custom — pattes de loutre ---- */
-@media (pointer: fine) {
-  * { cursor: none !important; }
-}
-
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 99999;
-  font-size: 22px;
-  line-height: 1;
-  transform: translate(-50%, -50%);
-  transition: transform 0.12s ease, opacity 0.2s ease;
-  opacity: 0;
-  user-select: none;
-  will-change: transform, left, top;
-}
-
-.custom-cursor.is-visible {
-  opacity: 1;
-}
-
-.custom-cursor.is-hover {
-  transform: translate(-50%, -50%) scale(1.5);
 }
 
 /* Logo dans la barre de copyright */
@@ -10098,6 +10127,7 @@ figcaption {
 
   .footer-cta-title {
     font-size: clamp(3.5rem, 18vw, 6rem);
+    text-align: left;
   }
 
   .footer-email {
@@ -10110,4 +10140,39 @@ figcaption {
     gap: 2rem;
     padding: 2.5rem 6vw;
   }
+}
+
+
+/* ===================================================
+   13 — CURSEUR CUSTOM
+   SVG patte de loutre en vert accent, uniquement sur
+   les appareils avec souris (pointer: fine).
+   Le JS est dans animations.js (.custom-cursor IIFE).
+   =================================================== */
+
+@media (pointer: fine) {
+  * { cursor: none !important; }
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  font-size: 22px;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+  transition: transform 0.12s ease, opacity 0.2s ease;
+  opacity: 0;
+  user-select: none;
+  will-change: transform, left, top;
+}
+
+.custom-cursor.is-visible {
+  opacity: 1;
+}
+
+.custom-cursor.is-hover {
+  transform: translate(-50%, -50%) scale(1.5);
 }

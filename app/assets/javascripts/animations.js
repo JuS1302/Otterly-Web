@@ -373,6 +373,61 @@ document.addEventListener('DOMContentLoaded', function () {
 }());
 
 
+/* ---- Curseur custom — pattes de loutre ---- */
+(function () {
+  /* Ne s'active que sur les appareils avec souris (pas les écrans tactiles) */
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+
+  document.addEventListener('DOMContentLoaded', function () {
+    /* Créer l'élément curseur */
+    var cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    cursor.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="28" height="28" fill="#56e817">'
+      + '<ellipse cx="22" cy="26" rx="11" ry="14"/>'
+      + '<ellipse cx="46" cy="14" rx="11" ry="14"/>'
+      + '<ellipse cx="70" cy="14" rx="11" ry="14"/>'
+      + '<ellipse cx="86" cy="38" rx="10" ry="13"/>'
+      + '<ellipse cx="52" cy="68" rx="32" ry="26"/>'
+      + '</svg>';
+    document.body.appendChild(cursor);
+
+    var mouseX = -100;
+    var mouseY = -100;
+    var cursorX = -100;
+    var cursorY = -100;
+    var rafId;
+
+    /* Suivi fluide avec requestAnimationFrame pour éviter les saccades */
+    function animate() {
+      cursorX += (mouseX - cursorX) * 0.2;
+      cursorY += (mouseY - cursorY) * 0.2;
+      cursor.style.left = cursorX + 'px';
+      cursor.style.top  = cursorY + 'px';
+      rafId = requestAnimationFrame(animate);
+    }
+
+    document.addEventListener('mousemove', function (e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursor.classList.add('is-visible');
+    });
+
+    /* Cacher le curseur quand la souris quitte la fenêtre */
+    document.addEventListener('mouseleave', function () {
+      cursor.classList.remove('is-visible');
+    });
+
+    /* Grossir le curseur quand on survole un élément cliquable */
+    document.addEventListener('mouseover', function (e) {
+      var target = e.target.closest('a, button, [role="button"], input, label, select, textarea, .fan-card');
+      cursor.classList.toggle('is-hover', !!target);
+    });
+
+    animate();
+  });
+}());
+
+
 /* ---- Parallax sur les images de services ---- */
 (function () {
   var images = document.querySelectorAll('.image-cover-parallax');

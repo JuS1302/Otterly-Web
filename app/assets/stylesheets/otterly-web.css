@@ -9926,6 +9926,34 @@ figcaption {
   min-height: auto !important;
 }
 
+/* ---- Curseur custom — pattes de loutre ---- */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  font-size: 22px;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+  transition: transform 0.12s ease, opacity 0.2s ease;
+  opacity: 0;
+  user-select: none;
+  will-change: transform, left, top;
+}
+
+.custom-cursor.is-visible {
+  opacity: 1;
+}
+
+.custom-cursor.is-hover {
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
 /* Logo dans la barre de copyright */
 .footer-logo {
   width: 48px;

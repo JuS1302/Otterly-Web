@@ -326,6 +326,31 @@ document.addEventListener('DOMContentLoaded', function () {
 }());
 
 
+/* ---- Showcase services (grand panneau + onglets) ---- */
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    var showcase = document.querySelector('.services-showcase');
+    if (!showcase) return;
+
+    var panels = showcase.querySelectorAll('.showcase-panel');
+    var tabs   = showcase.querySelectorAll('.showcase-tab');
+
+    function activate(idx) {
+      panels.forEach(function (p) { p.classList.remove('is-active'); });
+      tabs.forEach(function (t)   { t.classList.remove('is-active'); });
+      if (panels[idx]) panels[idx].classList.add('is-active');
+      if (tabs[idx])   tabs[idx].classList.add('is-active');
+    }
+
+    /* Hover sur les onglets → change le panneau principal */
+    tabs.forEach(function (tab, idx) {
+      tab.addEventListener('mouseenter', function () { activate(idx); });
+      tab.addEventListener('click',      function () { activate(idx); });
+    });
+  });
+}());
+
+
 /* ---- Parallax sur les images de services ---- */
 (function () {
   var images = document.querySelectorAll('.image-cover-parallax');

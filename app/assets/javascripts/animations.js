@@ -17,20 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var introDelay = 1300; /* ms avant que l'écran commence à partir */
   var introExit  = 900;  /* durée de la transition de sortie (CSS) */
 
-  /* ---- Étape 1 : cacher les éléments du hero IMMÉDIATEMENT ----
-
-     POURQUOI : pendant l'intro, la page est sous l'écran noir.
-     Si on attendait la fin de l'intro pour cacher les titres,
-     ils seraient visibles, puis sauteraient en bas au moment
-     d'appliquer anim-reveal → animation bizarre.
-     En les cachant dès maintenant, ils sont déjà dans leur
-     état final de départ quand l'intro disparaît. */
-  var heroContainers = document.querySelectorAll('.section-home-hero .overflow-hidden');
-  heroContainers.forEach(function (container) {
-    var child = container.firstElementChild;
-    if (child) child.classList.add('anim-reveal');
-  });
-
   /* Entrées du menu (navbar tablette + desktop) — cachées pendant l'intro */
   var navItems = [];
   document.querySelectorAll('.navbar-menu-item, .header .button-text, .header-small .button-text').forEach(function (el) {
@@ -38,10 +24,9 @@ document.addEventListener('DOMContentLoaded', function () {
     navItems.push(el);
   });
 
-  /* Éléments fade-up du hero (skills, bouton) */
+  /* Éléments fade-up du hero (bouton uniquement — skills gérés séparément) */
   var heroFadeEls = [];
   [
-    '.section-home-hero .skills-grid',
     '.section-home-hero .button-row',
   ].forEach(function (sel) {
     document.querySelectorAll(sel).forEach(function (el) {
@@ -90,114 +75,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ---- Étape 4 : animation du hero après l'intro ---- */
   function demarrerHero() {
-
-    /* Les titres ont déjà anim-reveal depuis l'étape 1,
-       on attend 2 frames pour s'assurer que l'état caché
-       est bien peint, puis on déclenche la transition. */
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
-
         /* Entrées du menu : fade avec stagger (45ms entre chaque) */
         navItems.forEach(function (el, idx) {
           setTimeout(function () {
             el.classList.add('is-visible');
           }, idx * 45);
         });
-
-        /* Titres du hero : slide-up avec stagger, après les items du menu */
-        var delaiTitres = navItems.length * 45 + 80;
-        heroContainers.forEach(function (container, idx) {
-          var child = container.firstElementChild;
-          if (!child) return;
-          setTimeout(function () {
-            child.classList.add('is-visible');
-          }, delaiTitres + idx * 90);
-        });
-
-        /* Éléments fade-up du hero : après les titres */
-        var delaiApresTitres = delaiTitres + heroContainers.length * 120 + 150;
-        setTimeout(function () {
-          heroFadeEls.forEach(function (el, idx) {
-            setTimeout(function () {
-              el.classList.add('is-visible');
-            }, idx * 80);
-          });
-        }, delaiApresTitres);
-
       });
     });
   }
 
 
-  /* ---- IntersectionObserver pour les sections au scroll ---- */
-  function configurerObservers() {
-
-    var revealObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          var child = entry.target.firstElementChild;
-          if (child) child.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
-
-    var fadeObserver = new IntersectionObserver(function (entries) {
-      var visibles = entries.filter(function (e) { return e.isIntersecting; });
-      visibles.forEach(function (entry, idx) {
-        fadeObserver.unobserve(entry.target);
-        setTimeout(function () {
-          entry.target.classList.add('is-visible');
-        }, idx * 70);
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
-
-    /* Slide-up pour toutes les sections SAUF le hero et l'intro
-       (le hero est géré par demarrerHero, l'intro par la séquence) */
-    document.querySelectorAll('.overflow-hidden').forEach(function (container) {
-      if (container.closest('.section-home-hero')) return;
-      if (container.closest('#page-intro')) return;
-
-      var child = container.firstElementChild;
-      if (!child) return;
-
-      child.classList.add('anim-reveal');
-
-      /* Stagger pour les titres consécutifs dans le même parent */
-      var siblings = Array.from(container.parentElement.children).filter(function (el) {
-        return el.classList.contains('overflow-hidden');
-      });
-      var idx = siblings.indexOf(container);
-      if (idx > 0) {
-        child.style.transitionDelay = (idx * 0.12) + 's';
-      }
-
-      revealObserver.observe(container);
-    });
-
-    /* Fade-up pour les éléments des sections au scroll */
-    [
-      '.text-meta',
-      '.heading-alt-h2',
-      '.heading-alt-small',
-      '.heading-alt-h3',
-      '.heading-alt-h5',
-      '.home-hero-logos',
-      '.clients-item',
-      '.button-row',
-    ].forEach(function (selector) {
-      document.querySelectorAll(selector).forEach(function (el) {
-        /* Ignorer les éléments déjà pris en charge (hero ou anim-reveal) */
-        if (el.classList.contains('anim-reveal')) return;
-        if (el.classList.contains('anim-fade')) return;
-        if (el.closest('.section-home-hero')) return;
-        if (el.closest('.footer')) return;
-
-        el.classList.add('anim-fade');
-        fadeObserver.observe(el);
-      });
-    });
-  }
+  /* Animations au scroll supprimées — les éléments sont visibles par défaut */
+  function configurerObservers() {}
 
 });
 
@@ -280,6 +172,51 @@ document.addEventListener('DOMContentLoaded', function () {
       if (i !== index) { index = i; if (current) current.textContent = pad(index + 1); }
     }
   }, { passive: true });
+}());
+
+
+/* ---- About — texte dépliable ---- */
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    var toggle      = document.querySelector('.about-toggle');
+    var collapsible = document.querySelector('.about-collapsible');
+    var label       = toggle && toggle.querySelector('.about-toggle-label');
+    if (!toggle || !collapsible) return;
+
+    toggle.addEventListener('click', function () {
+      var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      collapsible.classList.toggle('is-open', !isOpen);
+      if (label) label.textContent = isOpen ? 'En savoir plus' : 'Réduire';
+    });
+  });
+}());
+
+
+/* ---- Skills — animation pop-in au scroll ---- */
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    var grid = document.querySelector('.skills-grid');
+    if (!grid) return;
+
+    /* Préparer les délais en cascade sur chaque pill */
+    grid.querySelectorAll('.skill-item').forEach(function (item, idx) {
+      item.style.setProperty('--skill-delay', (idx * 0.05) + 's');
+    });
+
+    /* Masquer les pills jusqu'à ce que la section soit visible */
+    grid.classList.add('skills-will-animate');
+
+    var observer = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        grid.classList.add('is-visible');
+      } else {
+        grid.classList.remove('is-visible');
+      }
+    }, { threshold: 0.15 });
+
+    observer.observe(grid);
+  });
 }());
 
 

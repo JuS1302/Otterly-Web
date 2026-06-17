@@ -4188,7 +4188,7 @@ figcaption {
   grid-column-gap: 1.5rem;
   grid-row-gap: 1.5rem;
   grid-template-rows: auto;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-auto-columns: 1fr;
   display: grid;
 }
@@ -5134,7 +5134,17 @@ figcaption {
   font-size: 1.8rem;
   font-weight: 300;
   letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
 }
+
+.project-logo {
+  height: 28px;
+  width: auto;
+  flex-shrink: 0;
+}
+
 
 .project-content p {
   font-size: 0.95rem;
@@ -8809,12 +8819,12 @@ figcaption {
 
 .skill-item {
   font-family: var(--global--body-font-family);
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--global-colors--text-default);
-  padding: 0.4rem 0.85rem;
+  padding: 0.5rem 1rem;
   border: 1px solid var(--accent);
   border-radius: 6px;
   transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
@@ -8823,7 +8833,7 @@ figcaption {
 
 .skill-item i,
 .skill-item .skill-icon {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin-right: 0.35rem;
   vertical-align: middle;
 }

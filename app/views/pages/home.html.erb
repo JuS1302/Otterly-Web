@@ -763,71 +763,50 @@
 <%# FOOTER %>
 
     <footer class="footer">
-      <div class="footer-top">
-        <div class="overflow-hidden">
-          <div class="footer-top-content">
-            <%= image_tag "logo-inverse_1.png",
-              loading: "lazy",
-              height: "Auto",
-              alt: "Logo Otterly Web Footer",
-              class: "image-14" %>
-            <h2 class="heading">otterly <span class="accent">web©</span></h2>
-          </div>
+
+      <%# --- Grande typographie + email terminal --- %>
+      <div class="footer-cta">
+        <h2 class="footer-cta-title">
+          <span class="footer-cta-line">ON</span>
+          <span class="footer-cta-line"><span class="accent otterment-shimmer">ÉCHANGE</span>&nbsp;?</span>
+        </h2>
+        <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="footer-email">
+          <span class="footer-email-prompt">$</span>
+          <span class="footer-email-address">sim.ju@live.fr</span>
+          <span class="footer-email-cursor">_</span>
+          <span class="footer-email-arrow">↗</span>
+        </a>
+      </div>
+
+      <%# --- Liens style terminal --- %>
+      <div class="footer-terminal">
+        <div class="footer-terminal-col">
+          <div class="footer-terminal-dir">&gt; sections/</div>
+          <a href="#Projets" class="footer-terminal-link">./réalisations</a>
+          <a href="#Services" class="footer-terminal-link">./services</a>
+          <a href="#Avis-clients" class="footer-terminal-link">./clients</a>
+          <a href="#A-Propos" class="footer-terminal-link">./a-propos</a>
+          <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="footer-terminal-link">./contact</a>
+        </div>
+        <div class="footer-terminal-col">
+          <div class="footer-terminal-dir">&gt; social/</div>
+          <a href="https://www.linkedin.com/in/julie-simon1302/" target="_blank" class="footer-terminal-link">./linkedin</a>
+          <a href="https://github.com/JuS1302" target="_blank" class="footer-terminal-link">./github</a>
+          <a href="https://www.malt.fr/profile/juliesimon4?overview" target="_blank" class="footer-terminal-link">./malt</a>
         </div>
       </div>
-      <div class="footer-row">
-        <div class="footer-col">
-          <div class="text-meta text-color-muted-inverse">&lt;&gt;Sections&lt;/&gt;</div>
-          <div class="nav center-phone-landscape">
-            <a href="#Projets" class="nav-item inverse">
-              <div class="nav-item-text">Réalisations</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-            <a href="#Services" class="nav-item inverse">
-              <div class="nav-item-text">Services</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-            <a href="#Avis-clients" class="nav-item inverse">
-              <div class="nav-item-text">Clients</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-            <a href="#A-Propos" class="nav-item inverse">
-              <div class="nav-item-text">A propos</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-            <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="nav-item inverse">
-              <div class="nav-item-text">Contact</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-          </div>
-        </div>
-        <div class="footer-col">
-          <div class="text-meta text-color-muted-inverse">&lt;&gt;Social&lt;/&gt;</div>
-          <div class="nav center-phone-landscape">
-            <a href="https://www.linkedin.com/in/julie-simon1302/" target="_blank" class="nav-item inverse">
-              <div class="nav-item-text">Linkedin</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-            <a href="https://github.com/JuS1302" target="_blank" class="nav-item inverse">
-              <div class="nav-item-text">Github</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-            <a href="https://www.malt.fr/profile/juliesimon4?overview" target="_blank" class="nav-item inverse">
-              <div class="nav-item-text">Malt</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-          </div>
+
+      <%# --- Copyright --- %>
+      <div class="footer-bottom">
+        <div class="footer-bottom-grid">
+          <%= image_tag "logo-inverse_1.png", class: "footer-logo", alt: "Otterly Web", loading: "lazy" %>
+          <span class="text-meta">© 2025 — Made with </span>
+          <span class="footer-heart">❤</span>
+          <span class="text-meta"> by Otterly Web</span>
         </div>
       </div>
-          <div class="footer-bottom">
-            <div class="footer-bottom-grid">
-              <div class="text-meta">Made with </div>
-              <span class="footer-heart">❤</span>
-              <div class="text-meta"> by Otterly Web
-              </div>
-            </div>
-          </div>
-        </footer>
+
+    </footer>
 
 
     <div class="toggle-color">

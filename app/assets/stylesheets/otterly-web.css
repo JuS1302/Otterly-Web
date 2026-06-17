@@ -9908,3 +9908,172 @@ figcaption {
     margin-top: 0;
   }
 }
+
+
+/* ============================================================
+   Footer repensé — big type + terminal
+   ============================================================ */
+
+.footer {
+  padding: 0 !important;
+  justify-content: flex-start;
+  min-height: auto !important;
+}
+
+/* Logo dans la barre de copyright */
+.footer-logo {
+  width: 48px;
+  height: auto;
+  opacity: 0.7;
+}
+
+/* --- Grande typographie CTA --- */
+.footer-cta {
+  padding: 6vw 6vw 5vw;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  flex: 1;
+}
+
+.footer-cta-title {
+  font-family: 'Anton SC', sans-serif;
+  font-size: clamp(4.5rem, 14vw, 14rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.footer-cta-line {
+  display: block;
+}
+
+/* Email style terminal */
+.footer-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Fira Code', monospace;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+}
+
+.footer-email-prompt {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.footer-email-cursor {
+  color: var(--accent);
+  animation: cursor-blink 1.1s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.footer-email-arrow {
+  opacity: 0;
+  transform: translateX(-6px) translateY(2px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-email:hover .footer-email-arrow {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+.footer-email:hover .footer-email-address {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* --- Liens style terminal --- */
+.footer-terminal {
+  display: flex;
+  gap: 5vw;
+  padding: 3rem 6vw;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-terminal-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer-terminal-dir {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.04em;
+}
+
+.footer-terminal-link {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  padding-left: 0.8rem;
+  transition: color 0.2s ease;
+  letter-spacing: 0.02em;
+}
+
+.footer-terminal-link:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* --- Copyright --- */
+.footer-bottom {
+  padding: 1.4rem 6vw !important;
+  display: block !important;
+  flex-flow: unset !important;
+}
+
+.footer-bottom .footer-bottom-grid {
+  display: flex !important;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.03em;
+}
+
+.footer-bottom .text-meta {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.footer-bottom .footer-heart {
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .footer-cta {
+    padding: 10vw 6vw 8vw;
+    gap: 2rem;
+  }
+
+  .footer-cta-title {
+    font-size: clamp(3.5rem, 18vw, 6rem);
+  }
+
+  .footer-email {
+    font-size: clamp(0.85rem, 4vw, 1.1rem);
+    flex-wrap: wrap;
+  }
+
+  .footer-terminal {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2.5rem 6vw;
+  }
+}

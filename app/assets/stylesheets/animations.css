@@ -1,0 +1,102 @@
+/* ===================================================
+   Animations d'entrée — IntersectionObserver
+   =================================================== */
+
+/* --------------------------------------------------
+   Écran d'intro (pageloader)
+   Fond sombre plein écran qui monte vers le haut
+   pour révéler la page.
+   -------------------------------------------------- */
+.pageloader {
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pageloader.is-leaving {
+  transform: translateY(-100%);
+}
+
+/* Ne pas appliquer d'animations si l'utilisateur
+   a activé "réduire les animations" dans son OS */
+@media (prefers-reduced-motion: reduce) {
+  .pageloader {
+    transition: none !important;
+  }
+  .anim-reveal,
+  .anim-fade {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+}
+
+/* --------------------------------------------------
+   Hover menu — ligne soulignée animée
+   .navbar-item-line part de width:0 et s'étend
+   jusqu'à 100% quand on survole l'item du menu.
+   -------------------------------------------------- */
+.navbar-item-line {
+  transition: width 0.3s ease;
+}
+
+.navbar-menu-item:hover .navbar-item-line {
+  width: 100%;
+}
+
+/* --------------------------------------------------
+   Hover bouton "On échange ?" — inverse du menu
+   .button-text-line part de width:100% et rétrécit
+   vers la gauche au survol (effet miroir des items).
+   -------------------------------------------------- */
+.button-text-line {
+  transition: width 0.3s ease;
+}
+
+.button-text:hover .button-text-line {
+  width: 0;
+}
+
+/* --------------------------------------------------
+   Slide-up (texte qui remonte depuis le bas)
+   Utilisé pour : h1, h2, h3 à l'intérieur de
+   conteneurs .overflow-hidden (le parent masque
+   le dépassement, créant l'effet de "store")
+   -------------------------------------------------- */
+.anim-reveal {
+  display: block;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  will-change: opacity;
+}
+
+.anim-reveal.is-visible {
+  opacity: 1;
+}
+
+/* --------------------------------------------------
+   Fade-in simple pour paragraphes, sections, logos…
+   -------------------------------------------------- */
+.anim-fade {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  will-change: opacity;
+}
+
+.anim-fade.is-visible {
+  opacity: 1;
+}
+
+/* --------------------------------------------------
+   Slide-up + fade — entrées du menu
+   -------------------------------------------------- */
+.anim-nav-item {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.2, 0, 0, 1);
+  will-change: opacity, transform;
+}
+
+.anim-nav-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

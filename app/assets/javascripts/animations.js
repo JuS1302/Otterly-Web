@@ -448,3 +448,57 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', updateParallax, { passive: true });
   updateParallax();
 }());
+
+
+/* ---- Scroll fluide — liens internes + menu mobile ---- */
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () {
+
+      function scrollToSectionTop(targetId) {
+        var targetElement = document.querySelector(targetId);
+        if (!targetElement) return;
+
+        var startPosition = window.pageYOffset;
+        var distance = targetElement.offsetTop - startPosition;
+        var duration = Math.max(800, Math.abs(distance) * 0.5);
+        var startTime = null;
+
+        function animateScroll(currentTime) {
+          if (startTime === null) startTime = currentTime;
+          var progress = Math.min((currentTime - startTime) / duration, 1);
+          var ease = progress < 0.5
+            ? 2 * progress * progress
+            : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+          window.scrollTo(0, startPosition + distance * ease);
+          if (progress < 1) requestAnimationFrame(animateScroll);
+        }
+
+        requestAnimationFrame(animateScroll);
+      }
+
+      /* Liens internes (footer, nav) */
+      document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(function (link) {
+        if (!link.closest('.mobile-menu-list')) {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            scrollToSectionTop(link.getAttribute('href'));
+          });
+        }
+      });
+
+      /* Menu mobile — fermer puis scroller */
+      var menuToggle = document.getElementById('menu-toggle');
+      document.querySelectorAll('.mobile-menu-list a').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          var targetId = link.getAttribute('href');
+          if (menuToggle) menuToggle.checked = false;
+          setTimeout(function () { scrollToSectionTop(targetId); }, 300);
+        });
+      });
+
+    }, 100);
+  });
+}());

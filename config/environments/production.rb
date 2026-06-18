@@ -2,7 +2,7 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 
   # Code is not reloaded between requests.
   config.enable_reloading = false
@@ -55,7 +55,7 @@ Rails.application.configure do
   config.i18n.fallbacks = true
 
   # Protection contre les attaques DNS rebinding — n'autoriser que le domaine réel
-  config.hosts = ["otterly-web.fr", "www.otterly-web.fr"]
+  config.hosts = [ "otterly-web.fr", "www.otterly-web.fr" ]
 
   # Laisser passer le health check Kamal sans vérification de host
   config.host_authorization = { exclude: ->(request) { request.path == "/up" } }

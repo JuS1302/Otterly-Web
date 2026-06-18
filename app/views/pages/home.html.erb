@@ -1,10 +1,10 @@
 <% content_for :title, "Otterly Web - Le web otterment bien pensé" %>
 <% content_for :head do %>
-  <meta name="description" content="Otterly Web – Studio de développement web créatif à Bordeaux. Sites sur mesure, UX/UI, déploiement fiable et maintenance continue.">
+  <meta name="description" content="Otterly Web - Studio de développement web créatif à Bordeaux. Sites sur mesure, UX/UI, déploiement fiable et maintenance continue.">
   <meta property="og:title" content="Otterly Web - Le web otterment bien pensé">
-  <meta property="og:description" content="Otterly Web – Studio de développement web créatif à Bordeaux. Sites sur mesure, UX/UI, déploiement fiable et maintenance continue.">
+  <meta property="og:description" content="Otterly Web - Studio de développement web créatif à Bordeaux. Sites sur mesure, UX/UI, déploiement fiable et maintenance continue.">
   <meta property="twitter:title" content="Otterly Web - Le web otterment bien pensé">
-  <meta property="twitter:description" content="Otterly Web – Studio de développement web créatif à Bordeaux. Sites sur mesure, UX/UI, déploiement fiable et maintenance continue.">
+  <meta property="twitter:description" content="Otterly Web - Studio de développement web créatif à Bordeaux. Sites sur mesure, UX/UI, déploiement fiable et maintenance continue.">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta property="og:image" content="https://www.otterly-web.fr/images/loutre-dev.png">
@@ -14,15 +14,27 @@
 
 
 
+  <%# Écran d'intro — fond sombre avec le titre du site %>
+  <div id="page-intro" class="pageloader">
+    <div class="pageloader-content">
+      <%= image_tag "logo-inverse_1.png", class: "pageloader-logo", alt: "Otterly Web" %>
+      <div class="overflow-hidden">
+        <p class="pageloader-heading">Otterly Web©</p>
+      </div>
+    </div>
+  </div>
+  <%# Script inline : rend l'intro visible immédiatement (avant le premier rendu) %>
+  <script>document.getElementById('page-intro').style.display='flex';</script>
+
   <div class="page-wrapper">
 
 <%# Menu Section tablette %>
 
     <div class="show-tablet">
       <header class="header">
-        <header class="navbar">
-          <div id="w-node-eb0427c1-bb1c-e076-5734-e12e7079058a-70790586" class="navbar-left">
-            <%= link_to root_path, class: "navbar-logo w-inline-block w--current", "aria-current": "page" do %>
+        <div class="navbar">
+          <div class="navbar-left">
+            <%= link_to root_path, class: "navbar-logo", "aria-current": "page" do %>
               <div class="light-mode">
                 <%= image_tag "logo.png",
                   loading: "eager",
@@ -39,39 +51,39 @@
               </div>
             <% end %>
           </div>
-          <nav class="navbar-menu">
-            <a data-w-id="6e15c14e-1146-0b20-61d1-6721f0646d5a" href="#Projets" class="navbar-menu-item w-inline-block">
+          <nav class="navbar-menu" aria-label="Navigation principale">
+            <a href="#Projets" class="navbar-menu-item">
               <div class="navbar-menu-item-text">Réalisations</div>
               <div class="navbar-item-line"></div>
             </a>
-            <a data-w-id="6e15c14e-1146-0b20-61d1-6721f0646d5a" href="#Services" class="navbar-menu-item w-inline-block">
+            <a href="#Services" class="navbar-menu-item">
               <div class="navbar-menu-item-text">Services</div>
               <div class="navbar-item-line"></div>
             </a>
-            <a data-w-id="6e15c14e-1146-0b20-61d1-6721f0646d5a" href="#Avis-clients" class="navbar-menu-item w-inline-block">
+            <a href="#Avis-clients" class="navbar-menu-item">
               <div class="navbar-menu-item-text">Clients</div>
               <div class="navbar-item-line"></div>
             </a>
-            <a data-w-id="6e15c14e-1146-0b20-61d1-6721f0646d5a" href="#A-Propos" class="navbar-menu-item w-inline-block">
+            <a href="#A-Propos" class="navbar-menu-item">
               <div class="navbar-menu-item-text">À propos</div>
               <div class="navbar-item-line"></div>
             </a>
           </nav>
-          <div id="w-node-eb0427c1-bb1c-e076-5734-e12e7079063b-70790586" class="navbar-right">
-            <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="button-text w-inline-block">
+          <div class="navbar-right">
+            <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="button-text">
               <div class="button-text-inner">
                 <div class="button-text-text">On échange ?</div>
                 <div class="button-text-line"></div>
               </div>
             </a>
-            <a href="#" class="mobile-menu-toggle w-inline-block">
+            <a href="#" class="mobile-menu-toggle">
               <div class="mobile-menu-toggle-inner">
                 <div class="menu-toggle-line top"></div>
                 <div class="menu-toggle-line bottom"></div>
               </div>
             </a>
           </div>
-        </header>
+        </div>
       </header>
     </div>
 
@@ -81,8 +93,8 @@
 
     <header class="header-small">
       <header class="navbar-small">
-        <div id="w-node-_27821f9c-524e-9fb5-c2dd-c9ef1cd1e530-1cd1e52e" class="navbar-small-left">
-          <%= link_to root_path, class: "navbar-logo w-inline-block w--current", "aria-current": "page" do %>
+        <div class="navbar-small-left">
+          <%= link_to root_path, class: "navbar-logo", "aria-current": "page" do %>
             <%# Le logo-inverse est utilisé par défaut pour le header small (desktop principalement) %>
             <%= image_tag "logo-inverse.png",
               width: 175,
@@ -92,26 +104,26 @@
               class: "navbar-logo-image" %>
           <% end %>
         </div>
-        <div id="w-node-_27821f9c-524e-9fb5-c2dd-c9ef1cd1e544-1cd1e52e" class="navbar-small-right">
-          <nav class="navbar-small-menu">
-            <a data-w-id="6e15c14e-1146-0b20-61d1-6721f0646d5a" href="#Projets" class="navbar-menu-item w-inline-block">
+        <div class="navbar-small-right">
+          <nav class="navbar-small-menu" aria-label="Navigation principale">
+            <a href="#Projets" class="navbar-menu-item">
               <div class="navbar-menu-item-text">Réalisations</div>
               <div class="navbar-item-line"></div>
             </a>
-            <a data-w-id="6e15c14e-1146-0b20-61d1-6721f0646d5a" href="#Services" class="navbar-menu-item w-inline-block">
+            <a href="#Services" class="navbar-menu-item">
               <div class="navbar-menu-item-text">Services</div>
               <div class="navbar-item-line"></div>
             </a>
-            <a data-w-id="6e15c14e-1146-0b20-61d1-6721f0646d5a" href="#Avis-clients" class="navbar-menu-item w-inline-block">
+            <a href="#Avis-clients" class="navbar-menu-item">
               <div class="navbar-menu-item-text">Clients</div>
               <div class="navbar-item-line"></div>
             </a>
-            <a data-w-id="6e15c14e-1146-0b20-61d1-6721f0646d5a" href="#A-Propos" class="navbar-menu-item w-inline-block">
+            <a href="#A-Propos" class="navbar-menu-item">
               <div class="navbar-menu-item-text">À propos</div>
               <div class="navbar-item-line"></div>
             </a>
           </nav>
-          <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="button-text w-inline-block">
+          <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="button-text">
             <div class="button-text-inner">
               <div class="button-text-text">On échange ?</div>
               <div class="button-text-line"></div>
@@ -128,16 +140,16 @@
     <div class="mobile-menu">
       <div class="mobile-menu-wrapper">
         <nav class="mobile-menu-nav">
-          <a href="#r-alisations" class="mobile-menu-nav-item w-inline-block">
+          <a href="#r-alisations" class="mobile-menu-nav-item">
             <div class="menu-nav-item-text">Réalisations</div>
           </a>
-          <a href="#mes-services" class="mobile-menu-nav-item w-inline-block">
+          <a href="#mes-services" class="mobile-menu-nav-item">
             <div class="menu-nav-item-text">Services</div>
           </a>
-          <a href="#clients" class="mobile-menu-nav-item w-inline-block">
+          <a href="#clients" class="mobile-menu-nav-item">
             <div class="menu-nav-item-text">Clients</div>
           </a>
-          <a href="#A-Propos" class="mobile-menu-nav-item w-inline-block">
+          <a href="#A-Propos" class="mobile-menu-nav-item">
             <div class="menu-nav-item-text">A propos</div>
           </a>
         </nav>
@@ -146,9 +158,9 @@
     %>
   </div>
 
-   <input type="checkbox" id="menu-toggle" class="menu-toggle-input">
+   <input type="checkbox" id="menu-toggle" class="menu-toggle-input" aria-label="Menu de navigation">
       <div class="mobile-menu-container">
-        <label for="menu-toggle" class="menu-toggle-label">
+        <label for="menu-toggle" class="menu-toggle-label" aria-label="Ouvrir le menu de navigation">
           <div class="menu-toggle-icon">
             <!-- Menu burger en mode clair -->
             <div class="light-mode">
@@ -165,25 +177,27 @@
 
         <!-- Menu déroulant en mode clair -->
         <div class="light-mode">
-          <nav class="mobile-menu-new light">
+          <nav class="mobile-menu-new light" aria-label="Navigation principale">
             <ul class="mobile-menu-list">
               <li><a href="#Projets">Réalisations</a></li>
               <li><a href="#Services">Services</a></li>
               <li><a href="#Avis-clients">Clients</a></li>
               <li><a href="#A-Propos">À propos</a></li>
             </ul>
+            <%= image_tag "logo.png", class: "mobile-menu-logo", alt: "Otterly Web" %>
           </nav>
         </div>
 
         <!-- Menu déroulant en mode sombre -->
         <div class="dark-mode">
-          <nav class="mobile-menu-new dark">
+          <nav class="mobile-menu-new dark" aria-label="Navigation principale">
             <ul class="mobile-menu-list">
               <li><a href="#Projets">Réalisations</a></li>
               <li><a href="#Services">Services</a></li>
               <li><a href="#Avis-clients">Clients</a></li>
               <li><a href="#A-Propos">À propos</a></li>
             </ul>
+            <%= image_tag "logo-inverse_1.png", class: "mobile-menu-logo", alt: "Otterly Web" %>
           </nav>
         </div>
       </div>
@@ -192,300 +206,94 @@
 
 <%# A PROPOS + LANGAGES %>
 
-    <main data-w-id="498551d7-585e-bb2f-258e-fb2fba114e3f" class="main-wrapper">
-      <section data-w-id="9e5ad1c0-fdc5-b2f1-d7ba-ea4c9a85f8bc" class="section-home-hero">
+    <main class="main-wrapper">
+      <section class="section-home-hero">
         <div class="home-hero-grid">
-            <%= image_tag "loutre-web-origami.png",
+            <%= image_tag "Loutre-code.jpg",
               loading: "lazy",
               height: 70,
               alt: "Loutre développeuse Otterly Web",
-              srcset: "#{asset_path('loutre-web-origami-p-500.png')} 500w, #{asset_path('loutre-web-origami-p-800.png')} 800w, #{asset_path('loutre-web-origami.png')} 1024w",
-              sizes: "70px",
               class: "home-hero-image" %>
-          <div id="w-node-d33d43d6-87a6-8432-4bfc-9becb5519f53-38d711e6" class="home-hero-right">
+          <div class="home-hero-right">
             <header class="home-hero-right-top">
               <div class="margin-bottom margin-large">
                 <div class="overflow-hidden">
-                  <h1 data-w-id="145bcde3-7e3f-658b-34d0-c569df8dc036" style="-webkit-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="heading-style-large">OTTERLY</h1>
+                  <h1 class="heading-style-large" aria-label="Otterly Web">OTTERLY</h1>
                 </div>
-                <div class="overflow-hidden">
-                  <h1 data-w-id="ee82ad9a-ae03-6084-0908-9fca7834408a" style="-webkit-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="heading-style-large">WEB©</h1>
+                <div class="overflow-hidden" aria-hidden="true">
+                  <p class="heading-style-large"><span class="accent">WEB©</span></p>
                 </div>
               </div>
               <div>
                 <div class="margin-bottom margin-medium">
-                  <div data-w-id="d56f311a-cc6f-2cac-3cbf-f9f198c084d7" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-meta text-color-muted">&lt;&gt;Basée à Bordeaux&lt;/&gt;</div>
+                  <div class="text-meta text-color-muted"><span class="code-dim">&lt;meta</span><span class="accent">.location</span><span class="code-dim"> /&gt;</span></div>
                 </div>
                 <div class="max-width-large">
-                  <p data-w-id="093bd1e8-012c-33c5-2dcb-7cb03dae05d1" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="heading-alt-h2">Découvrez Otterly Web - un studio de développement créatif et audacieux. Plongez dans un univers au design soigné, où chaque détail est pensé pour offrir une expérience intuitive, un impact visuel fort, et des solutions techniques sur mesure. </p>
+                  <p class="heading-alt-h2">Découvrez Otterly Web - un studio de développement <span class="accent">créatif et audacieux</span>. Plongez dans un univers au design soigné, où chaque détail est pensé pour offrir une expérience intuitive, un impact visuel fort, et des solutions techniques sur mesure. </p>
                 </div>
               </div>
             </header>
             <div class="home-hero-right-bottom">
               <div class="margin-bottom margin-medium">
-                <div id="A-Propos" data-w-id="b938366f-36f5-3abd-16d1-bfc45d5bc007" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-meta text-color-muted">&lt;&gt;À propos&lt;/&gt;</div>
+                <div id="A-Propos" class="text-meta text-color-muted"><span class="code-dim">&lt;section</span><span class="accent">.about</span><span class="code-dim"> /&gt;</span></div>
               </div>
               <div class="margin-bottom margin-medium">
                 <div class="margin-bottom margin-tiny">
                   <div class="overflow-hidden">
-                    <h2 data-w-id="644ea88c-5780-cb1a-3630-f3c1b34add5f" style="-webkit-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="heading-style-h2">&lt;Le web&gt;</h2>
+                    <h2 class="heading-style-h2">&lt;Le web&gt;</h2>
                   </div>
                 </div>
                 <div class="margin-bottom margin-tiny">
                   <div class="overflow-hidden">
-                    <h2 data-w-id="9a4c9eef-9756-5a66-6559-3800d641a620" style="-webkit-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="heading-style-h2">OTTERMENT</h2>
+                    <h2 class="heading-style-h2"><span class="accent otterment-shimmer">OTTERMENT</span></h2>
                   </div>
                 </div>
                 <div class="margin-bottom margin-tiny">
                   <div class="overflow-hidden">
-                    <h2 data-w-id="844a9563-dfad-01f4-59b4-e0f764f63c07" style="-webkit-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="heading-style-h2">bien</h2>
+                    <h2 class="heading-style-h2">bien</h2>
                   </div>
                 </div>
                 <div class="overflow-hidden">
-                  <h2 data-w-id="0478f6b5-ca28-9a5c-cace-a33bebf507a4" style="-webkit-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="heading-style-h2">pensé.</h2>
+                  <h2 class="heading-style-h2">pensé.</h2>
                 </div>
               </div>
               <div class="margin-bottom margin-xhuge">
                 <div class="max-width-large">
-                  <p data-w-id="7400725d-f4bd-c88e-5843-411d5e542c8d" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-color-muted">Chez <strong>Otterly Web</strong>, je donne vie à vos idées à travers des applications web modernes, intuitives et sur-mesure. Spécialisée dans le développement full-stack, je mets à profit ma double expertise en communication digitale et en programmation pour concevoir des solutions performantes, créatives et alignées avec vos objectifs. <br><br>Mon approche allie sens du détail, rigueur technique et écoute active. Chaque projet est une collaboration, pensée pour répondre précisément à vos besoins tout en offrant une expérience fluide à vos utilisateurs. Qu’il s’agisse d’une application sur-mesure, d’un site vitrine ou d’un outil métier, je conçois des produits numériques qui ont du sens, qui durent, et qui vous ressemblent. <br><br>Portée par une sensibilité au design, à l’ergonomie et à la technologie, je m’engage à créer des interfaces élégantes et des fonctionnalités robustes, avec une attention particulière à la maintenabilité et à l’évolutivité du code.</p>
+                  <p class="text-color-muted">Chez <strong>Otterly Web</strong>, je donne vie à vos idées à travers des applications web modernes, intuitives et sur-mesure. Développeuse full-stack, je maîtrise aussi bien le back-end (Ruby on Rails, PHP, Symfony, Laravel, PostgreSQL) que le front-end (JavaScript, TypeScript, React, Next.js, Tailwind CSS) - et j’intègre des outils IA comme Claude Code dans mon workflow pour livrer plus vite, sans rogner sur la qualité.</p>
+                </div>
+                <button class="about-toggle" aria-expanded="false" aria-controls="about-collapsible-content">
+                  <span class="about-toggle-label">En savoir plus</span>
+                  <span class="about-toggle-arrow">↓</span>
+                </button>
+                <div class="about-collapsible" id="about-collapsible-content">
+                  <div class="max-width-large">
+                    <p class="text-color-muted">Mon approche allie sens du détail, rigueur technique et écoute active. Chaque projet est une collaboration, pensée pour répondre précisément à vos besoins tout en offrant une expérience fluide à vos utilisateurs. Qu’il s’agisse d’une application sur-mesure, d’un site vitrine ou d’un outil métier, je conçois des produits numériques qui ont du sens, qui durent, et qui vous ressemblent.</p>
+                    <p class="text-color-muted">Portée par une sensibilité au design, à l’ergonomie et à la technologie, je m’engage à créer des interfaces élégantes et des fonctionnalités robustes, avec une attention particulière à la maintenabilité et à l’évolutivité du code.</p>
+                  </div>
                 </div>
               </div>
               <div class="margin-bottom margin-large">
-                <div data-w-id="c0ab37a0-51e1-d008-a23b-7bcf7b9a640a" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-meta text-color-muted">&lt;&gt;Les langages &amp; logiciels&lt;/&gt;</div>
+                <div class="text-meta text-color-muted"><span class="code-dim">&lt;section</span><span class="accent">.skills</span><span class="code-dim"> /&gt;</span></div>
               </div>
 
     <%# LANGAGES %>
-              <div class="light-mode">
-                <div data-w-id="720d6df2-f328-75b5-cdfe-687978c04105" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="home-hero-logos light">
-                  <%= image_tag "Ruby.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 48,
-                    height: 48,
-                    alt: "Logo Ruby Otterly Web",
-                    srcset: "#{asset_path('Ruby-p-500.png')} 500w, #{asset_path('Ruby-p-800.png')} 800w, #{asset_path('Ruby-p-1080.png')} 1080w, #{asset_path('Ruby.png')} 1563w",
-                    sizes: "48px",
-                    id: "w-node-_0fd5badf-55c7-037a-8f39-e0809206f321-38d711e6" %>
-
-                  <%= image_tag "rails.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 50,
-                    height: 50,
-                    alt: "Logo Rails Otterly Web",
-                    srcset: "#{asset_path('rails-p-500.png')} 500w, #{asset_path('rails-p-800.png')} 800w, #{asset_path('rails-p-1080.png')} 1080w, #{asset_path('rails.png')} 1563w",
-                    sizes: "50px",
-                    id: "w-node-_2d7189aa-8c58-ff66-ebad-2a3603581028-38d711e6" %>
-
-                  <%= image_tag "js.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 48,
-                    height: 48,
-                    alt: "Logo JavaScript Otterly Web",
-                    srcset: "#{asset_path('js-p-500.png')} 500w, #{asset_path('js-p-800.png')} 800w, #{asset_path('js-p-1080.png')} 1080w, #{asset_path('js.png')} 1563w",
-                    sizes: "48px",
-                    id: "w-node-_797aa0d8-9c08-df62-0776-47ff72d0ece4-38d711e6" %>
-
-                  <%= image_tag "stimulus.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 52,
-                    height: 52,
-                    alt: "Logo Stimulus Otterly Web",
-                    srcset: "#{asset_path('stimulus-p-500.png')} 500w, #{asset_path('stimulus-p-800.png')} 800w, #{asset_path('stimulus-p-1080.png')} 1080w, #{asset_path('stimulus.png')} 1563w",
-                    sizes: "52px",
-                    id: "w-node-ec704833-d59b-fc3a-f226-dbf0e0a4cfa0-38d711e6" %>
-
-                  <%= image_tag "react.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 52,
-                    height: 52,
-                    alt: "Logo React Otterly Web",
-                    srcset: "#{asset_path('react-p-500.png')} 500w, #{asset_path('react-p-800.png')} 800w, #{asset_path('react-p-1080.png')} 1080w, #{asset_path('react.png')} 1563w",
-                    sizes: "52px",
-                    id: "w-node-_8d4a9473-1797-246d-68b3-8753ce7fe763-38d711e6" %>
-
-                  <div id="w-node-_0af61efa-1b95-6417-2f43-391d95820947-38d711e6">Ruby</div>
-                  <div id="w-node-_6c6820d5-c9e3-48a8-8f76-3c6137e62385-38d711e6">Rails</div>
-                  <div id="w-node-_16bc80c7-3b21-d6d0-48c0-186b50f51718-38d711e6">JavaScript</div>
-                  <div id="w-node-_243f792f-521f-900d-04c4-2b7f21e2bae3-38d711e6">Stimulus</div>
-                  <div id="w-node-_61bb44f2-83c7-c3aa-d962-ed8ad82e8280-38d711e6">React</div>
-
-                    <%= image_tag "html.png",
-                      class: "tech-logo",
-                      loading: "lazy",
-                      width: 52,
-                      height: 52,
-                      alt: "Logo Html Otterly Web",
-                      srcset: "#{asset_path('html-p-500.png')} 500w, #{asset_path('html-p-800.png')} 800w, #{asset_path('html-p-1080.png')} 1080w, #{asset_path('html.png')} 1563w",
-                      sizes: "52px",
-                      id: "w-node-_5ca819ac-e769-fb25-597e-946314df2676-38d711e6" %>
-
-                    <%= image_tag "css.png",
-                      class: "tech-logo",
-                      loading: "lazy",
-                      width: 52,
-                      height: 52,
-                      alt: "Logo CSS Otterly Web",
-                      srcset: "#{asset_path('css-p-500.png')} 500w, #{asset_path('css-p-800.png')} 800w, #{asset_path('css-p-1080.png')} 1080w, #{asset_path('css.png')} 1563w",
-                      sizes: "52px",
-                      id: "w-node-b8467ce1-277f-f7a0-0d9f-d4a1b1303c33-38d711e6" %>
-
-                    <%= image_tag "bootstrap.png",
-                      class: "tech-logo",
-                      loading: "lazy",
-                      width: 50,
-                      height: 50,
-                      alt: "Logo Bootstrap Otterly Web",
-                      srcset: "#{asset_path('bootstrap-p-500.png')} 500w, #{asset_path('bootstrap-p-800.png')} 800w, #{asset_path('bootstrap-p-1080.png')} 1080w, #{asset_path('bootstrap.png')} 1563w",
-                      sizes: "50px",
-                      id: "w-node-f22d2b63-6ba2-39bb-4fc8-2c2997a59119-38d711e6" %>
-
-                    <%= image_tag "tailwind.png",
-                      class: "tech-logo",
-                      loading: "lazy",
-                      width: 52,
-                      height: 52,
-                      alt: "Logo Tailwind Otterly Web",
-                      srcset: "#{asset_path('tailwind-p-500.png')} 500w, #{asset_path('tailwind-p-800.png')} 800w, #{asset_path('tailwind-p-1080.png')} 1080w, #{asset_path('tailwind.png')} 1563w",
-                      sizes: "52px",
-                      id: "w-node-_157dcd0d-ceb5-8108-1aa9-3974d1b02a1c-38d711e6" %>
-
-                    <%= image_tag "figma.png",
-                      class: "tech-logo",
-                      loading: "lazy",
-                      width: 50,
-                      height: 50,
-                      alt: "Logo Figma Otterly Web",
-                      srcset: "#{asset_path('figma-p-500.png')} 500w, #{asset_path('figma-p-800.png')} 800w, #{asset_path('figma-p-1080.png')} 1080w, #{asset_path('figma.png')} 1563w",
-                      sizes: "50px",
-                      id: "w-node-_6074cdba-24b8-e0b8-95a6-fd7d53ab7285-38d711e6" %>
-
-                  <div id="w-node-ae0dc37f-2b1f-a1dc-942f-f7f92f822bac-38d711e6">HTML</div>
-                  <div id="w-node-_6a560fee-3975-6cbe-6f1c-f13f1684e99e-38d711e6">CSS</div>
-                  <div id="w-node-e1b9002c-d8ad-93b1-85f8-b56e5a95ebce-38d711e6">Bootstrap</div>
-                  <div id="w-node-eb55ee0e-fdc0-c799-43f3-bade139a2d38-38d711e6">Tailwind</div>
-                  <div id="w-node-_0458696b-4a8c-9af7-c174-dd80c0ccc772-38d711e6">Figma</div>
-                </div>
-              </div>
-
-
-              <div class="dark-mode">
-                <div data-w-id="1fe6c776-ca77-a207-d206-368f1da32698" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="home-hero-logos dark">
-                  <%= image_tag "ruby-blanc.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 48,
-                    height: 48,
-                    alt: "Logo Ruby Otterly Web",
-                    srcset: "#{asset_path('ruby-blanc-p-500.png')} 500w, #{asset_path('ruby-blanc-p-800.png')} 800w, #{asset_path('ruby-blanc-p-1080.png')} 1080w, #{asset_path('ruby-blanc.png')} 1563w",
-                    sizes: "48px",
-                    id: "w-node-_0fd5badf-55c7-037a-8f39-e0809206f321-38d711e6" %>
-
-                  <%= image_tag "rails-blanc.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 50,
-                    height: 50,
-                    alt: "Logo Rails Otterly Web",
-                    srcset: "#{asset_path('rails-blanc-p-500.png')} 500w, #{asset_path('rails-blanc-p-800.png')} 800w, #{asset_path('rails-blanc-p-1080.png')} 1080w, #{asset_path('rails-blanc.png')} 1563w",
-                    sizes: "50px",
-                    id: "w-node-_2d7189aa-8c58-ff66-ebad-2a3603581028-38d711e6" %>
-
-                  <%= image_tag "js-blanc.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 48,
-                    height: 48,
-                    alt: "Logo JavaScript Otterly Web",
-                    srcset: "#{asset_path('js-blanc-p-500.png')} 500w, #{asset_path('js-blanc-p-800.png')} 800w, #{asset_path('js-blanc-p-1080.png')} 1080w, #{asset_path('js-blanc.png')} 1563w",
-                    sizes: "48px",
-                    id: "w-node-_797aa0d8-9c08-df62-0776-47ff72d0ece4-38d711e6" %>
-
-                  <%= image_tag "stimulus.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 52,
-                    height: 52,
-                    alt: "Logo Stimulus Otterly Web",
-                    srcset: "#{asset_path('stimulus-blanc-p-500.png')} 500w, #{asset_path('stimulus-blanc-p-800.png')} 800w, #{asset_path('stimulus-blanc-p-1080.png')} 1080w, #{asset_path('stimulus-blanc.png')} 1563w",
-                    sizes: "52px",
-                    id: "w-node-ec704833-d59b-fc3a-f226-dbf0e0a4cfa0-38d711e6" %>
-
-                  <%= image_tag "react.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 52,
-                    height: 52,
-                    alt: "Logo React Otterly Web",
-                    srcset: "#{asset_path('react-blanc-p-500.png')} 500w, #{asset_path('react-blanc-p-800.png')} 800w, #{asset_path('react-blanc-p-1080.png')} 1080w, #{asset_path('react-blanc.png')} 1563w",
-                    sizes: "52px",
-                    id: "w-node-_8d4a9473-1797-246d-68b3-8753ce7fe763-38d711e6" %>
-
-                  <div id="w-node-_0af61efa-1b95-6417-2f43-391d95820947-38d711e6">Ruby</div>
-                  <div id="w-node-_6c6820d5-c9e3-48a8-8f76-3c6137e62385-38d711e6">Rails</div>
-                  <div id="w-node-_16bc80c7-3b21-d6d0-48c0-186b50f51718-38d711e6">JavaScript</div>
-                  <div id="w-node-_243f792f-521f-900d-04c4-2b7f21e2bae3-38d711e6">Stimulus</div>
-                  <div id="w-node-_61bb44f2-83c7-c3aa-d962-ed8ad82e8280-38d711e6">React</div>
-
-                  <%= image_tag "html.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 52,
-                    height: 52,
-                    alt: "Logo Html Otterly Web",
-                    srcset: "#{asset_path('html-blanc-p-500.png')} 500w, #{asset_path('html-blanc-p-800.png')} 800w, #{asset_path('html-blanc-p-1080.png')} 1080w, #{asset_path('html-blanc.png')} 1563w",
-                    sizes: "52px",
-                    id: "w-node-_5ca819ac-e769-fb25-597e-946314df2676-38d711e6" %>
-
-                  <%= image_tag "css-blanc.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 52,
-                    height: 52,
-                    alt: "Logo CSS Otterly Web",
-                    srcset: "#{asset_path('css-blanc-p-500.png')} 500w, #{asset_path('css-blanc-p-800.png')} 800w, #{asset_path('css-blanc-p-1080.png')} 1080w, #{asset_path('css-blanc.png')} 1563w",
-                    sizes: "52px",
-                    id: "w-node-b8467ce1-277f-f7a0-0d9f-d4a1b1303c33-38d711e6" %>
-
-                  <%= image_tag "bootstrap-blanc.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 50,
-                    height: 50,
-                    alt: "Logo Bootstrapt Otterly Web",
-                    srcset: "#{asset_path('bootstrap-blanc-p-500.png')} 500w, #{asset_path('bootstrap-blanc-p-800.png')} 800w, #{asset_path('bootstrap-blanc-p-1080.png')} 1080w, #{asset_path('bootstrap-blanc.png')} 1563w",
-                    sizes: "50px",
-                    id: "w-node-f22d2b63-6ba2-39bb-4fc8-2c2997a59119-38d711e6" %>
-
-                  <%= image_tag "tailwind-blanc.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 52,
-                    height: 52,
-                    alt: "Logo Tailwind Otterly Web",
-                    srcset: "#{asset_path('tailwind-blanc-p-500.png')} 500w, #{asset_path('tailwind-blanc-p-800.png')} 800w, #{asset_path('tailwind-blanc-p-1080.png')} 1080w, #{asset_path('tailwind-blanc.png')} 1563w",
-                    sizes: "52px",
-                    id: "w-node-_157dcd0d-ceb5-8108-1aa9-3974d1b02a1c-38d711e6" %>
-
-                  <%= image_tag "figma-blanc.png",
-                    class: "tech-logo",
-                    loading: "lazy",
-                    width: 50,
-                    height: 50,
-                    alt: "Logo Figma Otterly Web",
-                    srcset: "#{asset_path('figma-blanc-p-500.png')} 500w, #{asset_path('figma-blanc-p-800.png')} 800w, #{asset_path('figma-blanc-p-1080.png')} 1080w, #{asset_path('figma-blanc.png')} 1563w",
-                    sizes: "50px",
-                    id: "w-node-_6074cdba-24b8-e0b8-95a6-fd7d53ab7285-38d711e6" %>
-
-                  <div id="w-node-ae0dc37f-2b1f-a1dc-942f-f7f92f822bac-38d711e6">HTML</div>
-                  <div id="w-node-_6a560fee-3975-6cbe-6f1c-f13f1684e99e-38d711e6">CSS</div>
-                  <div id="w-node-e1b9002c-d8ad-93b1-85f8-b56e5a95ebce-38d711e6">Bootstrap</div>
-                  <div id="w-node-eb55ee0e-fdc0-c799-43f3-bade139a2d38-38d711e6">Tailwind</div>
-                  <div id="w-node-_0458696b-4a8c-9af7-c174-dd80c0ccc772-38d711e6">Figma</div>
-                </div>
+              <div class="skills-grid">
+                <span class="skill-item"><i class="devicon-ruby-plain" aria-hidden="true"></i> Ruby</span>
+                <span class="skill-item"><i class="devicon-rails-plain" aria-hidden="true"></i> Rails</span>
+                <span class="skill-item"><i class="devicon-php-plain" aria-hidden="true"></i> PHP</span>
+                <span class="skill-item"><i class="devicon-symfony-original" aria-hidden="true"></i> Symfony</span>
+                <span class="skill-item"><i class="devicon-laravel-plain" aria-hidden="true"></i> Laravel</span>
+                <span class="skill-item"><i class="devicon-html5-plain" aria-hidden="true"></i> HTML &amp; CSS</span>
+                <span class="skill-item"><i class="devicon-tailwindcss-plain" aria-hidden="true"></i> Tailwind</span>
+                <span class="skill-item"><i class="devicon-javascript-plain" aria-hidden="true"></i> JavaScript</span>
+                <span class="skill-item"><i class="devicon-typescript-plain" aria-hidden="true"></i> TypeScript</span>
+                <span class="skill-item"><i class="devicon-react-original" aria-hidden="true"></i> React</span>
+                <span class="skill-item"><i class="devicon-nextjs-plain" aria-hidden="true"></i> Next</span>
+                <span class="skill-item"><i class="devicon-postgresql-plain" aria-hidden="true"></i> PostgreSQL</span>
+                <span class="skill-item"><i class="devicon-git-plain" aria-hidden="true"></i> Git / GitHub</span>
+                <span class="skill-item"><i class="devicon-jira-plain" aria-hidden="true"></i> Jira</span>
+                <span class="skill-item"><i class="devicon-figma-plain" aria-hidden="true"></i> Figma / XD</span>
+                <span class="skill-item">✦ Claude Code</span>
               </div>
             </div>
           </div>
@@ -496,39 +304,102 @@
 
 <%# PROJETS %>
 
-<section id="Projets" data-w-id="1fe2cf21-1d77-78f0-cd43-84a2dbfc4bc0" class="section-home-projects dark-section">
+<section id="Projets" class="section-home-projects dark-section">
   <section class="section-top muted">
     <div class="section-top-heading">
-      <div class="text-meta text-color-muted">&lt;&gt;Réalisations&lt;/&gt;</div>
+      <div class="text-meta text-color-muted"><span class="code-dim">&lt;section</span><span class="accent">.projects</span><span class="code-dim"> /&gt;</span></div>
       <div class="text-meta text-color-muted">(01)</div>
     </div>
     <div>
       <div class="margin-bottom margin-xsmall">
         <div class="overflow-hidden">
-          <h2 data-w-id="069322d6-b630-13d5-bd53-a67a76eb9a32" class="heading-style-xxlarge">Projets</h2>
+          <h2 class="heading-style-xxlarge">Projets</h2>
         </div>
       </div>
       <div class="max-width-huge">
-        <p class="heading-alt-small">Découvrez mes projets récents, reflet de créativité et d'innovation.</p>
+        <p class="heading-alt-small">Découvrez mes <span class="accent">projets récents</span>, reflet de créativité et d'innovation.</p>
       </div>
     </div>
   </section>
 
-  <div class="carousel-wrapper">
+  <div class="carousel-container">
     <div class="carousel-track">
+
+      <!-- Consumer Goods Forum -->
+      <div class="carousel-slide">
+        <div class="project-card">
+          <div class="project-card-image">
+            <%= image_tag "cgf.jpeg", class: "project-image", alt: "The Consumer Goods Forum", loading: "lazy" %>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <h3 class="project-title"><%= image_tag "logo-cgf.png", class: "project-logo", alt: "", loading: "lazy" %> consumer goods forum</h3>
+              <div class="text-block-2">&lt;2026/&gt;</div>
+            </div>
+            <p>Le Consumer Goods Forum est un réseau international regroupant près de 400 grandes entreprises (Nestlé, Walmart, Carrefour…) engagées pour un secteur plus durable - climat, forêts, droits humains, sécurité alimentaire. Développement de l'interface d'admin, intégration front-end et gestion de projet pour le site institutionnel mondial.</p>
+            <p class="text-block-techno"><strong>WordPress &bull; PHP &bull; Tailwind CSS &bull; JavaScript &bull; HTML/CSS</strong></p>
+            <div class="button-row">
+              <a href="https://www.theconsumergoodsforum.com/" target="_blank" rel="noopener noreferrer" class="button-primary">VISITER LE SITE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Abricot -->
+      <div class="carousel-slide">
+        <div class="project-card">
+          <div class="project-card-image">
+            <%= image_tag "capture-abricot.jpg", class: "project-image", alt: "Abricot", loading: "lazy" %>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <h3 class="project-title"><%= image_tag "logo-abricot.svg", class: "project-logo project-logo--abricot", alt: "", loading: "lazy" %> abricot</h3>
+              <div class="text-block-2">&lt;2026/&gt;</div>
+            </div>
+            <p>Abricot est un SaaS de gestion de projet pour freelances. L’interface permet de gérer projets et tâches avec un système de rôles (admin / contributeur), une vue kanban, et une fonctionnalité IA pour générer des tâches automatiquement.</p>
+            <p class="text-block-techno"><strong>Next.js &bull; React &bull; TypeScript &bull; Tailwind CSS &bull; Groq AI &bull; Render</strong></p>
+            <div class="button-row">
+              <a href="https://abricot-frontend-7fs6.onrender.com/" target="_blank" rel="noopener noreferrer" class="button-primary">VISITER LE SITE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SportSee -->
+      <div class="carousel-slide">
+        <div class="project-card">
+          <div class="project-card-image">
+            <%= image_tag "running.jpg", class: "project-image", alt: "SportSee", loading: "lazy" %>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <h3 class="project-title"><%= image_tag "logo-sportsee.svg", class: "project-logo", alt: "", loading: "lazy" %> sportsee</h3>
+              <div class="text-block-2">&lt;2026/&gt;</div>
+            </div>
+            <p>Tableau de bord d'analytics sportif développé en React pour une startup de coaching. Visualisation des données d'entraînement (activité, sessions, performance) avec des graphiques interactifs Recharts, authentification utilisateur et appels HTTP vers une API Node.js.</p>
+            <p class="text-block-techno"><strong>React &bull; React Router &bull; Recharts &bull; Context API &bull; Axios &bull; Node.js</strong></p>
+            <div class="button-row">
+              <a href="https://github.com/JuS1302" target="_blank" rel="noopener noreferrer" class="button-primary">VOIR SUR GITHUB</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- L.O.Ve -->
       <div class="carousel-slide">
         <div class="project-card">
-          <%= image_tag "capture-love.png", class: "project-image" %>
+          <div class="project-card-image">
+            <%= image_tag "love.png", class: "project-image", alt: "L.O.Ve. Klorys", loading: "lazy" %>
+          </div>
           <div class="project-content">
-            <h3 class="project-title">🌿 l.o.v.e. - klorys</h3>
-            <div class="text-block-2">&lt;&gt;<em>2025</em>&lt;/&gt;</div>
-            <p>L.O.Ve. est une bibliothèque de végétaux pour les professionnels de l’aménagement paysager à la Réunion, développée pour Klorys dans le cadre de l’appel à projet BIODIV ECO 2022 de l’OFB.</p>
-            <p>Fonctionnalités clés : Recherche dynamique de plantes, fiches végétales détaillées, système de favoris, commentaires sur les végétaux, messagerie intégrée, interface responsive.</p>
-            <p class="text-block-techno"><strong>Ruby on Rails &bull; PostgreSQL &bull; JavaScript &bull; Stimulus.js &bull; Turbo &bull; Devise &bull; SCSS &bull; Bootstrap &bull; API Google &bull; Heroku &bull; Figma</strong></p>
+            <div class="project-header">
+              <h3 class="project-title"><%= image_tag "logo-love.png", class: "project-logo", alt: "", loading: "lazy" %> l.o.v.e. - klorys</h3>
+              <div class="text-block-2">&lt;2025/&gt;</div>
+            </div>
+            <p>Bibliothèque de végétaux pour les professionnels de l’aménagement paysager à la Réunion, développée pour Klorys dans le cadre de l’appel à projet BIODIV ECO 2022 de l’OFB.</p>
+            <p class="text-block-techno"><strong>Ruby on Rails &bull; PostgreSQL &bull; Stimulus.js &bull; Bootstrap &bull; API Google &bull; Heroku</strong></p>
             <div class="button-row">
-              <a href="https://www.klorys.re/" target="_blank" class="button-primary w-button">VISITER LE SITE</a>
+              <a href="https://www.klorys.re/" target="_blank" rel="noopener noreferrer" class="button-primary">VISITER LE SITE</a>
             </div>
           </div>
         </div>
@@ -537,32 +408,18 @@
       <!-- Arion -->
       <div class="carousel-slide">
         <div class="project-card">
-          <%= image_tag "capture-arion.png", class: "project-image" %>
-          <div class="project-content">
-            <h3 class="project-title">📊 arion</h3>
-            <div class="text-block-2">&lt;&gt;<em>2025</em>&lt;/&gt;</div>
-            <p>Arion est une plateforme de suivi de financements adossés à des actifs, destinée aux financeurs et PME. Elle centralise comptes, actifs, passifs, imports CSV, et offre un dashboard dynamique. </p>
-            <p>Fonctionnalités clés : Import CSV intelligent, dashboard de suivi dynamique, calcul automatique des ratios de couverture, gestion des utilisateurs, intégration de l’API Pappers, système d’abonnements avec Stripe.</p>
-            <p class="text-block-techno"> <strong>Ruby on Rails &bull; PostgreSQL &bull; JavaScript &bull; Stimulus.js &bull; Turbo &bull; Tailwind CSS &bull; Devise &bull; Pundit &bull; Bootstrap &bull; Stripe API &bull; API Pappers &bull; CSV Import &bull; Tailwind &bull; AWS &bull; Figma</strong></p>
-            <div class="button-row">
-              <a href="#" class="button-primary w-button">Bientôt disponible</a>
-            </div>
+          <div class="project-card-image">
+            <%= image_tag "arion.jpg", class: "project-image", alt: "Arion", loading: "lazy" %>
           </div>
-        </div>
-      </div>
-
-      <!-- To-do List -->
-      <div class="carousel-slide">
-        <div class="project-card">
-          <%= image_tag "capture-todo.png", class: "project-image" %>
           <div class="project-content">
-            <h3 class="project-title">📋 ma to-do list</h3>
-            <div class="text-block-2">&lt;&gt;<em>2025</em>&lt;/&gt;</div>
-            <p>To-do List est une application simple de gestion de tâches. Elle permet d'ajouter et de trier des tâches selon son énergie mentale (💤 / ⚡ / 🔥). Projet développé dans le cadre d’une formation React sur Udemy.</p>
-            <p>Fonctionnalités clés : Ajout, tri et suppression de tâches, tri par énergie, affichage en cartes colorées, interface épurée et responsive.</p>
-            <p class="text-block-techno"><strong> React &bull; Vite &bull; Tailwind CSS &bull; nanoid </strong></p>
+            <div class="project-header">
+              <h3 class="project-title"><%= image_tag "logo-arion.svg", class: "project-logo", alt: "", loading: "lazy" %> arion</h3>
+              <div class="text-block-2">&lt;2025/&gt;</div>
+            </div>
+            <p>Plateforme de suivi de financements adossés à des actifs, développée pour Kinetics Consulting. Dashboard dynamique, import CSV, calcul de ratios financiers et abonnements Stripe pour financeurs et PME.</p>
+            <p class="text-block-techno"><strong>Ruby on Rails &bull; PostgreSQL &bull; Tailwind CSS &bull; Stripe &bull; API Pappers &bull; AWS</strong></p>
             <div class="button-row">
-              <a href="https://jus1302.github.io/To-do-List/" target="_blank" class="button-primary w-button">VOIR L'APP</a>
+              <a href="#" class="button-primary">Bientôt disponible</a>
             </div>
           </div>
         </div>
@@ -571,22 +428,36 @@
       <!-- Nestify -->
       <div class="carousel-slide">
         <div class="project-card">
-          <%= image_tag "capture-nestify.png", class: "project-image" %>
+          <div class="project-card-image">
+            <%= image_tag "nestify.jpg", class: "project-image", alt: "Nestify", loading: "lazy" %>
+          </div>
           <div class="project-content">
-            <h3 class="project-title">🛋️ nestify</h3>
-            <div class="text-block-2">&lt;&gt;<em>2024</em>&lt;/&gt;</div>
-            <p>Nestify est un assistant déco personnel qui propose des packs d’aménagements harmonisés. L’utilisateur sélectionne son style selon son budget, et découvre des suggestions de mobilier et déco compatibles, prêtes à commander.</p>
-            <p>Fonctionnalités clés : Sélection de style, configuration de budget, suggestions intelligentes de produits, génération de packs, intégration d’images et fiches produits, responsive design.</p>
-            <p class="text-block-techno"> <strong>Ruby on Rails &bull; PostgreSQL &bull; JavaScript &bull; Stimulus.js &bull; Turbo &bull; Devise &bull; SCSS &bull; Bootstrap &bull; OpenAI API &bull; Heroku &bull; Figma </strong></p>
+            <div class="project-header">
+              <h3 class="project-title"><%= image_tag "logo-nestify.png", class: "project-logo", alt: "", loading: "lazy" %> nestify</h3>
+              <div class="text-block-2">&lt;2024/&gt;</div>
+            </div>
+            <p>Assistant déco personnel développé dans le cadre du projet de fin de bootcamp au Wagon. Propose des packs d’aménagements harmonisés selon le style et le budget de l’utilisateur, grâce à l’API OpenAI.</p>
+            <p class="text-block-techno"><strong>Ruby on Rails &bull; PostgreSQL &bull; Stimulus.js &bull; Bootstrap &bull; OpenAI API &bull; Heroku</strong></p>
             <div class="button-row">
-              <a href="https://github.com/JuS1302/Nestify" target="_blank" class="button-primary w-button">CONSULTER LE PROJET SUR GITHUB </a>
+              <a href="https://github.com/JuS1302/Nestify" target="_blank" rel="noopener noreferrer" class="button-primary">VOIR SUR GITHUB</a>
             </div>
           </div>
         </div>
       </div>
 
+
     </div>
 
+    <!-- Navigation -->
+    <div class="carousel-nav">
+      <button class="carousel-btn carousel-btn-prev" aria-label="Projet précédent">←</button>
+      <div class="carousel-counter">
+        <span class="carousel-current">01</span>
+        <span class="carousel-sep"> / </span>
+        <span class="carousel-total">06</span>
+      </div>
+      <button class="carousel-btn carousel-btn-next" aria-label="Projet suivant">→</button>
+    </div>
   </div>
 </section>
 
@@ -597,139 +468,104 @@
 
 <%# SERVICES %>
 
-      <section id="Services" data-w-id="be0dced0-c6d0-8cc3-dfa6-cf00780a1d47" class="section-home-services">
+      <section id="Services" class="section-home-services">
         <div class="section-top">
           <div class="section-top-heading">
-            <div class="text-meta text-color-muted">&lt;&gt;Ce que je fais&lt;/&gt;</div>
+            <div class="text-meta text-color-muted"><span class="code-dim">&lt;section</span><span class="accent">.services</span><span class="code-dim"> /&gt;</span></div>
             <div class="text-meta text-color-muted">(02)</div>
           </div>
           <div>
             <div class="margin-bottom margin-xsmall">
               <div class="overflow-hidden">
-                <h2 data-w-id="be0dced0-c6d0-8cc3-dfa6-cf00780a1d54" style="-webkit-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="heading-style-xxlarge">Services</h2>
+                <h2 class="heading-style-xxlarge">Services</h2>
               </div>
             </div>
             <div class="max-width-huge">
-              <p data-w-id="be0dced0-c6d0-8cc3-dfa6-cf00780a1d57" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="heading-alt-small">Pour sublimer votre marque, optimiser l’expérience utilisateur et assurer un déploiement fluide et pérenne.</p>
+              <p class="heading-alt-small">Pour <span class="accent">sublimer votre marque</span>, optimiser l’expérience utilisateur et assurer un déploiement fluide et pérenne.</p>
             </div>
           </div>
         </div>
-        <div data-w-id="0b44b8c2-53ae-ce4a-7d0e-2440c6b3b257" class="home-services-item">
-          <div class="home-services-item-image">
-            <%= image_tag "loutre-dev.png",
-              loading: "lazy",
-              alt: "Loutre qui développe Otterly Web",
-              sizes: "(max-width: 1024px) 100vw, 1024px",
-              class: "image-cover-parallax",
-              srcset: "#{asset_path('loutre-dev-p-500.png')} 500w, #{asset_path('loutre-dev-p-800.png')} 800w, #{asset_path('loutre-dev.png')} 1024w" %>
-            </div>
-          <div class="home-services-item-content">
-            <div class="margin-bottom margin-large">
-              <div class="margin-bottom margin-tiny">
-                <div class="overflow-hidden">
-                  <h3 data-w-id="0b44b8c2-53ae-ce4a-7d0e-2440c6b3b25d" style="-webkit-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="heading-style-small">développement</h3>
+        <div class="services-fan">
+          <div class="fan-stack">
+
+            <%# Carte 1 — Développement sur-mesure %>
+            <div class="fan-card" data-pos="center">
+              <div class="fan-card-bg"><%= image_tag "loutre-code.png", class: "fan-card-image", alt: "", loading: "lazy" %></div>
+              <div class="fan-peek">
+                <span class="fan-number">01</span>
+                <span class="fan-title">développement<br>sur-mesure</span>
+              </div>
+              <div class="fan-card-content">
+                <div class="fan-meta"><span class="code-dim">&lt;service</span><span class="accent">.dev</span><span class="code-dim"> /&gt;</span></div>
+                <div class="fan-heading">
+                  <p class="fan-h1">développement</p>
+                  <p class="fan-h2"><span class="accent otterment-shimmer">sur-mesure</span></p>
+                </div>
+                <p class="fan-desc">Je développe des applications web sur mesure, alliant front-end réactif (HTML/CSS, Tailwind, JavaScript, TypeScript, React, Next.js) et back-end robuste (Ruby on Rails, PHP, Symfony, Laravel, API REST, PostgreSQL). <span class="fan-desc-extra">Une architecture pensée pour la performance, la scalabilité et une expérience utilisateur fluide.</span></p>
+                <div class="fan-tags">
+                  <span class="service-tag">✦ Développement Back-end</span>
+                  <span class="service-tag">✦ Développement Front-end</span>
+                  <span class="service-tag">✦ Gestion base de données</span>
+                  <span class="service-tag">✦ Intégration d’APIs</span>
                 </div>
               </div>
-              <div class="margin-bottom margin-xsmall">
-                <div class="overflow-hidden">
-                  <h3 data-w-id="0b44b8c2-53ae-ce4a-7d0e-2440c6b3b261" style="-webkit-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="heading-style-small">sur-mesure</h3>
+            </div>
+
+            <%# Carte 2 — UX/UI Design %>
+            <div class="fan-card" data-pos="right">
+              <div class="fan-card-bg"><%= image_tag "loutre-figma.png", class: "fan-card-image", alt: "", loading: "lazy" %></div>
+              <div class="fan-peek">
+                <span class="fan-number">02</span>
+                <span class="fan-title">UX/UI<br>Design</span>
+              </div>
+              <div class="fan-card-content">
+                <div class="fan-meta"><span class="code-dim">&lt;service</span><span class="accent">.design</span><span class="code-dim"> /&gt;</span></div>
+                <div class="fan-heading">
+                  <p class="fan-h1">UX/UI</p>
+                  <p class="fan-h2"><span class="accent otterment-shimmer">Design</span></p>
+                </div>
+                <p class="fan-desc">Je conçois des interfaces web ergonomiques et responsives à partir de maquettes Figma, en intégrant les principes d’accessibilité, de hiérarchie visuelle et de design system. <span class="fan-desc-extra">Chaque expérience est pensée pour maximiser la clarté, la conversion et l’efficacité sur tous les supports.</span></p>
+                <div class="fan-tags">
+                  <span class="service-tag">✦ Maquettes Figma</span>
+                  <span class="service-tag">✦ Identité visuelle</span>
+                  <span class="service-tag">✦ Prototypage interactif</span>
+                  <span class="service-tag">✦ Responsive design</span>
                 </div>
               </div>
-              <div class="max-width-large">
-                <p data-w-id="0b44b8c2-53ae-ce4a-7d0e-2440c6b3b264" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="heading-alt-h3">Je développe des applications web sur mesure, alliant front-end réactif (HTML, CSS, JavaScript, React) et back-end robuste (Ruby on Rails, API REST, gestion de bases de données). Une architecture pensée pour la performance, la scalabilité et une expérience utilisateur fluide.</p>
+            </div>
+
+            <%# Carte 3 — Déploiement & maintenance %>
+            <div class="fan-card" data-pos="left">
+              <div class="fan-card-bg"><%= image_tag "loutre-deploy.png", class: "fan-card-image", alt: "", loading: "lazy" %></div>
+              <div class="fan-peek">
+                <span class="fan-number">03</span>
+                <span class="fan-title">déploiement<br>&amp; maintenance</span>
+              </div>
+              <div class="fan-card-content">
+                <div class="fan-meta"><span class="code-dim">&lt;service</span><span class="accent">.deploy</span><span class="code-dim"> /&gt;</span></div>
+                <div class="fan-heading">
+                  <p class="fan-h1">déploiement</p>
+                  <p class="fan-h2"><span class="accent otterment-shimmer">&amp; maintenance</span></p>
+                </div>
+                <p class="fan-desc">Je déploie des applications web stables et sécurisées, en assurant leur maintenance continue via des outils d’automatisation (CI/CD), du monitoring en temps réel et des mises à jour régulières. <span class="fan-desc-extra">Une approche fiable pour des performances durables et une sérénité technique au quotidien.</span></p>
+                <div class="fan-tags">
+                  <span class="service-tag">✦ Déploiement sur serveurs ou cloud</span>
+                  <span class="service-tag">✦ Intégration continue &amp; automatisation</span>
+                  <span class="service-tag">✦ Maintenance évolutive &amp; corrective</span>
+                  <span class="service-tag">✦ Mises à jour de sécurité</span>
+                </div>
               </div>
             </div>
-            <div data-w-id="0b44b8c2-53ae-ce4a-7d0e-2440c6b3b266" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
-              <div class="margin-bottom margin-medium">
-                <div class="text-meta text-color-muted">&lt;&gt;Services développement web&lt;/&gt;</div>
-              </div>
-              <div class="max-width-large"></div>
-              <div class="home-services-list">
-                <p data-w-id="0b44b8c2-53ae-ce4a-7d0e-2440c6b3b26c" style="opacity:0" class="heading-alt-h5">Développement Back-end</p>
-                <p class="heading-alt-h5">Développement Front-end</p>
-                <p class="heading-alt-h5">Gestion base de données</p>
-                <p class="heading-alt-h5">Intégration d&#x27;APIs</p>
-              </div>
-            </div>
+
           </div>
-        </div>
-        <div data-w-id="129d2d70-aedc-b113-dee9-cdbc7f13abc6" class="home-services-item odd">
-          <div class="home-services-item-content">
-            <div class="margin-bottom margin-large">
-              <div class="margin-bottom margin-tiny">
-                <div class="overflow-hidden">
-                  <h3 data-w-id="f2b705d3-219c-88a1-962e-ac1081b78c70" style="-webkit-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="heading-style-small">UX/UI</h3>
-                </div>
-              </div>
-              <div class="margin-bottom margin-xsmall">
-                <div class="overflow-hidden">
-                  <h3 data-w-id="129d2d70-aedc-b113-dee9-cdbc7f13abd0" style="-webkit-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="heading-style-small">Design</h3>
-                </div>
-              </div>
-              <div class="max-width-large">
-                <p data-w-id="129d2d70-aedc-b113-dee9-cdbc7f13abd3" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="heading-alt-h3">Je conçois des interfaces web ergonomiques et responsives à partir de maquettes Figma, en intégrant les principes d’accessibilité, de hiérarchie visuelle et de design system. Chaque expérience est pensée pour maximiser la clarté, la conversion et l’efficacité sur tous les supports.</p>
-              </div>
-            </div>
-            <div data-w-id="129d2d70-aedc-b113-dee9-cdbc7f13abd5" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
-              <div class="margin-bottom margin-medium">
-                <div class="text-meta text-color-muted">&lt;&gt;Services UX/UI design&lt;/&gt;</div>
-              </div>
-              <div class="max-width-large"></div>
-              <div class="home-services-list">
-                <p class="heading-alt-h5">Maquettes Figma</p>
-                <p class="heading-alt-h5">Identité visuelle</p>
-                <p class="heading-alt-h5">Prototypage interactif</p>
-                <p class="heading-alt-h5">Responsive design</p>
-              </div>
-            </div>
+
+          <%# Navigation %>
+          <div class="fan-nav">
+            <button class="fan-btn fan-btn-prev" aria-label="Service précédent">←</button>
+            <span class="fan-counter"><span class="fan-current">01</span>&nbsp;/&nbsp;03</span>
+            <button class="fan-btn fan-btn-next" aria-label="Service suivant">→</button>
           </div>
-          <div class="home-services-item-image">
-            <%= image_tag "loutre-figma.png",
-              loading: "lazy",
-              alt: "Loutre qui travaille sur une maquette Figma Otterly Web",
-              sizes: "(max-width: 1024px) 100vw, 1024px",
-              class: "image-cover-parallax",
-              srcset: "#{asset_path('loutre-figma-p-500.png')} 500w, #{asset_path('loutre-figma-p-800.png')} 800w, #{asset_path('loutre-figma.png')} 1024w" %>
-          </div>
-        </div>
-        <div class="home-services-item">
-          <div class="home-services-item-image">
-            <%= image_tag "loutre-deploy.png",
-              loading: "lazy",
-              alt: "Loutre qui déploie Otterly Web",
-              sizes: "(max-width: 1024px) 100vw, 1024px",
-              class: "image-cover-parallax",
-              srcset: "#{asset_path('loutre-deploy-p-500.png')} 500w, #{asset_path('loutre-deploy-p-800.png')} 800w, #{asset_path('loutre-deploy.png')} 1024w" %>
-            </div>
-          <div class="home-services-item-content">
-            <div class="margin-bottom margin-large">
-              <div class="margin-bottom margin-tiny">
-                <div class="overflow-hidden">
-                  <h3 data-w-id="8b42ffca-024b-3a9f-5549-ac6cd02423e2" style="-webkit-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="heading-style-small">déPLOIEMENT</h3>
-                </div>
-              </div>
-              <div class="margin-bottom margin-xsmall">
-                <div class="overflow-hidden">
-                  <h3 data-w-id="0ecfb73f-27e8-d81c-1d71-f318cdaff6ca" style="-webkit-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="heading-style-small">&amp; maintenance</h3>
-                </div>
-              </div>
-              <div class="max-width-large">
-                <p data-w-id="6807b33b-ca9e-9479-a4bd-8a59cf91054a" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="heading-alt-h3">Je déploie des applications web stables et sécurisées, en assurant leur maintenance continue via des outils d’automatisation (CI/CD), du monitoring en temps réel et des mises à jour régulières. Une approche fiable pour des performances durables et une sérénité technique au quotidien.</p>
-              </div>
-            </div>
-            <div data-w-id="0ecfb73f-27e8-d81c-1d71-f318cdaff6cc" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
-              <div class="margin-bottom margin-medium">
-                <div class="text-meta text-color-muted">&lt;&gt;Services déploiement &amp; maintenance&lt;/&gt;</div>
-              </div>
-              <div class="max-width-large"></div>
-              <div class="home-services-list">
-                <p class="heading-alt-h5">Déploiement sur serveurs ou cloud</p>
-                <p class="heading-alt-h5">Intégration continue &amp; automatisation</p>
-                <p class="heading-alt-h5">Maintenance évolutive &amp; corrective</p>
-                <p class="heading-alt-h5">Mises à jour de sécurité</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -740,137 +576,184 @@
       <section id="Avis-clients" class="section-home-clients">
         <div class="section-top">
           <div class="section-top-heading">
-            <div class="text-meta text-color-muted">&lt;&gt;Avis clients&lt;/&gt;</div>
+            <div class="text-meta text-color-muted"><span class="code-dim">&lt;section</span><span class="accent">.clients</span><span class="code-dim"> /&gt;</span></div>
             <div class="text-meta text-color-muted">(03)</div>
           </div>
           <div>
             <div class="margin-bottom margin-tiny">
               <div class="overflow-hidden">
-                <h2 data-w-id="8721c04e-9e89-253d-a8a6-aac2c6f78737" style="-webkit-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="heading-style-xxlarge">QUE DISENT</h2>
+                <h2 class="heading-style-xxlarge">QUE DISENT</h2>
               </div>
             </div>
             <div class="margin-bottom margin-small">
               <div class="overflow-hidden">
-                <h2 data-w-id="8e20e5a3-652f-1d62-f3e0-aef7dbf6c8b3" style="-webkit-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="heading-style-xxlarge">mes clients</h2>
+                <h2 class="heading-style-xxlarge"><span class="accent">mes clients</span></h2>
               </div>
             </div>
             <div class="max-width-huge">
-              <p data-w-id="8721c04e-9e89-253d-a8a6-aac2c6f7873a" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="heading-alt-small">Découvrez ce que mes clients disent de leur expérience et des résultats obtenus à mes côtés.</p>
+              <p class="heading-alt-small">Découvrez ce que mes clients disent de leur expérience et des résultats obtenus à mes côtés.</p>
             </div>
           </div>
         </div>
-        <div class="home-clients-grid">
-          <div class="clients-item">
-            <div class="margin-bottom margin-xlarge">
-              <div class="light-mode">
-                <%= image_tag "icon-quote.svg",
-                  loading: "lazy",
-                  width: 40,
-                  alt: "Icon Quote" %>
-              </div>
+        <div class="clients-marquee">
+          <div class="clients-marquee-track">
 
-              <div class="dark-mode">
-                <%= image_tag "icon-quote-inverse.svg",
-                  loading: "lazy",
-                  width: 40,
-                  alt: "Quote Icon" %>
-              </div>
-            </div>
-            <div class="margin-bottom margin-xsmall">
-              <h3 class="heading-alt-h5">Travail impeccable.</h3>
-            </div>
-            <div class="margin-bottom margin-medium">
-              <p class="text-color-muted">Super expérience avec Julie, qui a su prendre en compte les subtilités techniques du site WEB à développer ( une base de données botaniques de végétaux) . Et en plus, le rendu esthétique du site est au top !</p>
-            </div>
-            <div class="home-clients-item-author">
-              <%= image_tag "luc-daniel.jpeg",
-                loading: "lazy",
-                width: 60,
-                height: "Auto",
-                alt: "Photo Luc Daniel Klorys",
-                sizes: "60px",
-                class: "border-radius-circle" %>
-              <div>
-                <div class="margin-bottom margin-tiny">
-                  <p class="heading-alt-h6">Luc Daniel</p>
-                </div>
-                <div class="text-meta-small text-color-muted">(Klorys)</div>
-              </div>
-            </div>
-          </div>
-          <div class="clients-item background-color-muted-2">
-            <div class="margin-bottom margin-xlarge">
-              <div class="light-mode">
-                <%= image_tag "icon-quote.svg",
-                  loading: "lazy",
-                  width: 40,
-                  alt: "Icon Quote" %>
-              </div>
+            <%# Témoignages originaux %>
 
-              <div class="dark-mode">
-                <%= image_tag "icon-quote-inverse.svg",
-                  loading: "lazy",
-                  width: 40,
-                  alt: "Quote Icon" %>
+            <div class="clients-item">
+              <div class="clients-number">01</div>
+              <div class="clients-quote-mark">&ldquo;</div>
+              <div class="clients-body">
+                <p class="clients-text">Super expérience avec Julie, qui a su prendre en compte les subtilités techniques du site WEB à développer (une base de données botaniques de végétaux). Et en plus, le rendu esthétique du site est au top !</p>
               </div>
-            </div>
-            <div class="margin-bottom margin-xsmall">
-              <h3 class="heading-alt-h5">Très qualifiée en gestion de projets et réalisations design.</h3>
-            </div>
-            <div class="margin-bottom margin-medium">
-              <p class="text-color-muted">J&#x27;ai travaillé avec Julie sur divers projets et elle a été une partenaire efficace dans chacun d&#x27;entre eux. Je la recommande vivement.</p>
-            </div>
-            <div class="home-clients-item-author">
-              <%= image_tag "jeremy-moreau.jpeg",
-                loading: "lazy",
-                width: 60,
-                height: "Auto",
-                alt: "Photo Jérémy Moreau E-motion",
-                class: "border-radius-circle" %>
-              <div>
-                <div class="margin-bottom margin-tiny">
-                  <p class="heading-alt-h6">Jérémy Moreau</p>
+              <div class="clients-footer">
+                <div class="clients-separator"></div>
+                <div class="clients-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <div class="home-clients-item-author">
+                  <div class="clients-avatar">LD</div>
+                  <div>
+                    <p class="clients-author-name">Luc Daniel</p>
+                    <p class="clients-author-company">Klorys</p>
+                  </div>
                 </div>
-                <div class="text-meta-small text-color-muted">(e-Motion)</div>
               </div>
             </div>
-          </div>
-          <div id="w-node-_2e013be5-53de-9da5-d53c-9d0ef1c8752a-38d711e6" class="clients-item">
-            <div class="margin-bottom margin-xlarge">
-              <div class="light-mode">
-                <%= image_tag "icon-quote.svg",
-                  loading: "lazy",
-                  width: 40,
-                  alt: "Icon Quote" %>
-              </div>
 
-              <div class="dark-mode">
-                <%= image_tag "icon-quote-inverse.svg",
-                  loading: "lazy",
-                  width: 40,
-                  alt: "Quote Icon" %>
+            <div class="clients-item">
+              <div class="clients-number">02</div>
+              <div class="clients-quote-mark">&ldquo;</div>
+              <div class="clients-body">
+                <p class="clients-text">J’ai travaillé avec Julie sur divers projets et elle a été une partenaire efficace dans chacun d’entre eux. Je la recommande vivement.</p>
               </div>
-            </div>
-            <div class="margin-bottom margin-xsmall">
-              <h3 class="heading-alt-h5">Je recommande !</h3>
-            </div>
-            <div class="margin-bottom margin-medium">
-              <p class="text-color-muted">Julie a su s’approprier les enjeux complexes du projet Arion, comme la gestion des actifs adossés et l’intégration d’API externes, avec une grande autonomie et une vraie rigueur technique. </p>
-            </div>
-            <div class="home-clients-item-author">
-              <%= image_tag "sylvain-mutte.jpeg",
-                loading: "lazy",
-                width: 60,
-                height: "Auto",
-                alt: "Photo Sylvain Mutte Kinetics Consulting",
-                class: "border-radius-circle" %>
-              <div>
-                <div class="margin-bottom margin-tiny">
-                  <p class="heading-alt-h6">Sylvain Mutte</p>
+              <div class="clients-footer">
+                <div class="clients-separator"></div>
+                <div class="clients-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <div class="home-clients-item-author">
+                  <div class="clients-avatar">JM</div>
+                  <div>
+                    <p class="clients-author-name">Jérémy Moreau</p>
+                    <p class="clients-author-company">e-Motion</p>
+                  </div>
                 </div>
-                <div class="text-meta-small text-color-muted">(Arion)</div>
               </div>
             </div>
+
+            <div class="clients-item">
+              <div class="clients-number">03</div>
+              <div class="clients-quote-mark">&ldquo;</div>
+              <div class="clients-body">
+                <p class="clients-text">Julie a su s’approprier les enjeux complexes du projet Arion, comme la gestion des actifs adossés et l’intégration d’API externes, avec une grande autonomie et une vraie rigueur technique.</p>
+              </div>
+              <div class="clients-footer">
+                <div class="clients-separator"></div>
+                <div class="clients-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <div class="home-clients-item-author">
+                  <div class="clients-avatar">SM</div>
+                  <div>
+                    <p class="clients-author-name">Sylvain Mutte</p>
+                    <p class="clients-author-company">Kinetics Consulting</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="clients-item">
+              <div class="clients-number">04</div>
+              <div class="clients-quote-mark">&ldquo;</div>
+              <div class="clients-body">
+                <p class="clients-text">I highly recommend Julie. I joined a custom WordPress build late in the process as a client, and Julie was incredible at bringing me up to speed. She pairs strong technical expertise with outstanding project management and client communication — in both French and English. She takes time to truly understand the objectives before translating them into technical solutions, so I never had to worry about the complex backend details.</p>
+              </div>
+              <div class="clients-footer">
+                <div class="clients-separator"></div>
+                <div class="clients-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <div class="home-clients-item-author">
+                  <div class="clients-avatar">AH</div>
+                  <div>
+                    <p class="clients-author-name">Anne Holdsworth</p>
+                    <p class="clients-author-company">The Consumer Goods Forum</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <%# Doublons pour la boucle infinie — masqués des lecteurs d’écran %>
+
+            <div class="clients-item" aria-hidden="true">
+              <div class="clients-number">01</div>
+              <div class="clients-quote-mark">&ldquo;</div>
+              <div class="clients-body">
+                <p class="clients-text">Super expérience avec Julie, qui a su prendre en compte les subtilités techniques du site WEB à développer (une base de données botaniques de végétaux). Et en plus, le rendu esthétique du site est au top !</p>
+              </div>
+              <div class="clients-footer">
+                <div class="clients-separator"></div>
+                <div class="clients-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <div class="home-clients-item-author">
+                  <div class="clients-avatar">LD</div>
+                  <div>
+                    <p class="clients-author-name">Luc Daniel</p>
+                    <p class="clients-author-company">Klorys</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="clients-item" aria-hidden="true">
+              <div class="clients-number">02</div>
+              <div class="clients-quote-mark">&ldquo;</div>
+              <div class="clients-body">
+                <p class="clients-text">J’ai travaillé avec Julie sur divers projets et elle a été une partenaire efficace dans chacun d’entre eux. Je la recommande vivement.</p>
+              </div>
+              <div class="clients-footer">
+                <div class="clients-separator"></div>
+                <div class="clients-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <div class="home-clients-item-author">
+                  <div class="clients-avatar">JM</div>
+                  <div>
+                    <p class="clients-author-name">Jérémy Moreau</p>
+                    <p class="clients-author-company">e-Motion</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="clients-item" aria-hidden="true">
+              <div class="clients-number">03</div>
+              <div class="clients-quote-mark">&ldquo;</div>
+              <div class="clients-body">
+                <p class="clients-text">Julie a su s’approprier les enjeux complexes du projet Arion, comme la gestion des actifs adossés et l’intégration d’API externes, avec une grande autonomie et une vraie rigueur technique.</p>
+              </div>
+              <div class="clients-footer">
+                <div class="clients-separator"></div>
+                <div class="clients-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <div class="home-clients-item-author">
+                  <div class="clients-avatar">SM</div>
+                  <div>
+                    <p class="clients-author-name">Sylvain Mutte</p>
+                    <p class="clients-author-company">Kinetics Consulting</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="clients-item" aria-hidden="true">
+              <div class="clients-number">04</div>
+              <div class="clients-quote-mark">&ldquo;</div>
+              <div class="clients-body">
+                <p class="clients-text">I highly recommend Julie. I joined a custom WordPress build late in the process as a client, and Julie was incredible at bringing me up to speed. She pairs strong technical expertise with outstanding project management and client communication — in both French and English. She takes time to truly understand the objectives before translating them into technical solutions, so I never had to worry about the complex backend details.</p>
+              </div>
+              <div class="clients-footer">
+                <div class="clients-separator"></div>
+                <div class="clients-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <div class="home-clients-item-author">
+                  <div class="clients-avatar">AH</div>
+                  <div>
+                    <p class="clients-author-name">Anne Holdsworth</p>
+                    <p class="clients-author-company">The Consumer Goods Forum</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -880,102 +763,53 @@
 <%# FOOTER %>
 
     <footer class="footer">
-      <div class="footer-top">
-        <div class="overflow-hidden">
-          <div class="w-row">
-            <div class="w-col w-col-2">
-              <div class="light-mode">
-                <%= image_tag "logo-inverse_1.png",
-                  loading: "lazy",
-                  height: "Auto",
-                  alt: "Logo Otterly Web Footer",
-                  class: "image-14" %>
-              </div>
-              <div class="dark-mode">
-                <%= image_tag "logo.png",
-                  loading: "lazy",
-                  height: "Auto",
-                  alt: "Logo Otterly Web Footer Dark",
-                  class: "image-14" %>
-              </div>
-            </div>
-            <div class="w-col w-col-10">
-              <h2 data-w-id="e0427e19-9c15-88b0-7f6d-5f8612891581" class="heading">otterly web©</h2>
-            </div>
-          </div>
+
+      <%# --- Grande typographie + email terminal --- %>
+      <div class="footer-cta">
+        <h2 class="footer-cta-title">
+          <span class="footer-cta-line">ON</span>
+          <span class="footer-cta-line"><span class="accent otterment-shimmer">ÉCHANGE</span>&nbsp;?</span>
+        </h2>
+        <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="footer-email">
+          <span class="footer-email-prompt">$</span>
+          <span class="footer-email-address">sim.ju@live.fr</span>
+          <span class="footer-email-cursor">_</span>
+          <span class="footer-email-arrow">↗</span>
+        </a>
+      </div>
+
+      <%# --- Liens style terminal --- %>
+      <div class="footer-terminal">
+        <div class="footer-terminal-col">
+          <div class="footer-terminal-dir">&gt; sections/</div>
+          <a href="#Projets" class="footer-terminal-link">./réalisations</a>
+          <a href="#Services" class="footer-terminal-link">./services</a>
+          <a href="#Avis-clients" class="footer-terminal-link">./clients</a>
+          <a href="#A-Propos" class="footer-terminal-link">./a-propos</a>
+          <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="footer-terminal-link">./contact</a>
+        </div>
+        <div class="footer-terminal-col">
+          <div class="footer-terminal-dir">&gt; social/</div>
+          <a href="https://www.linkedin.com/in/julie-simon1302/" target="_blank" rel="noopener noreferrer" class="footer-terminal-link">./linkedin</a>
+          <a href="https://github.com/JuS1302" target="_blank" rel="noopener noreferrer" class="footer-terminal-link">./github</a>
+          <a href="https://www.malt.fr/profile/juliesimon4?overview" target="_blank" rel="noopener noreferrer" class="footer-terminal-link">./malt</a>
         </div>
       </div>
-      <div class="w-row">
-        <div class="w-col w-col-6">
-          <div class="text-meta text-color-muted-inverse">&lt;&gt;Sections&lt;/&gt;</div>
-          <div class="nav center-phone-landscape">
-            <a href="#Projets" class="nav-item inverse w-inline-block">
-              <div class="nav-item-text">Réalisations</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-            <a href="#Services" class="nav-item inverse w-inline-block">
-              <div class="nav-item-text">Services</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-            <a href="#Avis-clients" class="nav-item inverse w-inline-block">
-              <div class="nav-item-text">Clients</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-            <a href="#A-Propos" class="nav-item inverse w-inline-block">
-              <div class="nav-item-text">A propos</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-            <a href="mailto:sim.ju@live.fr?subject=Je%20suis%20loutrement%20int%C3%A9ress%C3%A9(e)%20!" class="nav-item inverse w-inline-block">
-              <div class="nav-item-text">Contact</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-          </div>
-        </div>
-        <div class="w-col w-col-6">
-          <div class="text-meta text-color-muted-inverse">&lt;&gt;Social&lt;/&gt;</div>
-          <div class="nav center-phone-landscape">
-            <a href="https://www.linkedin.com/in/julie-simon1302/" target="_blank" class="nav-item inverse w-inline-block">
-              <div class="nav-item-text">Linkedin</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-            <a href="https://github.com/JuS1302" target="_blank" class="nav-item inverse w-inline-block">
-              <div class="nav-item-text">Github</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-            <a href="https://www.malt.fr/profile/juliesimon4?overview" target="_blank" class="nav-item inverse w-inline-block">
-              <div class="nav-item-text">Malt</div>
-              <div class="nav-item-line inverse"></div>
-            </a>
-          </div>
+
+      <%# --- Copyright --- %>
+      <div class="footer-bottom">
+        <div class="footer-bottom-grid">
+          <%= image_tag "logo-inverse_1.png", class: "footer-logo", alt: "Otterly Web", loading: "lazy" %>
+          <span class="text-meta">© 2025 — Made with </span>
+          <span class="footer-heart" aria-hidden="true">❤</span>
+          <span class="text-meta"> by Otterly Web</span>
         </div>
       </div>
-          <div class="footer-bottom">
-            <div class="footer-bottom-grid">
-              <div class="text-meta">Made with </div>
-              <div class="light-mode">
-                <%= image_tag "heart-solid.svg",
-                  loading: "lazy",
-                  width: 20,
-                  height: 20,
-                  alt: "Heart Icon",
-                  class: "image-3" %>
-              </div>
-              <div class="dark-mode">
-                <%= image_tag "heart-black.svg",
-                  loading: "lazy",
-                  width: 20,
-                  height: 20,
-                  alt: "Heart Icon Dark",
-                  class: "image-3" %>
-              </div>
-              <div class="text-meta"> by Otterly Web
-              </div>
-            </div>
-          </div>
-        </footer>
+
+    </footer>
 
 
-    <div class="toggle-color">
+    <div class="toggle-color" role="button" tabindex="0" aria-label="Basculer le mode sombre ou clair" aria-pressed="false">
       <div class="toggle-color-dot"></div>
     </div>
 
@@ -987,17 +821,13 @@
             loading: "lazy",
             width: 200,
             height: 200,
-            alt: "Logo Otterly Web blanc",
-            sizes: "200px",
-            srcset: "#{asset_path('logo-inverse_1-p-500.png')} 500w, #{asset_path('logo-inverse_1-p-800.png')} 800w, #{asset_path('logo-inverse_1-p-1080.png')} 1080w, #{asset_path('logo-inverse_1.png')} 1563w" %>
+            alt: "Logo Otterly Web blanc" %>
           <div class="pageloader-heading">Otterly Web©</div>
         </div>
       </div>
     </div>
   </div>
 
-  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=680957f3995352b738d71196" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-  <script src="js/web.js" type="text/javascript"></script>
 
 
 
@@ -1072,8 +902,11 @@
           transform: translateY(-100%);
           transition: transform 0.5s ease;
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
+          gap: 3rem;
+          padding-bottom: 3rem;
         }
 
         /* Le menu lui-même - mode sombre */
@@ -1088,8 +921,11 @@
           transform: translateY(-100%);
           transition: transform 0.5s ease;
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
+          gap: 3rem;
+          padding-bottom: 3rem;
         }
 
         .mobile-menu-list {
@@ -1166,7 +1002,6 @@
             margin-right: 50px; /* Espace pour le menu burger */
           }
 
-          /* Cacher le menu mobile Webflow existant */
           .mobile-menu-toggle {
             display: none !important;
           }
@@ -1180,125 +1015,3 @@
 
 
 <%# /* JS pour menu déroulant mobile */ %>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // Sélectionner tous les liens du menu
-        var menuLinks = document.querySelectorAll('.mobile-menu-list a');
-        var menuToggle = document.getElementById('menu-toggle');
-
-        // Ajouter un écouteur d'événement à chaque lien
-        menuLinks.forEach(function(link) {
-          link.addEventListener('click', function(e) {
-            // Empêcher le comportement par défaut du lien pour contrôler la navigation
-            e.preventDefault();
-
-            // Récupérer l'ID de la section cible
-            var targetId = link.getAttribute('href');
-
-            // Fermer le menu en décochant la case à cocher
-            menuToggle.checked = false;
-
-            // Attendre que l'animation de fermeture soit terminée avant de faire défiler
-            setTimeout(function() {
-              // Trouver l'élément correspondant
-              var targetElement = document.querySelector(targetId);
-
-              // Faire défiler jusqu'à la section cible
-              if (targetElement) {
-                // Calculer la position de la section cible
-                var offset = targetElement.getBoundingClientRect().top + window.pageYOffset;
-
-                // Faire défiler la page vers la section cible
-                window.scrollTo({
-                  top: offset,
-                  behavior: 'smooth'
-                });
-              }
-            }, 300); // Délai correspondant à l'animation du menu
-          });
-        });
-      });
-    </script>
-
-    <%# /* JS pour liens footer : renvoient bien en haut de chaque section */ %>
-    <script>
-          document.addEventListener('DOMContentLoaded', function() {
-      // Attendre que tout soit complètement chargé
-      setTimeout(function() {
-
-        function scrollToSectionTop(targetId) {
-          var targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            // Méthode alternative : utiliser offsetTop
-            var elementTop = targetElement.offsetTop;
-
-            // Animation plus lente et plus fluide
-            var startPosition = window.pageYOffset;
-            var distance = elementTop - startPosition;
-            var duration = Math.max(800, Math.abs(distance) * 0.5); // Durée minimum 800ms
-            var startTime = null;
-
-            function animateScroll(currentTime) {
-              if (startTime === null) startTime = currentTime;
-              var timeElapsed = currentTime - startTime;
-              var progress = Math.min(timeElapsed / duration, 1);
-
-              // Fonction d'easing pour une animation plus douce
-              var easeInOutQuad = progress < 0.5
-                ? 2 * progress * progress
-                : 1 - Math.pow(-2 * progress + 2, 2) / 2;
-
-              var currentPosition = startPosition + (distance * easeInOutQuad);
-              window.scrollTo(0, currentPosition);
-
-              if (progress < 1) {
-                requestAnimationFrame(animateScroll);
-              }
-            }
-
-            requestAnimationFrame(animateScroll);
-          }
-        }
-
-        // Désactiver le comportement Webflow existant en premier
-        var webflowLinks = document.querySelectorAll('[data-w-id="6e15c14e-1146-0b20-61d1-6721f0646d5a"]');
-        webflowLinks.forEach(function(link) {
-          // Supprimer l'attribut data-w-id pour désactiver le comportement Webflow
-          link.removeAttribute('data-w-id');
-        });
-
-        // Appliquer notre propre comportement à tous les liens internes
-        var allInternalLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
-
-        allInternalLinks.forEach(function(link) {
-          if (!link.closest('.mobile-menu-list')) {
-            link.addEventListener('click', function(e) {
-              e.preventDefault();
-              e.stopImmediatePropagation();
-
-              var targetId = link.getAttribute('href');
-              console.log('Scrolling to:', targetId); // Pour déboguer
-              scrollToSectionTop(targetId);
-            });
-          }
-        });
-
-        // Script mobile inchangé
-        var menuLinks = document.querySelectorAll('.mobile-menu-list a');
-        var menuToggle = document.getElementById('menu-toggle');
-
-        menuLinks.forEach(function(link) {
-          link.addEventListener('click', function(e) {
-            e.preventDefault();
-            var targetId = link.getAttribute('href');
-            menuToggle.checked = false;
-
-            setTimeout(function() {
-              scrollToSectionTop(targetId);
-            }, 300);
-          });
-        });
-
-      }, 100); // Petit délai pour s'assurer que tout est chargé
-    });
-    </script>

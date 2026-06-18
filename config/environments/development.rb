@@ -15,9 +15,6 @@ Rails.application.configure do
   # Enable server timing.
   config.server_timing = true
 
-  config.action_cable.mount_path = nil
-  config.action_cable.disable_request_forgery_protection = true
-  config.action_cable.allowed_request_origins = []
   # Enable/disable Action Controller caching. By default Action Controller caching is disabled.
   # Run rails dev:cache to toggle Action Controller caching.
   if Rails.root.join("tmp/caching-dev.txt").exist?
@@ -31,20 +28,8 @@ Rails.application.configure do
   # Change to :null_store to avoid any caching.
   config.cache_store = :memory_store
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
-  # Make template changes take effect immediately.
-  config.action_mailer.perform_caching = false
-
-  # Set localhost to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
-
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
-
-  # Highlight code that enqueued background job in logs.
-  config.active_job.verbose_enqueue_logs = true
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
@@ -54,9 +39,6 @@ Rails.application.configure do
 
   config.assets.debug = true
   config.assets.compile = true
-
-  # Uncomment if you wish to allow Action Cable access from any origin.
-  # config.action_cable.disable_request_forgery_protection = true
 
   # Raise error when a before_action's only/except options reference missing actions.
   config.action_controller.raise_on_missing_callback_actions = true

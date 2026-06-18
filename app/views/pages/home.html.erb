@@ -32,7 +32,7 @@
 
     <div class="show-tablet">
       <header class="header">
-        <header class="navbar">
+        <div class="navbar">
           <div class="navbar-left">
             <%= link_to root_path, class: "navbar-logo", "aria-current": "page" do %>
               <div class="light-mode">
@@ -51,7 +51,7 @@
               </div>
             <% end %>
           </div>
-          <nav class="navbar-menu">
+          <nav class="navbar-menu" aria-label="Navigation principale">
             <a href="#Projets" class="navbar-menu-item">
               <div class="navbar-menu-item-text">Réalisations</div>
               <div class="navbar-item-line"></div>
@@ -83,7 +83,7 @@
               </div>
             </a>
           </div>
-        </header>
+        </div>
       </header>
     </div>
 
@@ -105,7 +105,7 @@
           <% end %>
         </div>
         <div class="navbar-small-right">
-          <nav class="navbar-small-menu">
+          <nav class="navbar-small-menu" aria-label="Navigation principale">
             <a href="#Projets" class="navbar-menu-item">
               <div class="navbar-menu-item-text">Réalisations</div>
               <div class="navbar-item-line"></div>
@@ -158,9 +158,9 @@
     %>
   </div>
 
-   <input type="checkbox" id="menu-toggle" class="menu-toggle-input">
+   <input type="checkbox" id="menu-toggle" class="menu-toggle-input" aria-label="Menu de navigation">
       <div class="mobile-menu-container">
-        <label for="menu-toggle" class="menu-toggle-label">
+        <label for="menu-toggle" class="menu-toggle-label" aria-label="Ouvrir le menu de navigation">
           <div class="menu-toggle-icon">
             <!-- Menu burger en mode clair -->
             <div class="light-mode">
@@ -177,7 +177,7 @@
 
         <!-- Menu déroulant en mode clair -->
         <div class="light-mode">
-          <nav class="mobile-menu-new light">
+          <nav class="mobile-menu-new light" aria-label="Navigation principale">
             <ul class="mobile-menu-list">
               <li><a href="#Projets">Réalisations</a></li>
               <li><a href="#Services">Services</a></li>
@@ -190,7 +190,7 @@
 
         <!-- Menu déroulant en mode sombre -->
         <div class="dark-mode">
-          <nav class="mobile-menu-new dark">
+          <nav class="mobile-menu-new dark" aria-label="Navigation principale">
             <ul class="mobile-menu-list">
               <li><a href="#Projets">Réalisations</a></li>
               <li><a href="#Services">Services</a></li>
@@ -218,10 +218,10 @@
             <header class="home-hero-right-top">
               <div class="margin-bottom margin-large">
                 <div class="overflow-hidden">
-                  <h1 class="heading-style-large">OTTERLY</h1>
+                  <h1 class="heading-style-large" aria-label="Otterly Web">OTTERLY</h1>
                 </div>
-                <div class="overflow-hidden">
-                  <h1 class="heading-style-large"><span class="accent">WEB©</span></h1>
+                <div class="overflow-hidden" aria-hidden="true">
+                  <p class="heading-style-large"><span class="accent">WEB©</span></p>
                 </div>
               </div>
               <div>
@@ -261,11 +261,11 @@
                 <div class="max-width-large">
                   <p class="text-color-muted">Chez <strong>Otterly Web</strong>, je donne vie à vos idées à travers des applications web modernes, intuitives et sur-mesure. Développeuse full-stack, je maîtrise aussi bien le back-end (Ruby on Rails, PHP, Symfony, Laravel, PostgreSQL) que le front-end (JavaScript, TypeScript, React, Next.js, Tailwind CSS) - et j’intègre des outils IA comme Claude Code dans mon workflow pour livrer plus vite, sans rogner sur la qualité.</p>
                 </div>
-                <button class="about-toggle" aria-expanded="false">
+                <button class="about-toggle" aria-expanded="false" aria-controls="about-collapsible-content">
                   <span class="about-toggle-label">En savoir plus</span>
                   <span class="about-toggle-arrow">↓</span>
                 </button>
-                <div class="about-collapsible">
+                <div class="about-collapsible" id="about-collapsible-content">
                   <div class="max-width-large">
                     <p class="text-color-muted">Mon approche allie sens du détail, rigueur technique et écoute active. Chaque projet est une collaboration, pensée pour répondre précisément à vos besoins tout en offrant une expérience fluide à vos utilisateurs. Qu’il s’agisse d’une application sur-mesure, d’un site vitrine ou d’un outil métier, je conçois des produits numériques qui ont du sens, qui durent, et qui vous ressemblent.</p>
                     <p class="text-color-muted">Portée par une sensibilité au design, à l’ergonomie et à la technologie, je m’engage à créer des interfaces élégantes et des fonctionnalités robustes, avec une attention particulière à la maintenabilité et à l’évolutivité du code.</p>
@@ -278,21 +278,21 @@
 
     <%# LANGAGES %>
               <div class="skills-grid">
-                <span class="skill-item"><i class="devicon-ruby-plain"></i> Ruby</span>
-                <span class="skill-item"><i class="devicon-rails-plain"></i> Rails</span>
-                <span class="skill-item"><i class="devicon-php-plain"></i> PHP</span>
-                <span class="skill-item"><i class="devicon-symfony-original"></i> Symfony</span>
-                <span class="skill-item"><i class="devicon-laravel-plain"></i> Laravel</span>
-                <span class="skill-item"><i class="devicon-html5-plain"></i> HTML &amp; CSS</span>
-                <span class="skill-item"><i class="devicon-tailwindcss-plain"></i> Tailwind</span>
-                <span class="skill-item"><i class="devicon-javascript-plain"></i> JavaScript</span>
-                <span class="skill-item"><i class="devicon-typescript-plain"></i> TypeScript</span>
-                <span class="skill-item"><i class="devicon-react-original"></i> React</span>
-                <span class="skill-item"><i class="devicon-nextjs-plain"></i> Next</span>
-                <span class="skill-item"><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
-                <span class="skill-item"><i class="devicon-git-plain"></i> Git / GitHub</span>
-                <span class="skill-item"><i class="devicon-jira-plain"></i> Jira</span>
-                <span class="skill-item"><i class="devicon-figma-plain"></i> Figma / XD</span>
+                <span class="skill-item"><i class="devicon-ruby-plain" aria-hidden="true"></i> Ruby</span>
+                <span class="skill-item"><i class="devicon-rails-plain" aria-hidden="true"></i> Rails</span>
+                <span class="skill-item"><i class="devicon-php-plain" aria-hidden="true"></i> PHP</span>
+                <span class="skill-item"><i class="devicon-symfony-original" aria-hidden="true"></i> Symfony</span>
+                <span class="skill-item"><i class="devicon-laravel-plain" aria-hidden="true"></i> Laravel</span>
+                <span class="skill-item"><i class="devicon-html5-plain" aria-hidden="true"></i> HTML &amp; CSS</span>
+                <span class="skill-item"><i class="devicon-tailwindcss-plain" aria-hidden="true"></i> Tailwind</span>
+                <span class="skill-item"><i class="devicon-javascript-plain" aria-hidden="true"></i> JavaScript</span>
+                <span class="skill-item"><i class="devicon-typescript-plain" aria-hidden="true"></i> TypeScript</span>
+                <span class="skill-item"><i class="devicon-react-original" aria-hidden="true"></i> React</span>
+                <span class="skill-item"><i class="devicon-nextjs-plain" aria-hidden="true"></i> Next</span>
+                <span class="skill-item"><i class="devicon-postgresql-plain" aria-hidden="true"></i> PostgreSQL</span>
+                <span class="skill-item"><i class="devicon-git-plain" aria-hidden="true"></i> Git / GitHub</span>
+                <span class="skill-item"><i class="devicon-jira-plain" aria-hidden="true"></i> Jira</span>
+                <span class="skill-item"><i class="devicon-figma-plain" aria-hidden="true"></i> Figma / XD</span>
                 <span class="skill-item">✦ Claude Code</span>
               </div>
             </div>
@@ -339,7 +339,7 @@
             <p>Le Consumer Goods Forum est un réseau international regroupant près de 400 grandes entreprises (Nestlé, Walmart, Carrefour…) engagées pour un secteur plus durable - climat, forêts, droits humains, sécurité alimentaire. Développement de l'interface d'admin, intégration front-end et gestion de projet pour le site institutionnel mondial.</p>
             <p class="text-block-techno"><strong>WordPress &bull; PHP &bull; Tailwind CSS &bull; JavaScript &bull; HTML/CSS</strong></p>
             <div class="button-row">
-              <a href="https://www.theconsumergoodsforum.com/" target="_blank" class="button-primary">VISITER LE SITE</a>
+              <a href="https://www.theconsumergoodsforum.com/" target="_blank" rel="noopener noreferrer" class="button-primary">VISITER LE SITE</a>
             </div>
           </div>
         </div>
@@ -359,7 +359,7 @@
             <p>Abricot est un SaaS de gestion de projet pour freelances. L’interface permet de gérer projets et tâches avec un système de rôles (admin / contributeur), une vue kanban, et une fonctionnalité IA pour générer des tâches automatiquement.</p>
             <p class="text-block-techno"><strong>Next.js &bull; React &bull; TypeScript &bull; Tailwind CSS &bull; Groq AI &bull; Render</strong></p>
             <div class="button-row">
-              <a href="https://abricot-frontend-7fs6.onrender.com/" target="_blank" class="button-primary">VISITER LE SITE</a>
+              <a href="https://abricot-frontend-7fs6.onrender.com/" target="_blank" rel="noopener noreferrer" class="button-primary">VISITER LE SITE</a>
             </div>
           </div>
         </div>
@@ -379,7 +379,7 @@
             <p>Tableau de bord d'analytics sportif développé en React pour une startup de coaching. Visualisation des données d'entraînement (activité, sessions, performance) avec des graphiques interactifs Recharts, authentification utilisateur et appels HTTP vers une API Node.js.</p>
             <p class="text-block-techno"><strong>React &bull; React Router &bull; Recharts &bull; Context API &bull; Axios &bull; Node.js</strong></p>
             <div class="button-row">
-              <a href="https://github.com/JuS1302" target="_blank" class="button-primary">VOIR SUR GITHUB</a>
+              <a href="https://github.com/JuS1302" target="_blank" rel="noopener noreferrer" class="button-primary">VOIR SUR GITHUB</a>
             </div>
           </div>
         </div>
@@ -399,7 +399,7 @@
             <p>Bibliothèque de végétaux pour les professionnels de l’aménagement paysager à la Réunion, développée pour Klorys dans le cadre de l’appel à projet BIODIV ECO 2022 de l’OFB.</p>
             <p class="text-block-techno"><strong>Ruby on Rails &bull; PostgreSQL &bull; Stimulus.js &bull; Bootstrap &bull; API Google &bull; Heroku</strong></p>
             <div class="button-row">
-              <a href="https://www.klorys.re/" target="_blank" class="button-primary">VISITER LE SITE</a>
+              <a href="https://www.klorys.re/" target="_blank" rel="noopener noreferrer" class="button-primary">VISITER LE SITE</a>
             </div>
           </div>
         </div>
@@ -439,7 +439,7 @@
             <p>Assistant déco personnel développé dans le cadre du projet de fin de bootcamp au Wagon. Propose des packs d’aménagements harmonisés selon le style et le budget de l’utilisateur, grâce à l’API OpenAI.</p>
             <p class="text-block-techno"><strong>Ruby on Rails &bull; PostgreSQL &bull; Stimulus.js &bull; Bootstrap &bull; OpenAI API &bull; Heroku</strong></p>
             <div class="button-row">
-              <a href="https://github.com/JuS1302/Nestify" target="_blank" class="button-primary">VOIR SUR GITHUB</a>
+              <a href="https://github.com/JuS1302/Nestify" target="_blank" rel="noopener noreferrer" class="button-primary">VOIR SUR GITHUB</a>
             </div>
           </div>
         </div>
@@ -608,7 +608,7 @@
               </div>
               <div class="clients-footer">
                 <div class="clients-separator"></div>
-                <div class="clients-stars">★★★★★</div>
+                <div class="clients-stars" aria-label="5 étoiles sur 5">★★★★★</div>
                 <div class="home-clients-item-author">
                   <div class="clients-avatar">LD</div>
                   <div>
@@ -627,7 +627,7 @@
               </div>
               <div class="clients-footer">
                 <div class="clients-separator"></div>
-                <div class="clients-stars">★★★★★</div>
+                <div class="clients-stars" aria-label="5 étoiles sur 5">★★★★★</div>
                 <div class="home-clients-item-author">
                   <div class="clients-avatar">JM</div>
                   <div>
@@ -646,7 +646,7 @@
               </div>
               <div class="clients-footer">
                 <div class="clients-separator"></div>
-                <div class="clients-stars">★★★★★</div>
+                <div class="clients-stars" aria-label="5 étoiles sur 5">★★★★★</div>
                 <div class="home-clients-item-author">
                   <div class="clients-avatar">SM</div>
                   <div>
@@ -665,7 +665,7 @@
               </div>
               <div class="clients-footer">
                 <div class="clients-separator"></div>
-                <div class="clients-stars">★★★★★</div>
+                <div class="clients-stars" aria-label="5 étoiles sur 5">★★★★★</div>
                 <div class="home-clients-item-author">
                   <div class="clients-avatar">AH</div>
                   <div>
@@ -686,7 +686,7 @@
               </div>
               <div class="clients-footer">
                 <div class="clients-separator"></div>
-                <div class="clients-stars">★★★★★</div>
+                <div class="clients-stars" aria-label="5 étoiles sur 5">★★★★★</div>
                 <div class="home-clients-item-author">
                   <div class="clients-avatar">LD</div>
                   <div>
@@ -705,7 +705,7 @@
               </div>
               <div class="clients-footer">
                 <div class="clients-separator"></div>
-                <div class="clients-stars">★★★★★</div>
+                <div class="clients-stars" aria-label="5 étoiles sur 5">★★★★★</div>
                 <div class="home-clients-item-author">
                   <div class="clients-avatar">JM</div>
                   <div>
@@ -724,7 +724,7 @@
               </div>
               <div class="clients-footer">
                 <div class="clients-separator"></div>
-                <div class="clients-stars">★★★★★</div>
+                <div class="clients-stars" aria-label="5 étoiles sur 5">★★★★★</div>
                 <div class="home-clients-item-author">
                   <div class="clients-avatar">SM</div>
                   <div>
@@ -743,7 +743,7 @@
               </div>
               <div class="clients-footer">
                 <div class="clients-separator"></div>
-                <div class="clients-stars">★★★★★</div>
+                <div class="clients-stars" aria-label="5 étoiles sur 5">★★★★★</div>
                 <div class="home-clients-item-author">
                   <div class="clients-avatar">AH</div>
                   <div>
@@ -790,9 +790,9 @@
         </div>
         <div class="footer-terminal-col">
           <div class="footer-terminal-dir">&gt; social/</div>
-          <a href="https://www.linkedin.com/in/julie-simon1302/" target="_blank" class="footer-terminal-link">./linkedin</a>
-          <a href="https://github.com/JuS1302" target="_blank" class="footer-terminal-link">./github</a>
-          <a href="https://www.malt.fr/profile/juliesimon4?overview" target="_blank" class="footer-terminal-link">./malt</a>
+          <a href="https://www.linkedin.com/in/julie-simon1302/" target="_blank" rel="noopener noreferrer" class="footer-terminal-link">./linkedin</a>
+          <a href="https://github.com/JuS1302" target="_blank" rel="noopener noreferrer" class="footer-terminal-link">./github</a>
+          <a href="https://www.malt.fr/profile/juliesimon4?overview" target="_blank" rel="noopener noreferrer" class="footer-terminal-link">./malt</a>
         </div>
       </div>
 
@@ -801,7 +801,7 @@
         <div class="footer-bottom-grid">
           <%= image_tag "logo-inverse_1.png", class: "footer-logo", alt: "Otterly Web", loading: "lazy" %>
           <span class="text-meta">© 2025 — Made with </span>
-          <span class="footer-heart">❤</span>
+          <span class="footer-heart" aria-hidden="true">❤</span>
           <span class="text-meta"> by Otterly Web</span>
         </div>
       </div>
@@ -809,7 +809,7 @@
     </footer>
 
 
-    <div class="toggle-color">
+    <div class="toggle-color" role="button" tabindex="0" aria-label="Basculer le mode sombre ou clair" aria-pressed="false">
       <div class="toggle-color-dot"></div>
     </div>
 

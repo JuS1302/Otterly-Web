@@ -137,9 +137,14 @@ document.addEventListener('DOMContentLoaded', function () {
   var isDark = false;
   var root   = document.documentElement;
 
-  toggle.addEventListener('click', function () {
+  function activateToggle() {
     isDark = !isDark;
     toggle.classList.toggle('is-dark', isDark);
+    toggle.setAttribute('aria-pressed', isDark.toString());
+  }
+
+  toggle.addEventListener('click', function () {
+    activateToggle();
 
     if (isDark) {
       root.style.setProperty('--global-colors--background-default',       '#0e1011');
@@ -167,6 +172,13 @@ document.addEventListener('DOMContentLoaded', function () {
       root.style.setProperty('--global-colors--border-inverse',           '#262829');
       document.querySelectorAll('.light-mode').forEach(function (el) { el.style.display = ''; });
       document.querySelectorAll('.dark-mode').forEach(function (el) { el.style.display = 'none'; });
+    }
+  });
+
+  toggle.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      activateToggle();
     }
   });
 }());

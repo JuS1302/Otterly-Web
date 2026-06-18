@@ -1190,6 +1190,7 @@ h6 {
 }
 
 p {
+  margin-top: 0;
   margin-bottom: 0;
 }
 
@@ -4770,6 +4771,7 @@ figcaption {
   font-size: 12vw;
   font-weight: 400;
   line-height: 100%;
+  margin: 0;
 }
 
 .section-project-about {

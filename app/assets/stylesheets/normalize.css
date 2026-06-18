@@ -1,4 +1,25 @@
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+/* Reset global — était dans web.css, nécessaire pour la mise en page */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  * { background-attachment: scroll !important; }
+}
 /**
  * 1. Set default font family to sans-serif.
  * 2. Prevent iOS and IE text size adjust after device orientation change,

@@ -1,14 +1,22 @@
 /* ===================================================
-   Animations — intro + scroll
-   Séquence :
-   1. Menu et titres du hero cachés immédiatement (pendant l'intro)
-   2. Écran noir avec titre qui monte (0.8s)
-   3. Pause
-   4. Écran part vers le haut (0.9s)
-   5. Entrées du menu fade-up avec stagger
-   6. Titres du hero slide-up avec stagger
-   7. Texte et logos du hero fade-up
-   8. IntersectionObserver pour les sections au scroll
+   animations.js — Otterly Web
+
+   01 — Intro & hero (scramble, fade-up)
+   02 — Toggle dark / light mode
+   03 — Section projets — carousel mobile
+   04 — Section projets — split screen desktop
+   05 — Section skills — pop-in au scroll
+   06 — Section à propos — accordéon
+   07 — Section services — carrousel 3D
+   08 — Curseur custom (patte SVG)
+   09 — Parallax images de services
+   10 — Navigation & scroll fluide
+   =================================================== */
+
+
+/* ===================================================
+   01 — INTRO & HERO
+   Séquence : écran noir → slide up → scramble des titres
    =================================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -117,10 +125,11 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-/* ---- Fix toggle dark / light mode ----
-   Le PLUGIN_VARIABLE de Webflow cible .toggle-color-dot au lieu de :root —
-   les variables CSS ne cascadent pas sur le reste de la page.
-   Ce handler les définit correctement sur document.documentElement. */
+/* ===================================================
+   02 — TOGGLE DARK / LIGHT MODE
+   Webflow cible .toggle-color-dot au lieu de :root —
+   ce handler redéfinit les variables sur documentElement.
+   =================================================== */
 (function () {
   var toggle = document.querySelector('.toggle-color');
   if (!toggle) return;
@@ -163,7 +172,10 @@ document.addEventListener('DOMContentLoaded', function () {
 }());
 
 
-/* ---- Carousel modernisé — navigation + compteur ---- */
+/* ===================================================
+   03 — SECTION PROJETS — carousel mobile
+   Navigation prev/next + compteur + sync au swipe.
+   =================================================== */
 (function () {
   var track   = document.querySelector('.carousel-track');
   var prevBtn = document.querySelector('.carousel-btn-prev');
@@ -198,7 +210,10 @@ document.addEventListener('DOMContentLoaded', function () {
 }());
 
 
-/* ---- About — texte dépliable ---- */
+/* ===================================================
+   06 — SECTION À PROPOS — accordéon
+   Bouton "En savoir plus" qui déplie le texte caché.
+   =================================================== */
 (function () {
   document.addEventListener('DOMContentLoaded', function () {
     var toggle      = document.querySelector('.about-toggle');
@@ -216,7 +231,11 @@ document.addEventListener('DOMContentLoaded', function () {
 }());
 
 
-/* ---- Skills — animation pop-in au scroll ---- */
+/* ===================================================
+   05 — SECTION SKILLS — pop-in au scroll
+   IntersectionObserver sur .skills-grid, délais en cascade
+   via la variable CSS --skill-delay sur chaque pill.
+   =================================================== */
 (function () {
   document.addEventListener('DOMContentLoaded', function () {
     var grid = document.querySelector('.skills-grid');
@@ -243,7 +262,11 @@ document.addEventListener('DOMContentLoaded', function () {
 }());
 
 
-/* ---- Split screen projets (desktop ≥ 768px) ---- */
+/* ===================================================
+   04 — SECTION PROJETS — split screen desktop (≥ 768px)
+   Panneau droit généré dynamiquement depuis les slides.
+   Rebuild au resize si on franchit le seuil 768px.
+   =================================================== */
 (function () {
   var panelItems = [];
 
@@ -326,7 +349,11 @@ document.addEventListener('DOMContentLoaded', function () {
 }());
 
 
-/* ---- Carrousel 3D services ---- */
+/* ===================================================
+   07 — SECTION SERVICES — carrousel 3D
+   3 cartes avec data-pos="center/right/left".
+   Clic sur une carte latérale → la ramène au centre.
+   =================================================== */
 (function () {
   document.addEventListener('DOMContentLoaded', function () {
     var stack = document.querySelector('.fan-stack');
@@ -373,7 +400,11 @@ document.addEventListener('DOMContentLoaded', function () {
 }());
 
 
-/* ---- Curseur custom — pattes de loutre ---- */
+/* ===================================================
+   08 — CURSEUR CUSTOM — patte de loutre SVG
+   Uniquement sur pointer:fine (souris). Lissage RAF 0.2.
+   Scale 1.5× au survol des éléments cliquables.
+   =================================================== */
 (function () {
   /* Ne s'active que sur les appareils avec souris (pas les écrans tactiles) */
   if (!window.matchMedia('(pointer: fine)').matches) return;
@@ -428,7 +459,9 @@ document.addEventListener('DOMContentLoaded', function () {
 }());
 
 
-/* ---- Parallax sur les images de services ---- */
+/* ===================================================
+   09 — PARALLAX images de services
+   =================================================== */
 (function () {
   var images = document.querySelectorAll('.image-cover-parallax');
   if (!images.length) return;
@@ -450,7 +483,11 @@ document.addEventListener('DOMContentLoaded', function () {
 }());
 
 
-/* ---- Scroll fluide — liens internes + menu mobile ---- */
+/* ===================================================
+   10 — NAVIGATION & SCROLL FLUIDE
+   Liens internes (footer, nav) + menu mobile :
+   easing easeInOutQuad, durée proportionnelle à la distance.
+   =================================================== */
 (function () {
   document.addEventListener('DOMContentLoaded', function () {
     setTimeout(function () {

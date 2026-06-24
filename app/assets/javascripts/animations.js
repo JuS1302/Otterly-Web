@@ -3,6 +3,7 @@
 
    01 — Intro & hero (scramble, fade-up)
    02 — Toggle dark / light mode
+   11 — Avis clients — popin "Voir plus"
    03 — Section projets — carousel mobile
    04 — Section projets — split screen desktop
    05 — Section skills — pop-in au scroll
@@ -549,5 +550,69 @@ document.addEventListener('DOMContentLoaded', function () {
       });
 
     }, 100);
+  });
+}());
+
+/* ===================================================
+   11 — Avis clients — popin "Voir plus"
+   Détecte les textes tronqués par le line-clamp CSS,
+   affiche le bouton, et gère l'ouverture/fermeture du modal.
+   =================================================== */
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    var overlay  = document.getElementById('clients-modal-overlay');
+    var closeBtn = document.getElementById('clients-modal-close');
+    if (!overlay || !closeBtn) return;
+
+    /* --- Affiche le bouton sur toutes les cartes --- */
+    document.querySelectorAll('.clients-voir-plus').forEach(function (btn) {
+      btn.style.display = 'inline-block';
+    });
+
+    /* --- Ouverture du modal au clic sur "Voir plus" --- */
+    document.querySelectorAll('.clients-voir-plus').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var item = btn.closest('.clients-item');
+
+        /* Récupère les données de la carte cliquée */
+        overlay.querySelector('.clients-modal-number').textContent =
+          item.querySelector('.clients-number').textContent.trim();
+        overlay.querySelector('.clients-modal-text').textContent =
+          item.querySelector('.clients-text').textContent;
+        overlay.querySelector('.clients-modal-stars').textContent =
+          item.querySelector('.clients-stars').textContent;
+        overlay.querySelector('#clients-modal-author-name').textContent =
+          item.querySelector('.clients-author-name').textContent;
+        overlay.querySelector('.clients-modal-company').textContent =
+          item.querySelector('.clients-author-company').textContent;
+        overlay.querySelector('.clients-modal-avatar').textContent =
+          item.querySelector('.clients-avatar').textContent;
+
+        /* Ouvre le modal */
+        overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden'; /* bloque le scroll de la page */
+        closeBtn.focus();
+      });
+    });
+
+    /* --- Fermeture --- */
+    function closeModal() {
+      overlay.classList.remove('is-open');
+      document.body.style.overflow = ''; /* remet le scroll */
+    }
+
+    /* Croix ✕ */
+    closeBtn.addEventListener('click', closeModal);
+
+    /* Clic en dehors de la carte */
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) closeModal();
+    });
+
+    /* Touche Échap */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+    });
   });
 }());

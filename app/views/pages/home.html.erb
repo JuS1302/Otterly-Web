@@ -605,6 +605,7 @@
               <div class="clients-quote-mark">&ldquo;</div>
               <div class="clients-body">
                 <p class="clients-text">Super expérience avec Julie, qui a su prendre en compte les subtilités techniques du site WEB à développer (une base de données botaniques de végétaux). Et en plus, le rendu esthétique du site est au top !</p>
+                <button class="clients-voir-plus" aria-label="Voir l'avis complet">Voir plus →</button>
               </div>
               <div class="clients-footer">
                 <div class="clients-separator"></div>
@@ -624,6 +625,7 @@
               <div class="clients-quote-mark">&ldquo;</div>
               <div class="clients-body">
                 <p class="clients-text">J’ai travaillé avec Julie sur divers projets et elle a été une partenaire efficace dans chacun d’entre eux. Je la recommande vivement.</p>
+                <button class="clients-voir-plus" aria-label="Voir l’avis complet">Voir plus →</button>
               </div>
               <div class="clients-footer">
                 <div class="clients-separator"></div>
@@ -643,6 +645,7 @@
               <div class="clients-quote-mark">&ldquo;</div>
               <div class="clients-body">
                 <p class="clients-text">Julie a su s’approprier les enjeux complexes du projet Arion, comme la gestion des actifs adossés et l’intégration d’API externes, avec une grande autonomie et une vraie rigueur technique.</p>
+                <button class="clients-voir-plus" aria-label="Voir l’avis complet">Voir plus →</button>
               </div>
               <div class="clients-footer">
                 <div class="clients-separator"></div>
@@ -661,7 +664,8 @@
               <div class="clients-number">04</div>
               <div class="clients-quote-mark">&ldquo;</div>
               <div class="clients-body">
-                <p class="clients-text">I highly recommend Julie. I joined a custom WordPress build late in the process as a client, and Julie was incredible at bringing me up to speed. She pairs strong technical expertise with outstanding project management and client communication — in both French and English. She takes time to truly understand the objectives before translating them into technical solutions, so I never had to worry about the complex backend details.</p>
+                <p class="clients-text">I highly recommend Julie. I joined a custom WordPress build late in the process as a client, and Julie was incredible at bringing me up to speed. She pairs strong technical expertise with outstanding project management and client communication - in both French and English. She takes time to truly understand the objectives before translating them into technical solutions, so I never had to worry about the complex backend details. Julie consistently showed up to support me and the wider team with patience, clarity, and adaptability. Any company looking for talent who knows exactly how to collaborate with clients would be incredibly lucky to work with Julie.</p>
+                <button class="clients-voir-plus" aria-label="Voir l’avis complet">Voir plus →</button>
               </div>
               <div class="clients-footer">
                 <div class="clients-separator"></div>
@@ -683,6 +687,7 @@
               <div class="clients-quote-mark">&ldquo;</div>
               <div class="clients-body">
                 <p class="clients-text">Super expérience avec Julie, qui a su prendre en compte les subtilités techniques du site WEB à développer (une base de données botaniques de végétaux). Et en plus, le rendu esthétique du site est au top !</p>
+                <button class="clients-voir-plus" tabindex="-1" aria-hidden="true">Voir plus →</button>
               </div>
               <div class="clients-footer">
                 <div class="clients-separator"></div>
@@ -702,6 +707,7 @@
               <div class="clients-quote-mark">&ldquo;</div>
               <div class="clients-body">
                 <p class="clients-text">J’ai travaillé avec Julie sur divers projets et elle a été une partenaire efficace dans chacun d’entre eux. Je la recommande vivement.</p>
+                <button class="clients-voir-plus" tabindex="-1" aria-hidden="true">Voir plus →</button>
               </div>
               <div class="clients-footer">
                 <div class="clients-separator"></div>
@@ -721,6 +727,7 @@
               <div class="clients-quote-mark">&ldquo;</div>
               <div class="clients-body">
                 <p class="clients-text">Julie a su s’approprier les enjeux complexes du projet Arion, comme la gestion des actifs adossés et l’intégration d’API externes, avec une grande autonomie et une vraie rigueur technique.</p>
+                <button class="clients-voir-plus" tabindex="-1" aria-hidden="true">Voir plus →</button>
               </div>
               <div class="clients-footer">
                 <div class="clients-separator"></div>
@@ -739,7 +746,8 @@
               <div class="clients-number">04</div>
               <div class="clients-quote-mark">&ldquo;</div>
               <div class="clients-body">
-                <p class="clients-text">I highly recommend Julie. I joined a custom WordPress build late in the process as a client, and Julie was incredible at bringing me up to speed. She pairs strong technical expertise with outstanding project management and client communication — in both French and English. She takes time to truly understand the objectives before translating them into technical solutions, so I never had to worry about the complex backend details.</p>
+                <p class="clients-text">I highly recommend Julie. I joined a custom WordPress build late in the process as a client, and Julie was incredible at bringing me up to speed. She pairs strong technical expertise with outstanding project management and client communication - in both French and English. She takes time to truly understand the objectives before translating them into technical solutions, so I never had to worry about the complex backend details. Julie consistently showed up to support me and the wider team with patience, clarity, and adaptability. Any company looking for talent who knows exactly how to collaborate with clients would be incredibly lucky to work with Julie.</p>
+                <button class="clients-voir-plus" tabindex="-1" aria-hidden="true">Voir plus →</button>
               </div>
               <div class="clients-footer">
                 <div class="clients-separator"></div>
@@ -757,6 +765,28 @@
           </div>
         </div>
       </section>
+
+<%# MODAL AVIS CLIENT %>
+      <div id="clients-modal-overlay" class="clients-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="clients-modal-author-name">
+        <div class="clients-modal-card">
+          <button class="clients-modal-close" id="clients-modal-close" aria-label="Fermer la fenêtre">✕</button>
+          <div class="clients-number clients-modal-number"></div>
+          <div class="clients-quote-mark">&ldquo;</div>
+          <p class="clients-modal-text"></p>
+          <div class="clients-modal-footer">
+            <div class="clients-separator"></div>
+            <div class="clients-modal-stars"></div>
+            <div class="clients-modal-author-wrap">
+              <div class="clients-avatar clients-modal-avatar"></div>
+              <div>
+                <p class="clients-author-name" id="clients-modal-author-name"></p>
+                <p class="clients-author-company clients-modal-company"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </main>
 
 

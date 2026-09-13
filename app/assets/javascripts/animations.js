@@ -194,6 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var prevBtn = document.querySelector('.carousel-btn-prev');
   var nextBtn = document.querySelector('.carousel-btn-next');
   var current = document.querySelector('.carousel-current');
+  var totalEl = document.querySelector('.carousel-total');
   var slides  = document.querySelectorAll('.carousel-slide');
 
   if (!track || !slides.length) return;
@@ -202,6 +203,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var index = 0;
 
   function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  if (totalEl) totalEl.textContent = pad(total);
 
   function goTo(i) {
     index = Math.max(0, Math.min(i, total - 1));

@@ -12,6 +12,7 @@
    08 — Curseur custom (patte SVG)
    09 — Parallax images de services
    10 — Navigation & scroll fluide
+   12 — Footer email — effet machine à écrire
    =================================================== */
 
 
@@ -617,5 +618,43 @@ document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
     });
+  });
+}());
+
+
+/* ===================================================
+   12 — FOOTER EMAIL — effet machine à écrire
+   Tape l'adresse mail lettre par lettre dès que le bloc
+   devient visible à l'écran (une seule fois).
+   =================================================== */
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    var emailEl = document.querySelector('.footer-email-address');
+    if (!emailEl) return;
+
+    var fullText = emailEl.textContent; /* "sim.ju@live.fr" tel qu'écrit dans le HTML */
+    var dejaJoue = false;
+
+    function taperTexte() {
+      if (dejaJoue) return;
+      dejaJoue = true;
+
+      emailEl.textContent = '';
+      var i = 0;
+      var interval = setInterval(function () {
+        emailEl.textContent = fullText.slice(0, i + 1);
+        i++;
+        if (i >= fullText.length) clearInterval(interval);
+      }, 70);
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        taperTexte();
+        observer.disconnect(); /* on ne veut jouer l'effet qu'une fois */
+      }
+    }, { threshold: 0.5 });
+
+    observer.observe(emailEl);
   });
 }());

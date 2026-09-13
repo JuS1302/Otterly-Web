@@ -624,8 +624,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /* ===================================================
    12 — FOOTER EMAIL — effet machine à écrire
-   Tape l'adresse mail lettre par lettre dès que le bloc
-   devient visible à l'écran (une seule fois).
+   Tape l'adresse mail lettre par lettre à chaque fois que
+   le bloc devient visible à l'écran (rejoue à chaque passage).
    =================================================== */
 (function () {
   document.addEventListener('DOMContentLoaded', function () {
@@ -633,15 +633,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!emailEl) return;
 
     var fullText = emailEl.textContent; /* "sim.ju@live.fr" tel qu'écrit dans le HTML */
-    var dejaJoue = false;
+    var interval = null; /* référence vers la boucle en cours, pour pouvoir l'arrêter */
 
     function taperTexte() {
-      if (dejaJoue) return;
-      dejaJoue = true;
+      clearInterval(interval); /* stoppe une frappe déjà en cours si on repasse vite dessus */
 
       emailEl.textContent = '';
       var i = 0;
-      var interval = setInterval(function () {
+      interval = setInterval(function () {
         emailEl.textContent = fullText.slice(0, i + 1);
         i++;
         if (i >= fullText.length) clearInterval(interval);
@@ -651,7 +650,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var observer = new IntersectionObserver(function (entries) {
       if (entries[0].isIntersecting) {
         taperTexte();
-        observer.disconnect(); /* on ne veut jouer l'effet qu'une fois */
       }
     }, { threshold: 0.5 });
 
